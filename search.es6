@@ -1,0 +1,39 @@
+import Config from './config';
+
+function filterConfig(input) {
+  let options = input.filter(browser => {
+    if (browser.string) {
+      if (browser.string.indexOf(browser.subString) !== -1) {
+        return true;
+      }
+    } else if (browser.prop) {
+      return true;
+    }
+  });
+
+  if (!options.length) return 'unknown';
+  return options.shift();
+}
+
+export default class Search {
+  static platform() {
+    return filterConfig(Config.platform);
+  }
+
+  static browser() {
+    return filterConfig(Config.browser); 
+  }
+
+  static version(browser, string = false) {
+    if (string === false) {
+      return Search.version(browser, navigator.userAgent)
+      || Search.version(browser, navigator.appVersion)
+      || 'unknown';
+    }
+
+    let search = browser.versionSearch || browser.identity;
+    let index = string.indexOf(search);
+    if (index === -1) return false;
+    return parseFloat(string.substring(index + search.length + 1));
+  }
+}

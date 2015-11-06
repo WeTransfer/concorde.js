@@ -1,5 +1,12 @@
+// List of browsers and operating systems / matching patterns
 export default {
   browser: [
+    {
+      string: navigator.userAgent,
+      subString: "Edge/",
+      identity: "Edge",
+      versionSearch: "Edge"
+    },
     {
       string: navigator.userAgent,
       subString: "Chrome",
@@ -88,7 +95,12 @@ export default {
       string: navigator.userAgent,
       subString: "iPhone",
       identity: "iPhone/iPod"
-      },
+    },
+    {
+      string: navigator.userAgent,
+      subString: "iPad",
+      identity: "iPad"
+    },
     {
       string: navigator.platform,
       subString: "Linux",

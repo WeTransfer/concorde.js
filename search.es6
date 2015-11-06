@@ -1,5 +1,6 @@
 import Config from './config';
 
+// Find a match in the input to see if we have a known browser/platform
 function filterConfig(input) {
   let options = input.filter(browser => {
     if (browser.string) {
@@ -11,10 +12,11 @@ function filterConfig(input) {
     }
   });
 
-  if (!options.length) return 'unknown';
+  if (!options.length) return {identity: 'unknown'};
   return options.shift();
 }
 
+// To help determine the current platform/browser/version
 export default class Search {
   static platform() {
     return filterConfig(Config.platform);
@@ -36,4 +38,4 @@ export default class Search {
     if (index === -1) return false;
     return parseFloat(string.substring(index + search.length + 1));
   }
-}
+};

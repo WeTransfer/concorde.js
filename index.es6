@@ -44,6 +44,14 @@ export default class Cookie {
 
     // Set the cookie, yay
     document.cookie = cookieBuilder.join('; ');
+
+    // TODO: Remove this, but during development, try this.
+    // We have old cookies on the wrong domain on some devices
+    // and well, that's annoying and this should help remove those.
+    if (options.domain) {
+      var {domain, ...options} = options;
+      Cookie.unset(key, options);
+    }
   }
 
   // Unsetting is setting with null value.

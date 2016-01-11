@@ -42,9 +42,6 @@ export default class Cookie {
       cookieBuilder.push('secure');
     }
 
-    // Set the cookie, yay
-    document.cookie = cookieBuilder.join('; ');
-
     // TODO: Remove this, but during development, try this.
     // We have old cookies on the wrong domain on some devices
     // and well, that's annoying and this should help remove those.
@@ -52,6 +49,9 @@ export default class Cookie {
       var {domain, ...options} = options;
       Cookie.unset(key, options);
     }
+
+    // Set the cookie, yay
+    document.cookie = cookieBuilder.join('; ');
   }
 
   // Unsetting is setting with null value.
@@ -67,4 +67,4 @@ export default class Cookie {
     if (!result) return defaultValue;
     return raw ? result[1] : decodeURIComponent(result[1]);
   }
-}
+};

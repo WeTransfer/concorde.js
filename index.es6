@@ -10,7 +10,7 @@ let currentVersion = Search.version(currentBrowser);
 export default class Browser {
   // A method to match the current browser to a list of options.
   static oneOf(lines = []) {
-    if (typeof lines == 'string') lines = [lines];
+    if (typeof lines === 'string') lines = [lines];
     return !!lines.filter(line => Browser.matches(line)).length;
   }
 
@@ -18,8 +18,9 @@ export default class Browser {
   static identity() {
     return {
       platform: currentPlatform.identity,
-      browser: currentBrowser.identity
-    }
+      browser: currentBrowser.identity,
+      version: currentVersion.join('.')
+    };
   }
 
   // Test if this is the platform you would expect
@@ -33,7 +34,7 @@ export default class Browser {
   // We will just sniff the popular stuff for now.
   static get supportsTouchEvents() {
     return Browser.isMobile && 
-      (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+      (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch);
   }
 
   // This sounds pretty mobile..
@@ -63,4 +64,4 @@ export default class Browser {
     // Compare the versions
     return CompareVersion(currentVersion, operator, version);
   }
-};
+}

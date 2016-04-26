@@ -42,4 +42,4 @@ export default class Search {
     if (!version.length) return false;
     return version[0].split('.').map(num => parseFloat(num));
   }
-};
+}

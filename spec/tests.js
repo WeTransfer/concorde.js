@@ -136,4 +136,22 @@ describe('Browser', function(){
       'safari >= 5'
     ]));
   });
+
+  it('should support (Safari) versioning', function(){
+    // Needs to be defined before Browser is loaded
+    global.navigator = {
+      vendor: 'Apple Computer, Inc.',
+      platform: 'MacIntel',
+      userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/602.1.27 (KHTML, like Gecko) Version/9.1.1 Safari/601.6.15',
+      appVersion: '5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/602.1.27 (KHTML, like Gecko) Version/9.1.1 Safari/601.6.15'
+    }
+
+    var Browser = require('../index').default;
+    assert.equal(true, Browser.matches('safari >= 9.1.1'));
+    assert.equal(true, Browser.matches('safari >= 9.1'));
+    assert.equal(true, Browser.matches('safari = 9.1'));
+    assert.equal(true, Browser.matches('safari = 9'));
+    assert.equal(false, Browser.matches('safari < 9.1.1'));
+    assert.equal(false, Browser.matches('safari <= 9.0'));
+  });
 });

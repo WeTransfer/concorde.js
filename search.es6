@@ -35,7 +35,11 @@ export default class Search {
 
     let search = browser.versionSearch || browser.identity;
     let index = string.indexOf(search);
+
     if (index === -1) return false;
-    return parseFloat(string.substring(index + search.length + 1));
+
+    let version = string.substring(index + search.length + 1).split(' ');
+    if (!version.length) return false;
+    return version[0].split('.').map(num => parseFloat(num));
   }
 };

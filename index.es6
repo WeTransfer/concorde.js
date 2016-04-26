@@ -1,6 +1,7 @@
 // This is based on jquery.client (from old WT source)
 
 import Search from './search';
+import CompareVersion from './version';
 
 let currentPlatform = Search.platform();
 let currentBrowser = Search.browser();
@@ -59,22 +60,7 @@ export default class Browser {
     let operator, version;
     [browser, operator, version] = result;
 
-    // match the operator
-    version = parseFloat(version);
-    switch (operator) {
-      case '>=':
-        return currentVersion >= version;
-      case '>':
-        return currentVersion > version;
-      case '<':
-        return currentVersion < version;
-      case '<=':
-        return currentVersion <= version;
-      case '=':
-      case '==':
-        return currentVersion == version;
-      default:
-        return false;
-    }
+    // Compare the versions
+    return CompareVersion(currentVersion, operator, version);
   }
 };

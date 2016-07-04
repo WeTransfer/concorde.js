@@ -15,7 +15,7 @@ export default class Cookie {
     // Make sure value is a string
     key = encodeURIComponent(key);
     value = String(value);
-    value = options.raw ? value : encodeURIComponent(value)
+    value = options.raw ? value : encodeURIComponent(value);
 
     // Build our cookie string
     let cookieBuilder = [
@@ -45,8 +45,9 @@ export default class Cookie {
     // TODO: Remove this, but during development, try this.
     // We have old cookies on the wrong domain on some devices
     // and well, that's annoying and this should help remove those.
+    // ESLint will be triggered because of this, so disable for now
     if (options.domain) {
-      var {domain, ...options} = options;
+      var {domain, ...options} = options; // eslint-disable-line
       Cookie.unset(key, options);
     }
 
@@ -67,4 +68,4 @@ export default class Cookie {
     if (!result) return defaultValue;
     return raw ? result[1] : decodeURIComponent(result[1]);
   }
-};
+}

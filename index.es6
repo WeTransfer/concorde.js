@@ -1,6 +1,16 @@
+import Merge from 'deepmerge';
+
+let defaultOptions = {};
+
 // Slightly based on jQuery.cookie
 export default class Cookie {
+  static configure(options) {
+    defaultOptions = Merge(defaultOptions, options);
+  }
+
   static set(key, value, options = {}) {
+    options = Merge(defaultOptions, options);
+
     // Are we unsetting this cookie?
     if (value === null || value === undefined) {
       options.days = -1;
@@ -40,15 +50,6 @@ export default class Cookie {
     // Does the cookie need to be secure?
     if (options.secure) {
       cookieBuilder.push('secure');
-    }
-
-    // TODO: Remove this, but during development, try this.
-    // We have old cookies on the wrong domain on some devices
-    // and well, that's annoying and this should help remove those.
-    // ESLint will be triggered because of this, so disable for now
-    if (options.domain) {
-      var {domain, ...options} = options; // eslint-disable-line
-      Cookie.unset(key, options);
     }
 
     // Set the cookie, yay

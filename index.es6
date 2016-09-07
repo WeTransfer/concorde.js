@@ -39,7 +39,11 @@ export default class Browser {
 
   // This sounds pretty mobile..
   static get isMobile() {
-    return !!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  static get isTablet() {
+    return !!/iPad/i.test(navigator.userAgent);
   }
 
   // See if our query matches our current browser (and version)

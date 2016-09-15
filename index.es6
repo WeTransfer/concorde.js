@@ -19,7 +19,7 @@ export default class Browser {
     return {
       platform: currentPlatform.identity,
       browser: currentBrowser.identity,
-      version: typeof currentVersion === 'array' ? currentVersion.join('.') : currentVersion
+      version: currentVersion.join ? currentVersion.join('.') : currentVersion
     };
   }
 
@@ -33,7 +33,7 @@ export default class Browser {
   // https://github.com/Modernizr/Modernizr/issues/548
   // We will just sniff the popular stuff for now.
   static get supportsTouchEvents() {
-    return Browser.isMobile && 
+    return (Browser.isMobile || Browser.isTablet) && 
       (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch);
   }
 

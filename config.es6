@@ -102,6 +102,11 @@ export default {
       identity: 'iPad'
     },
     {
+      string: navigator.userAgent,
+      subString: 'Android',
+      identity: 'Android'
+    },
+    {
       string: navigator.platform,
       subString: 'Linux',
       identity: 'Linux'

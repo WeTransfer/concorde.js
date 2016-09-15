@@ -19,7 +19,7 @@ export default class Browser {
     return {
       platform: currentPlatform.identity,
       browser: currentBrowser.identity,
-      version: currentVersion.join('.')
+      version: typeof currentVersion === 'array' ? currentVersion.join('.') : currentVersion
     };
   }
 

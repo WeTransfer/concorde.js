@@ -23,4 +23,4 @@ test('should compare (semver) versions', t => {
 	t.false(Version('0.4.1', '==', '6.4.1'));
 
 	t.false(Version('2.4.1', 'Whut?', '2.4.1'));
-})
+});

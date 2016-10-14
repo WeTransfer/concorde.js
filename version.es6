@@ -20,8 +20,8 @@ function convertVersion(version) {
 }
 
 export default function versionCompare(versionA, operator, versionB) {
-  versionA = convertVersion(versionA)
-  versionB = convertVersion(versionB)
+  versionA = convertVersion(versionA);
+  versionB = convertVersion(versionB);
 
   // Match all version parts (major, minor, patch..)
   const result = compare(versionA, versionB);

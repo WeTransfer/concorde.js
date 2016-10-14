@@ -1,14 +1,21 @@
 // This is based on jquery.client (from old WT source)
-
 import Search from './search';
 import CompareVersion from './version';
 
-let currentPlatform = Search.platform();
-let currentBrowser = Search.browser();
-let currentVersion = Search.version(currentBrowser);
-
 export default class Browser {
   // A method to match the current browser to a list of options.
+  static get currentBrowser() {
+    return Search.browser();
+  }
+
+  static get currentPlatform() {
+    return Search.platform();
+  }
+
+  static get currentVersion() {
+    return Search.version(this.currentBrowser);
+  }
+
   static oneOf(lines = []) {
     if (typeof lines === 'string') lines = [lines];
     return !!lines.filter(line => Browser.matches(line)).length;
@@ -17,15 +24,15 @@ export default class Browser {
   // Return the current Browser identity (OS + Browser)
   static identity() {
     return {
-      platform: currentPlatform.identity,
-      browser: currentBrowser.identity,
-      version: currentVersion.join ? currentVersion.join('.') : currentVersion
+      platform: this.currentPlatform.identity,
+      browser: this.currentBrowser.identity,
+      version: this.currentVersion.join ? this.currentVersion.join('.') : this.currentVersion
     };
   }
 
   // Test if this is the platform you would expect
   static platform(query) {
-    return !!currentPlatform.identity.match(new RegExp(query, 'i'));
+    return !!this.currentPlatform.identity.match(new RegExp(query, 'i'));
   }
 
   // Test if this document supports touch, however... There is much 
@@ -54,7 +61,7 @@ export default class Browser {
     let [browser] = result;
 
     // does it match the browser?
-    if (!currentBrowser.identity.match(new RegExp(browser, 'i'))) {
+    if (!this.currentBrowser.identity.match(new RegExp(browser, 'i'))) {
       return false;
     }
 
@@ -66,6 +73,6 @@ export default class Browser {
     [browser, operator, version] = result;
 
     // Compare the versions
-    return CompareVersion(currentVersion, operator, version);
+    return CompareVersion(this.currentVersion, operator, version);
   }
 }

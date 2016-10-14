@@ -1,4 +1,3 @@
-
 function compare(a, b) {
   let result = -1;
   for (let index in b) {
@@ -11,11 +10,18 @@ function compare(a, b) {
   return result;
 }
 
-export default function versionCompare(versionA, operator, versionB) {
-  // Convert 1.2.3 to [1,2,3]
-  if (typeof versionB === 'string') {
-    versionB = versionB.split('.').map(num => parseFloat(num));
+// Convert 1.2.3 to [1,2,3]
+function convertVersion(version) {
+  if (typeof version === 'string') {
+    return version.split('.').map(num => parseFloat(num));
   }
+
+  return version;
+}
+
+export default function versionCompare(versionA, operator, versionB) {
+  versionA = convertVersion(versionA)
+  versionB = convertVersion(versionB)
 
   // Match all version parts (major, minor, patch..)
   const result = compare(versionA, versionB);

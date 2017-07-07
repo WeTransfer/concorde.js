@@ -1,108 +1,100 @@
-import test from 'ava';
 import Cookie from '../index';
 import sinon from 'sinon';
-import Merge from 'deepmerge';
 
-var mergeSpy = sinon.spy();
-Cookie.__Rewire__('Merge', (defaultOptions, options) => {
-  mergeSpy(defaultOptions, options);
-  return Merge(defaultOptions, options);
-});
+describe('Cookie module', () => {
+  beforeEach(() => {
+    // https://github.com/facebook/jest/issues/890
+    Object.defineProperty(global.document, 'cookie', {
+      writable: true,
+      value: ''
+    });
+  });
 
-test.beforeEach('setEnvironment', () => {
-  global.document = {
-    cookie: ''
-  };
-  mergeSpy.reset();
-});
+  it('should be able to read cookies', () => {
+    global.document.cookie = 'test=foobar';
+    expect('foobar').toEqual(Cookie.get('test'));
+  });
 
-test('should be able to read cookies', t => {
-  document.cookie = 'test=foobar';
-  t.is('foobar', Cookie.get('test'));
-});
+  it('should be able to read cookies raw', () => {
+    global.document.cookie = 'test=foo%20bar';
+    expect('foo bar').toEqual(Cookie.get('test'));
+    expect('foo%20bar').toEqual(Cookie.get('test', {raw: true}));
+  });
 
-test('should be able to read cookies raw', t => {
-  document.cookie = 'test=foo%20bar';
-  t.is('foo bar', Cookie.get('test'));
-  t.is('foo%20bar', Cookie.get('test', {raw: true}));
-});
+  it('should be able to read cookies with default value fallback', () => {
+    global.document.cookie = 'test=foo%20bar';
+    expect('foo bar').toEqual(Cookie.get('test'));
+    expect('haha').toEqual(Cookie.get('othertest', {defaultValue: 'haha'}));
+  });
 
-test('should be able to read cookies with default value fallback', t => {
-  document.cookie = 'test=foo%20bar';
-  t.is('foo bar', Cookie.get('test'));
-  t.is('haha', Cookie.get('othertest', {defaultValue: 'haha'}));
-});
+  it('should return defaultValue if document.cookie is undefined', () => {
+    expect('defaultFoo').toEqual(Cookie.get('test', {defaultValue: 'defaultFoo'}));
+  });
 
-test('should return defaultValue if document.cookie is undefined', t => {
-  document.cookie = null;
-  t.is('defaultFoo', Cookie.get('test', {defaultValue: 'defaultFoo'}));
-});
+  it('should be able to set simple cookie', () => {
+    Cookie.set('foo', 'bar');
+    expect('foo=bar').toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie', t => {
-  Cookie.set('foo', 'bar');
-  t.true(mergeSpy.calledOnce);
-  t.is('foo=bar', document.cookie);
-});
+  it('should be able to set cookie raw', () => {
+    Cookie.set('foo test', 'bar', {raw: 'true'});
+    expect('foo%20test=bar').toEqual(document.cookie);
+  });
 
-test('should be able to set cookie raw', t => {
-  Cookie.set('foo test', 'bar', {raw: 'true'});
-  t.is('foo%20test=bar', document.cookie);
-});
+  it('should be able to set simple secure cookie', () => {
+    Cookie.set('foo', 'bar', {secure: true});
+    expect('foo=bar; secure').toEqual(document.cookie);
+  });
 
-test('should be able to set simple secure cookie', t => {
-  Cookie.set('foo', 'bar', {secure: true});
-  t.is('foo=bar; secure', document.cookie);
-});
+  it('should be able to set simple cookie with path', () => {
+    Cookie.set('foo', 'bar', {path: '/thing'});
+    expect('foo=bar; path=/thing').toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie with path', t => {
-  Cookie.set('foo', 'bar', {path: '/thing'});
-  t.is('foo=bar; path=/thing', document.cookie);
-});
+  it('should be able to set simple cookie with domain', () => {
+    Cookie.set('foo', 'bar', {domain: 'example.com'});
+    expect('foo=bar; domain=example.com').toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie with domain', t => {
-  Cookie.set('foo', 'bar', {domain: 'example.com'});
-  t.is('foo=bar; domain=example.com', document.cookie);
-});
+  it('should be able to set simple cookie with expires', () => {
+    const expire = new Date('Fri, 01 Jan 2016 09:05:12 GMT');
+    Cookie.set('foo', 'bar', {expires: expire});
+    expect('foo=bar; expires=Fri, 01 Jan 2016 09:05:12 GMT').toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie with expires', t => {
-  var expire = new Date('Fri, 01 Jan 2016 09:05:12 GMT');
-  Cookie.set('foo', 'bar', {expires: expire});
-  t.is('foo=bar; expires=Fri, 01 Jan 2016 09:05:12 GMT', document.cookie);
-});
+  it('should be able to set simple cookie with expire in days', () => {
+    const now = new Date();
+    Cookie.set('foo', 'bar', {days: 2});
+    now.setDate(now.getDate() + 2);
+    expect('foo=bar; expires=' + now.toUTCString()).toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie with expire in days', t => {
-  var now = new Date();
-  Cookie.set('foo', 'bar', {days: 2});
-  now.setDate(now.getDate() + 2);
-  t.is('foo=bar; expires=' + now.toUTCString(), document.cookie);
-});
+  it('should be able to set simple cookie with expire in more than month in days', () => {
+    const now = new Date();
+    Cookie.set('foo', 'bar', {days: 32});
+    now.setDate(now.getDate() + 32);
+    expect('foo=bar; expires=' + now.toUTCString()).toEqual(document.cookie);
+  });
 
-test('should be able to set simple cookie with expire in more than month in days', t => {
-  var now = new Date();
-  Cookie.set('foo', 'bar', {days: 32});
-  now.setDate(now.getDate() + 32);
-  t.is('foo=bar; expires=' + now.toUTCString(), document.cookie);
-});
+  it('should be able to remove a cookie', () => {
+    Cookie.set('foo', 'bar');
+    expect('foo=bar').toEqual(document.cookie);
 
-test('should be able to remove a cookie', t => {
-  Cookie.set('foo', 'bar');
-  t.is('foo=bar', document.cookie);
+    const spy = sinon.spy(Cookie, 'set');
+    Cookie.unset('foo');
+    expect(spy.calledOnce).toBe(true);
+    expect(spy.calledWith('foo', null, {})).toBe(true);
+    expect(!!document.cookie.match(/foo=null; expires=(.+)/)).toBe(true);
 
-  var spy = sinon.spy(Cookie, 'set');
-  Cookie.unset('foo');
-  t.true(spy.calledOnce);
-  t.true(spy.calledWith('foo', null, {}));
-  t.true(!!document.cookie.match(/foo=null; expires=(.+)/));
+    const date = document.cookie.match(/foo=null; expires=(.+)/);
+    const expire = new Date(date[1]);
+    expect(expire < Date.now(), 'expiry should be in past').toBe(true);
+  });
 
-  var date = document.cookie.match(/foo=null; expires=(.+)/);
-  var expire = new Date(date[1]);
-  t.true(expire < Date.now(), 'expiry should be in past');
-});
-
-test('should configure the defaultOptions', t => {
-  Cookie.configure({path: '/cat'});
-  t.true(mergeSpy.calledOnce);
-  Cookie.set('foo', 'bar');
-  t.is(document.cookie, 'foo=bar; path=/cat');
-  Cookie.configure({});
+  it('should configure the defaultOptions', () => {
+    Cookie.configure({path: '/cat'});
+    Cookie.set('foo', 'bar');
+    expect(document.cookie).toEqual('foo=bar; path=/cat');
+    Cookie.configure({});
+  });
 });

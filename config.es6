@@ -48,7 +48,7 @@ export default {
       subString: 'Camino',
       identity: 'Camino'
     },
-    {   // for newer Netscapes (6+)
+    { // for newer Netscapes (6+)
       string: navigator.userAgent,
       subString: 'Netscape',
       identity: 'Netscape'

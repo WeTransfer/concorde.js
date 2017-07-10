@@ -24,6 +24,13 @@ Search.platform = () => {
   };
 };
 
+const setNavigator = (userAgent) => {
+  Object.defineProperty(global.navigator, 'userAgent', {
+    writable: true,
+    value: userAgent
+  });
+};
+
 describe('Browser module', () => {
   it('#currentBrowser should return the currentBrowser', () => {
     expect(Browser.currentBrowser).toEqual({
@@ -77,43 +84,28 @@ describe('Browser module', () => {
     expect(Browser.platform('windows')).toBe(false);
   });
 
-  xit('#isMobile should check whether the device is... mobile', () => {
-    global.navigator = {
-      userAgent: 'IEMobile'
-    };
-
+  it('#isMobile should check whether the device is... mobile', () => {
+    setNavigator('IEMobile');
     expect(Browser.isMobile).toBe(true);
 
-    global.navigator = {
-      userAgent: 'Chrome'
-    };
-
+    setNavigator('Chrome');
     expect(Browser.isMobile).toBe(false);
   });
 
-  xit('#isTablet should check whether the device is a tabletDevice', () => {
-    global.navigator = {
-      userAgent: 'iPad'
-    };
-
+  it('#isTablet should check whether the device is a tabletDevice', () => {
+    setNavigator('iPad');
     expect(Browser.isTablet).toBe(true);
 
-    global.navigator = {
-      userAgent: 'notAnTablet'
-    };
-
+    setNavigator('notATablet');
     expect(Browser.isTablet).toBe(false);
   });
 
-  xit('#supportsTouchEvents should test if the platform supports touch', () => {
-    sinon.stub(Browser, 'isTablet', {
-      get() {
-        return true;
-      }
-    });
+  it('#supportsTouchEvents should test if the platform supports touch', () => {
+    setNavigator('iPad');
     global.ontouchstart = true;
     expect(Browser.supportsTouchEvents).toBe(true);
-    delete global.ontouchstart;
+
+    setNavigator('notATablet');
     expect(Browser.supportsTouchEvents).toBe(false);
   });
 

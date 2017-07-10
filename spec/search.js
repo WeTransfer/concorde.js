@@ -7,6 +7,13 @@ const defaultNavigator = {
   platform: 'MacIntel'
 };
 
+const setNavigator = (userAgent) => {
+  Object.defineProperty(global.navigator, 'userAgent', {
+    writable: true,
+    value: userAgent
+  });
+};
+
 const setConfig = (navigator) => {
   Config.browser = [
     {

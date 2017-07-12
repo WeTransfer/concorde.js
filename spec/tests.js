@@ -2,11 +2,11 @@ import Debounce from '../index';
 import sinon from 'sinon';
 
 describe('Debounce module', () => {
-  it('hould return function', () => {
+  it('should return function', () => {
     expect(typeof Debounce(sinon.stub(), 100)).toEqual('function');
   });
 
-  it('hould debounce function if called multiple times', async () => {
+  it('should debounce function if called multiple times', async () => {
     let counter = 0;
     const test = Debounce(() => counter++, 50);
 
@@ -20,7 +20,7 @@ describe('Debounce module', () => {
     expect(counter).toEqual(1);
   });
 
-  it('hould default the debounce to 1ms if no interval is given', async () => {
+  it('should default the debounce to 1ms if no interval is given', async () => {
     let counter = 0;
     const test = Debounce(() => counter++);
 

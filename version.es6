@@ -1,6 +1,6 @@
 function compare(a, b) {
   let result = -1;
-  for (let index in b) {
+  for (const index in b) {
     result = a[index] - b[index];
     if (result !== 0) {
       return result;
@@ -13,7 +13,7 @@ function compare(a, b) {
 // Convert 1.2.3 to [1,2,3]
 function convertVersion(version) {
   if (typeof version === 'string') {
-    return version.split('.').map(num => parseFloat(num));
+    return version.split('.').map((num) => parseFloat(num));
   }
 
   return version;

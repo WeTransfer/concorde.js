@@ -2,7 +2,7 @@ import Config from './config';
 
 // Find a match in the input to see if we have a known browser/platform
 function filterConfig(input) {
-  let options = input.filter(browser => {
+  const options = input.filter((browser) => {
     if (browser.string) {
       if (browser.string.indexOf(browser.subString) !== -1) {
         return true;
@@ -12,7 +12,9 @@ function filterConfig(input) {
     }
   });
 
-  if (!options.length) return {identity: 'unknown'};
+  if (!options.length) {
+    return {identity: 'unknown'};
+  }
   return options.shift();
 }
 
@@ -23,7 +25,7 @@ export default class Search {
   }
 
   static browser() {
-    return filterConfig(Config.browser); 
+    return filterConfig(Config.browser);
   }
 
   static version(browser, string = false) {
@@ -33,13 +35,17 @@ export default class Search {
       || 'unknown';
     }
 
-    let search = browser.versionSearch || browser.identity;
-    let index = string.indexOf(search);
+    const search = browser.versionSearch || browser.identity;
+    const index = string.indexOf(search);
 
-    if (index === -1) return false;
+    if (index === -1) {
+      return false;
+    }
 
-    let version = string.substring(index + search.length + 1).split(' ');
-    if (!version.length) return false;
-    return version[0].split('.').map(num => parseFloat(num));
+    const version = string.substring(index + search.length + 1).split(' ');
+    if (!version.length) {
+      return false;
+    }
+    return version[0].split('.').map((num) => parseFloat(num));
   }
 }

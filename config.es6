@@ -12,7 +12,7 @@ export default {
       subString: 'Chrome',
       identity: 'Chrome'
     },
-    {   
+    {
       string: navigator.userAgent,
       subString: 'OmniWeb',
       versionSearch: 'OmniWeb/',
@@ -71,7 +71,7 @@ export default {
       identity: 'Mozilla',
       versionSearch: 'rv'
     },
-    {     
+    {
       // for older Netscapes (4-)
       string: navigator.userAgent,
       subString: 'Mozilla',

@@ -1,6 +1,5 @@
 import Search from '../search';
 import Config from '../config';
-import sinon from 'sinon';
 
 const defaultNavigator = {
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
@@ -54,7 +53,7 @@ describe('Browser search module', () => {
 
   it('#platform should return unknown when there are no matches', () => {
     setConfig({});
-    expect(Search.platform()).toEqual({identity: 'unknown'});
+    expect(Search.platform()).toEqual({ identity: 'unknown' });
   });
 
   it('#browser should return browsers that match current platform ', () => {
@@ -69,7 +68,7 @@ describe('Browser search module', () => {
   it('#browser should recognize opera', () => {
     window.opera = true;
     setConfig({});
-    expect(Search.browser()).toEqual({prop:true,identity:'Opera'});
+    expect(Search.browser()).toEqual({ prop:true, identity:'Opera' });
   });
 
   xit('#version should return current/specific browser version', () => {
@@ -83,9 +82,8 @@ describe('Browser search module', () => {
       version: '3289'
     };
 
-    const stub = sinon.stub(Search, 'browser').returns(browser);
+    Search.browser = jest.fn().mockReturnValue(browser);
     expect(Search.version(browser)).toEqual([53,0,2785,143]);
-    stub.restore();
   });
 
   it('#version should return unknown if no matches are found', () => {
@@ -98,7 +96,7 @@ describe('Browser search module', () => {
       userAgent: 'foo'
     };
 
-    sinon.stub(Search, 'browser').returns(browser);
-    expect(Search.version(browser)).toEqual('unknown');
+    Search.browser = jest.fn().mockReturnValue(browser);
+    expect(Search.version(browser)).toBe('unknown');
   });
 });

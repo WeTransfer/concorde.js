@@ -28,7 +28,7 @@ export default class Cookie {
     value = options.raw ? value : encodeURIComponent(value);
 
     // Build our cookie string
-    let cookieBuilder = [
+    const cookieBuilder = [
       `${key}=${value}`
     ];
 
@@ -64,8 +64,8 @@ export default class Cookie {
   // Get cookie value.
   static get(key, {defaultValue = null, raw = false} = {}) {
     if (!document.cookie) return defaultValue;
-    let regexp = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)');
-    let result = document.cookie.match(regexp);
+    const regexp = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)');
+    const result = document.cookie.match(regexp);
     if (!result) return defaultValue;
     return raw ? result[1] : decodeURIComponent(result[1]);
   }

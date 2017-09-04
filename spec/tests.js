@@ -1,5 +1,6 @@
-import Debounce from '../index';
 import sinon from 'sinon';
+
+import Debounce from '../index';
 
 describe('Debounce module', () => {
   jest.useFakeTimers();

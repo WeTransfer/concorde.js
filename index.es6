@@ -63,10 +63,14 @@ export default class Cookie {
 
   // Get cookie value.
   static get(key, {defaultValue = null, raw = false} = {}) {
-    if (!document.cookie) return defaultValue;
+    if (!document.cookie) {
+      return defaultValue;
+    }
     const regexp = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)');
     const result = document.cookie.match(regexp);
-    if (!result) return defaultValue;
+    if (!result) {
+      return defaultValue;
+    }
     return raw ? result[1] : decodeURIComponent(result[1]);
   }
 }

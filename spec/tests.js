@@ -1,5 +1,6 @@
-import Cookie from '../index';
 import sinon from 'sinon';
+
+import Cookie from '../index';
 
 describe('Cookie module', () => {
   beforeEach(() => {

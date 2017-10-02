@@ -89,7 +89,7 @@ describe('Cookie module', () => {
 
     const date = document.cookie.match(/foo=null; expires=(.+)/);
     const expire = new Date(date[1]);
-    expect(expire < Date.now(), 'expiry should be in past').toBe(true);
+    expect(expire < Date.now()).toBe(true);
   });
 
   it('should configure the defaultOptions', () => {

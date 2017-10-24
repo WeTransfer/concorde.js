@@ -1,5 +1,3 @@
-import sinon from 'sinon';
-
 import Cookie from '../index';
 
 describe('Cookie module', () => {
@@ -81,10 +79,9 @@ describe('Cookie module', () => {
     Cookie.set('foo', 'bar');
     expect('foo=bar').toEqual(document.cookie);
 
-    const spy = sinon.spy(Cookie, 'set');
+    const spy = jest.spyOn(Cookie, 'set');
     Cookie.unset('foo');
-    expect(spy.calledOnce).toBe(true);
-    expect(spy.calledWith('foo', null, {})).toBe(true);
+    expect(spy).toBeCalledWith('foo', null, {});
     expect(!!document.cookie.match(/foo=null; expires=(.+)/)).toBe(true);
 
     const date = document.cookie.match(/foo=null; expires=(.+)/);

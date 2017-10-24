@@ -1,12 +1,10 @@
-import sinon from 'sinon';
-
 import Debounce from '../index';
 
 describe('Debounce module', () => {
   jest.useFakeTimers();
 
   it('should return function', () => {
-    expect(typeof Debounce(sinon.stub(), 100)).toEqual('function');
+    expect(typeof Debounce(jest.fn(), 100)).toEqual('function');
   });
 
   it('should debounce function if called multiple times', () => {

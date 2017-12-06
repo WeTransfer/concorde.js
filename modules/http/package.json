@@ -1,0 +1,25 @@
+{
+  "name": "@wetransfer/http",
+  "version": "0.0.1",
+  "description": "Simple browser/Node.js http module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeTransfer/concorde.js.git"
+  },
+  "keywords": [
+    "http",
+    "browser",
+    "node",
+    "upload"
+  ],
+  "author": "WeTransfer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WeTransfer/concorde.js/issues"
+  },
+  "homepage": "https://github.com/WeTransfer/concorde.js#readme"
+}

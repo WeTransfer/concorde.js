@@ -1,0 +1,9 @@
+# Logs
+lerna-debug.log
+npm-debug.log
+
+# NPM
+node_modules
+
+# Code coverage
+coverage

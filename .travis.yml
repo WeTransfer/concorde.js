@@ -1,0 +1,20 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+node_js:
+  - 8
+branches:
+  only:
+    - master
+env:
+  global:
+    - secure: hfEO4YvggfsZcM34tua28RJx7AmTEHqBE1i0pd9J/FlnBcEH3buqVzWu5z8Jr2zDe+XojtYCrQYOYwaP7GqftFCxg+hwAtyGAqp3qRnLXQ2l/y+0f2qyX5vM+2pACgexH5ezvqqd80jGnvm3bjAnhHC4A8WJbuq7UEUv9vfhNArnvhP1fsL4Z9SVGylK+NkXGKfz+1WE8T79mIzcjn2ftM8DSSGjFzkLmK622TMFwm14dS1EBEZap26RJ/YGFWKosuAnZvdkIc2s8x8MXsaIIej8pYGG7g2rwEg6t+8vSDB+ZqVjrLV5fr/sQWPKaId8QvwKIWjwATaPUDcNnV7Mb6hZAfTamUrmWbeRSjZGIaNRjMQPeoyQfwDEId51bdMTO6VojIQyIMLxMmdEExtym/QkpeonVI7PypI99PloI6/p5jGlpdEsgEx8DKOOqaPv1CJv1N48YdCgK86EE79zQFbqb+vU4dGDaZ5ML0RRaUEs48OxLDZTd71RuHvuS66SLmzcZx5mbixrrrMQVbE96/ddWl+vCLC6h9SCH1J6T62R122+LnhExvuoLwBPl+QTg2GQPLio32+2FuwAePVGizItk6/vMDy9agaUeu8RyOs5UrZJMXXtLhLHX3LxJsHvBHbNarPxtZd9gCD+BNYMLlOgnuD5h6dzgGlBKtdMbBc=
+    - secure: Ypn3GbgB5Az0hS/e1AM5cJqtYFm6RH50+TJFaY/QXlrZo9NbRkVHbXly5k7WP8mClUZBC2tFjsa02jA2CVBB9N6ngl5cmnCsHokSHnXblJRApN/RZnrKgpl9CxLBzOT/Tvg01nalvDtZckQzcMGCaaVlpclaTMayqLkIaMYxrRAm7jrxJ0B4sW3I5F5xSbmJ1tcb0gUE5HF2cXHHRg8cXaWqGuopJSn/KpJoA/Pn9GykNrhAoQ/10N/9K9sxgUWHla5TsQTR174JI94OutWDVGRmj0K7HfkaIYRTn+Hjaivr/M9ER8/rHu6i6Q74JHnJ8/aCCA6bIrl3VO0X2kpWeFZQVYyCMkRUnypkxufwpj7OqZGBeOryQlu6UnxhnsJ+/hSV+WcGDG5Fr9RcNIQtzK2+FkYa+K/oJ2q4e+3Be4F6ThYQYPClKYzW5+qCnI1yR/YCqZpnrXk0kfTvk0TP2pZgb3QxHPjvwIOE9Q0woFxoRKpMGo+eFj8nJtJtWOoYUMPzwRrT3nqx9O7jOXjB01Lu5plwEqJoi+qQKNP8m+ix1Qb+sTdf+xJDOeQG9cIXK9gtRA1ZwGMPB7d8X5h1oeOfGMQOBn0e/RTthuvbn4IcBuPINsa4z3oPfnLwKajyHIQUzVoSPGMOym114/SfqB1TJRkHdgfZP6JcHCDPfTU=
+install: npm i
+script:
+  - 'npm run bootstrap'
+  - 'set -e'
+  - 'npm run lint'
+  - 'npm run test:ci'

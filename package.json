@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
     "lint": "lerna run lint",
     "prepush": "sh scripts/git/pre_push_hooks",
     "test": "lerna run test",
@@ -32,7 +34,10 @@
     "eslint": "4.13.1",
     "husky": "0.14.3",
     "jest": "21.2.1",
-    "lerna": "2.5.1"
+    "lerna": "2.5.1",
+    "rollup": "0.52.1",
+    "rollup-plugin-babel": "3.0.2",
+    "rollup-plugin-uglify": "2.0.1"
   },
   "jest": {
     "setupFiles": [

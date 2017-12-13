@@ -1,0 +1,105 @@
+/**
+ * Compares to versions (array format) and determines the difference between them.
+ *
+ * @since 1.0.0
+ * @category Browser/Version
+ * @param {Array} versionA One of the versions to compare.
+ * @param {Array} versionB The other version to compare.
+ * @returns {number} Returns the difference.
+ * @example
+ *
+ * diffVersions([1, 0, 0], [1, 5, 0])
+ * // => -5
+ *
+ * diffVersions([1, 0, 0], [1, 0, 0])
+ * // => 0
+ *
+ * diffVersions([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+export function diffVersions(versionA, versionB) {
+  let result = -1;
+
+  const length = versionB.length;
+  for (let index = 0; index < length; index++) {
+    result = versionA[index] - versionB[index];
+    if (result !== 0) {
+      return result;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Converts a string version into an array
+ *
+ * @since 1.0.0
+ * @category Browser/Version
+ * @param {String} version The version to convert, in semantic versioning format.
+ * @returns {Array} Returns the version in array format.
+ * @example
+ *
+ * versionToArray('1.0.1')
+ * // => [1, 0, 1]
+ *
+ * versionToArray('1.0.1-alpha')
+ * // => [1, 0, 1]
+ *
+ * versionToArray([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+export function versionToArray(version) {
+  if (typeof version === 'string') {
+    return version.split('.').map((num) => parseFloat(num));
+  }
+
+  return version;
+}
+
+/**
+ * Compares to semantic versions, given an operator.
+ *
+ * @since 1.0.0
+ * @category Browser/Version
+ * @param {Array} versionA One of the versions to compare.
+ * @param {String} operator Compare versions using this operator. We support `>`, `>=`, `<`, `<=`, `=` and `==`.
+ * @param {Array} versionB The other version to compare.
+ * @returns {boolean} True if condition can be satisfied, false otherwise.
+ * @example
+ *
+ * compareVersion('1.0.1', '<', '5.1.0')
+ * // => true
+ *
+ * compareVersion('4.4.1', '=', '0.1.0')
+ * // => false
+ *
+ * compareVersion('4.4.1', '>=', '6.1.0')
+ * // => false
+ */
+export function compareVersion(versionA, operator, versionB) {
+  // Match all version parts (major, minor, patch..)
+  const result = diffVersions(versionToArray(versionA), versionToArray(versionB));
+
+  // Compare the results
+  switch (operator) {
+    case '>=':
+      return result >= 0;
+
+    case '>':
+      return result > 0;
+
+    case '<':
+      return result < 0;
+
+    case '<=':
+      return result <= 0;
+
+    case '=':
+    case '==':
+      return result === 0;
+
+    default:
+      return false;
+  }
+}

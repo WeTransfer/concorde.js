@@ -1,16 +1,17 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": [
-            "last 2 versions",
-            "safari >= 7",
-            "ie >= 11"
-          ]
-        }
-      }
-    ]
-  ]
+  "env": {
+    "test": {
+      "presets": ["env"]
+    },
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ]
+      ]
+    }
+  }
 }

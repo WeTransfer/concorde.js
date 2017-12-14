@@ -6,7 +6,7 @@ export default [
     input: 'index.js',
     output: {
       file: 'dist/index.js',
-      format: 'cjs'
+      format: 'es'
     },
     plugins: [
       babel()
@@ -15,7 +15,7 @@ export default [
   {
     input: 'index.js',
     output: {
-      file: 'dist/index.min.js',
+      file: 'dist/concorde-browser.min.js',
       format: 'umd',
       name: 'concordeBrowser'
     },

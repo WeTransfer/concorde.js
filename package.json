@@ -10,7 +10,8 @@
     "lint": "lerna run lint",
     "prepush": "sh scripts/git/pre_push_hooks",
     "test": "lerna run test",
-    "test:ci": "npm run test:coverage -- --bail --runInBand --verbose=false && codecov",
+    "test:ci": "npm run test:coverage -- --bail --runInBand --verbose=false && npm run test:codacy",
+    "test:codacy": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -30,7 +31,7 @@
   "devDependencies": {
     "@wetransfer/eslint-config-wetransfer": "1.2.1",
     "babel-preset-env": "1.6.1",
-    "codecov": "3.0.0",
+    "codacy-coverage": "2.0.3",
     "eslint": "4.13.1",
     "husky": "0.14.3",
     "jest": "21.2.1",

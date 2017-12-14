@@ -1,4 +1,6 @@
 # concorde.js
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/12eff9e472ea4639a487b4baba817b0e)](https://www.codacy.com/app/WeTransfer/concorde.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeTransfer/concorde.js&amp;utm_campaign=Badge_Grade)
+
 A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use
 
 ## Installation

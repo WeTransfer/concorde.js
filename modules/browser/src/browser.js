@@ -21,7 +21,9 @@ export const Browser = {
     return {
       platform: this.currentPlatform.identity,
       browser: this.currentBrowser.identity,
-      version: this.currentVersion.join ? this.currentVersion.join('.') : this.currentVersion
+      version: this.currentVersion.join
+        ? this.currentVersion.join('.')
+        : this.currentVersion
     };
   },
 
@@ -30,13 +32,18 @@ export const Browser = {
   // https://github.com/Modernizr/Modernizr/issues/548
   // We will just sniff the popular stuff for now.
   get supportsTouchEvents() {
-    return (this.isMobile || this.isTablet) &&
-      (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch);
+    return (
+      (this.isMobile || this.isTablet) &&
+      ('ontouchstart' in window ||
+        (window.DocumentTouch && document instanceof window.DocumentTouch))
+    );
   },
 
   // This sounds pretty mobile..
   get isMobile() {
-    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
   },
 
   /**
@@ -61,7 +68,7 @@ export const Browser = {
 
   // Test if this is the platform you would expect
   platform(query = null) {
-    return new RegExp(query, 'i').test(this.currentPlatform.identity);
+    return new RegExp(`${query}`, 'i').test(this.currentPlatform.identity);
   },
 
   isOutdated(supportedBrowsers) {
@@ -75,7 +82,7 @@ export const Browser = {
     const browser = result[0];
 
     // does it match the browser?
-    if (!this.currentBrowser.identity.match(new RegExp(browser, 'i'))) {
+    if (!new RegExp(`${browser}`, 'i').test(this.currentBrowser.identity)) {
       return false;
     }
 

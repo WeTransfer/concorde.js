@@ -7,7 +7,8 @@ describe('Browser module', () => {
 
   beforeEach(() => {
     global.navigator.platform = 'MacIntel';
-    global.navigator.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36';
+    global.navigator.userAgent =
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36';
   });
 
   describe('currentBrowser property', () => {
@@ -15,7 +16,8 @@ describe('Browser module', () => {
       expect(Browser.currentBrowser).toEqual({
         identity: 'Chrome',
         subString: 'Chrome',
-        string: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+        string:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       });
     });
 
@@ -78,7 +80,9 @@ describe('Browser module', () => {
       });
 
       it('should contain browser identity with no version', () => {
-        setNavigator('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit (KHTML, like Gecko)');
+        setNavigator(
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit (KHTML, like Gecko)'
+        );
         expect(Browser.identity).toEqual({
           platform: 'Mac',
           browser: 'Mozilla',
@@ -200,13 +204,15 @@ describe('Browser module', () => {
       });
 
       it('should return true', () => {
-        expect(Browser.isOutdated([
-          'Chrome >= 42',
-          'Firefox >= 38',
-          'Safari >= 6',
-          'Explorer >= 11',
-          'Edge >= 12'
-        ])).toBe(true);
+        expect(
+          Browser.isOutdated([
+            'Chrome >= 42',
+            'Firefox >= 38',
+            'Safari >= 6',
+            'Explorer >= 11',
+            'Edge >= 12'
+          ])
+        ).toBe(true);
       });
     });
   });

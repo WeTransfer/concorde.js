@@ -1,7 +1,7 @@
 import Config from './config';
 
 // Find a match in the input to see if we have a known browser/platform
-function filterConfig(input) {
+const filterConfig = (input) => {
   const options = input.filter((browser) => {
     if (browser.string && browser.string.indexOf(browser.subString) !== -1) {
       return true;
@@ -15,7 +15,7 @@ function filterConfig(input) {
   }
 
   return options.shift();
-}
+};
 
 // To help determine the current platform/browser/version
 export const Search = {
@@ -29,9 +29,11 @@ export const Search = {
 
   version(browser, string = false) {
     if (string === false) {
-      return this.version(browser, navigator.userAgent)
-        || this.version(browser, navigator.appVersion)
-        || 'unknown';
+      return (
+        this.version(browser, navigator.userAgent) ||
+        this.version(browser, navigator.appVersion) ||
+        'unknown'
+      );
     }
 
     const search = browser.versionSearch || browser.identity;

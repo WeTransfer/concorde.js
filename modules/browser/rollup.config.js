@@ -8,9 +8,7 @@ export default [
       file: 'dist/index.js',
       format: 'es'
     },
-    plugins: [
-      babel()
-    ]
+    plugins: [babel()]
   },
   {
     input: 'index.js',
@@ -19,9 +17,6 @@ export default [
       format: 'umd',
       name: 'concordeBrowser'
     },
-    plugins: [
-      babel(),
-      uglify()
-    ]
+    plugins: [babel(), uglify()]
   }
 ];

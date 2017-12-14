@@ -17,7 +17,7 @@
  * diffVersions([3, 5, 1], [1, 1, 0])
  * // => 2
  */
-export function diffVersions(versionA, versionB) {
+export const diffVersions = (versionA, versionB) => {
   let result = -1;
 
   const length = versionB.length;
@@ -29,7 +29,7 @@ export function diffVersions(versionA, versionB) {
   }
 
   return result;
-}
+};
 
 /**
  * Converts a string version into an array
@@ -49,13 +49,13 @@ export function diffVersions(versionA, versionB) {
  * versionToArray([3, 5, 1], [1, 1, 0])
  * // => 2
  */
-export function versionToArray(version) {
+export const versionToArray = (version) => {
   if (typeof version === 'string') {
     return version.split('.').map((num) => parseFloat(num));
   }
 
   return version;
-}
+};
 
 /**
  * Compares to semantic versions, given an operator.
@@ -77,9 +77,12 @@ export function versionToArray(version) {
  * compareVersion('4.4.1', '>=', '6.1.0')
  * // => false
  */
-export function compareVersion(versionA, operator, versionB) {
+export const compareVersion = (versionA, operator, versionB) => {
   // Match all version parts (major, minor, patch..)
-  const result = diffVersions(versionToArray(versionA), versionToArray(versionB));
+  const result = diffVersions(
+    versionToArray(versionA),
+    versionToArray(versionB)
+  );
 
   // Compare the results
   switch (operator) {
@@ -102,4 +105,4 @@ export function compareVersion(versionA, operator, versionB) {
     default:
       return false;
   }
-}
+};

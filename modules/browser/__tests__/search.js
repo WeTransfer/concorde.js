@@ -3,17 +3,23 @@ import { Search } from '../index';
 describe('Browser search module', () => {
   beforeEach(() => {
     global.navigator.platform = 'MacIntel';
-    global.navigator.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36';
+    global.navigator.userAgent =
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36';
   });
 
   describe('platform property', () => {
     it('should contain platforms that match current platform', () => {
-      expect(Search.platform).toEqual({ string: 'MacIntel', subString: 'Mac', identity: 'Mac' });
+      expect(Search.platform).toEqual({
+        string: 'MacIntel',
+        subString: 'Mac',
+        identity: 'Mac'
+      });
     });
 
     it('should contain unknown when there are no matches', () => {
       global.navigator.platform = 'Node.js';
-      global.navigator.userAgent = 'Node.js AppleWebKit/537.36 (KHTML, like Gecko)';
+      global.navigator.userAgent =
+        'Node.js AppleWebKit/537.36 (KHTML, like Gecko)';
       expect(Search.platform).toEqual({ identity: 'unknown' });
     });
   });
@@ -21,7 +27,8 @@ describe('Browser search module', () => {
   describe('browser property', () => {
     it('should contain browsers that match current platform ', () => {
       expect(Search.browser).toEqual({
-        string: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+        string:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
         subString: 'Chrome',
         identity: 'Chrome'
       });

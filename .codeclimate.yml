@@ -1,0 +1,7 @@
+exclude_patterns:
+- "**/__tests__/*.js"
+plugins:
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true

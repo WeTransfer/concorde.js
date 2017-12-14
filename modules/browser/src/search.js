@@ -3,10 +3,8 @@ import Config from './config';
 // Find a match in the input to see if we have a known browser/platform
 function filterConfig(input) {
   const options = input.filter((browser) => {
-    if (browser.string) {
-      if (browser.string.indexOf(browser.subString) !== -1) {
-        return true;
-      }
+    if (browser.string && browser.string.indexOf(browser.subString) !== -1) {
+      return true;
     } else if (browser.prop) {
       return true;
     }

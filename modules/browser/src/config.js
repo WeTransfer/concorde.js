@@ -49,7 +49,8 @@ export default {
         subString: 'Camino',
         identity: 'Camino'
       },
-      { // for newer Netscapes (6+)
+      {
+        // for newer Netscapes (6+)
         string: navigator.userAgent,
         subString: 'Netscape',
         identity: 'Netscape'
@@ -60,7 +61,8 @@ export default {
         identity: 'Explorer',
         versionSearch: 'MSIE'
       },
-      { // for IE11
+      {
+        // for IE11
         string: navigator.userAgent,
         subString: 'Trident/7.',
         identity: 'Explorer',

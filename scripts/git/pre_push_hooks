@@ -15,4 +15,5 @@ then
   runPrePushHook
 else
   echo "Skiping prepush hooks..."
+  exit 0
 fi

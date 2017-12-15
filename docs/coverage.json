@@ -1,0 +1,27 @@
+{
+  "coverage": "50%",
+  "expectCount": 6,
+  "actualCount": 3,
+  "files": {
+    "modules/browser/src/browser.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "modules/browser/src/search.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        21
+      ]
+    },
+    "modules/browser/src/version.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@wetransfer/concorde-browser",
+  "version": "0.0.1",
+  "description": "A set of tools to get some information from the browser.",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "lint": "../../node_modules/.bin/eslint --color index.js src",
+    "test": "../../node_modules/.bin/jest",
+    "build": "NODE_ENV=production ../../node_modules/.bin/rollup -c",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeTransfer/concorde.js.git"
+  },
+  "keywords": [
+    "browser",
+    "version",
+    "wetransfer"
+  ],
+  "author": "WeTransfer folks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WeTransfer/concorde.js/issues"
+  },
+  "homepage": "https://github.com/WeTransfer/concorde.js#readme",
+  "devDependencies": {
+    "lerna": "2.5.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "../../scripts/jest/setup-environment.js"
+    ]
+  }
+}

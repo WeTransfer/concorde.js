@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Number of modified files since last commit, filtered FE by type
+CHANGED_FILES="$(git diff HEAD^ HEAD | cut -d"." -f2 - | uniq | grep -E 'js$' | wc -l)"
+
+runPrePushHook() {
+  echo "============ Running pre-prush hook because of JS changes ============"
+  npm run lint && npm test
+}
+
+if [[ $CHANGED_FILES -gt 0 ]]
+then
+  runPrePushHook
+else
+  echo "Skiping prepush hooks..."
+  exit 0
+fi

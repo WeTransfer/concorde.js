@@ -1,0 +1,19 @@
+{
+  "plugins": [],
+  "source": {
+    "includePattern": "modules/.+\\.js$",
+    "excludePattern": "__tests__"
+  },
+  "tags": {
+    "allowUnknownTags": false,
+    "dictionaries": [
+      "jsdoc"
+    ]
+  },
+  "opts": {
+    "template": "node_modules/docdash", // same as -t templates/default
+    "encoding": "utf8", // same as -e utf8
+    "destination": "./docs/",
+    "recurse": true
+  }
+}

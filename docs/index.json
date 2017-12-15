@@ -1,0 +1,899 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "modules/.external-ecmascript.js",
+    "static": true,
+    "longname": "modules/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "modules/browser/index.js",
+    "content": "export * from './src/browser';\nexport * from './src/search';\nexport * from './src/version';\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "file",
+    "name": "modules/browser/rollup.config.js",
+    "content": "import babel from 'rollup-plugin-babel';\nimport uglify from 'rollup-plugin-uglify';\n\nexport default [\n  {\n    input: 'index.js',\n    output: {\n      file: 'dist/index.js',\n      format: 'es'\n    },\n    plugins: [babel()]\n  },\n  {\n    input: 'index.js',\n    output: {\n      file: 'dist/concorde-browser.min.js',\n      format: 'umd',\n      name: 'concordeBrowser'\n    },\n    plugins: [babel(), uglify()]\n  }\n];\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/rollup.config.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "modules/browser/src/browser.js",
+    "content": "// This is based on jquery.client (from old WT source)\nimport { Search } from './search';\nimport { compareVersion } from './version';\n\nexport const Browser = {\n  // A method to match the current browser to a list of options.\n  get currentBrowser() {\n    return Search.browser;\n  },\n\n  get currentPlatform() {\n    return Search.platform;\n  },\n\n  get currentVersion() {\n    return Search.version(this.currentBrowser);\n  },\n\n  // Return the current Browser identity (OS + Browser)\n  get identity() {\n    return {\n      platform: this.currentPlatform.identity,\n      browser: this.currentBrowser.identity,\n      version: this.currentVersion.join\n        ? this.currentVersion.join('.')\n        : this.currentVersion\n    };\n  },\n\n  // Test if this document supports touch, however... There is much\n  // discussion about detecting touch in Modernizr here:\n  // https://github.com/Modernizr/Modernizr/issues/548\n  // We will just sniff the popular stuff for now.\n  get supportsTouchEvents() {\n    return (\n      (this.isMobile || this.isTablet) &&\n      ('ontouchstart' in window ||\n        (window.DocumentTouch && document instanceof window.DocumentTouch))\n    );\n  },\n\n  // This sounds pretty mobile..\n  get isMobile() {\n    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(\n      navigator.userAgent\n    );\n  },\n\n  /**\n   * Check whether the navigation platform is an iPhone\n   * @return {Boolean} Whether it is an iPhone\n   */\n  get isIphone() {\n    return /iPhone/.test(navigator.platform);\n  },\n\n  get isTablet() {\n    return /iPad/i.test(navigator.userAgent);\n  },\n\n  oneOf(lines = []) {\n    if (typeof lines === 'string') {\n      lines = [lines];\n    }\n\n    return lines.filter((line) => this.matches(line)).length > 0;\n  },\n\n  // Test if this is the platform you would expect\n  platform(query = null) {\n    return new RegExp(`${query}`, 'i').test(this.currentPlatform.identity);\n  },\n\n  isOutdated(supportedBrowsers) {\n    return !this.oneOf(supportedBrowsers);\n  },\n\n  // See if our query matches our current browser (and version)\n  matches(query) {\n    const result = query.split(/\\s+/);\n\n    const browser = result[0];\n\n    // does it match the browser?\n    if (!new RegExp(`${browser}`, 'i').test(this.currentBrowser.identity)) {\n      return false;\n    }\n\n    // No other params? Then it is finished and succesful\n    if (result.length <= 1) {\n      return true;\n    }\n\n    // expand the query\n    const operator = result[1];\n    const version = result[2];\n\n    // Compare the versions\n    return compareVersion(this.currentVersion, operator, version);\n  }\n};\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/src/browser.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "variable",
+    "name": "Browser",
+    "memberof": "modules/browser/src/browser.js",
+    "static": true,
+    "longname": "modules/browser/src/browser.js~Browser",
+    "access": "public",
+    "export": true,
+    "importPath": "@wetransfer/concorde/modules/browser/src/browser.js",
+    "importStyle": "{Browser}",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"currentBrowser\": function, \"currentPlatform\": function, \"currentVersion\": function, \"identity\": function, \"supportsTouchEvents\": function, \"isMobile\": function, \"isIphone\": function, \"isTablet\": function, \"oneOf\": function, \"platform\": function, \"isOutdated\": function, \"matches\": function}"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "modules/browser/src/config.js",
+    "content": "// List of browsers and operating systems / matching patterns\nexport default {\n  get browser() {\n    return [\n      {\n        string: navigator.userAgent,\n        subString: 'Edge/',\n        identity: 'Edge',\n        versionSearch: 'Edge'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'Chrome',\n        identity: 'Chrome'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'OmniWeb',\n        versionSearch: 'OmniWeb/',\n        identity: 'OmniWeb'\n      },\n      {\n        string: navigator.vendor,\n        subString: 'Apple',\n        identity: 'Safari',\n        versionSearch: 'Version'\n      },\n      {\n        prop: window.opera,\n        identity: 'Opera'\n      },\n      {\n        string: navigator.vendor,\n        subString: 'iCab',\n        identity: 'iCab'\n      },\n      {\n        string: navigator.vendor,\n        subString: 'KDE',\n        identity: 'Konqueror'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'Firefox',\n        identity: 'Firefox'\n      },\n      {\n        string: navigator.vendor,\n        subString: 'Camino',\n        identity: 'Camino'\n      },\n      {\n        // for newer Netscapes (6+)\n        string: navigator.userAgent,\n        subString: 'Netscape',\n        identity: 'Netscape'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'MSIE',\n        identity: 'Explorer',\n        versionSearch: 'MSIE'\n      },\n      {\n        // for IE11\n        string: navigator.userAgent,\n        subString: 'Trident/7.',\n        identity: 'Explorer',\n        versionSearch: 'rv'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'Gecko',\n        identity: 'Mozilla',\n        versionSearch: 'rv'\n      },\n      {\n        // for older Netscapes (4-)\n        string: navigator.userAgent,\n        subString: 'Mozilla',\n        identity: 'Netscape',\n        versionSearch: 'Mozilla'\n      }\n    ];\n  },\n\n  get platform() {\n    return [\n      {\n        string: navigator.platform,\n        subString: 'Win',\n        identity: 'Windows'\n      },\n      {\n        string: navigator.platform,\n        subString: 'Mac',\n        identity: 'Mac'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'iPhone',\n        identity: 'iPhone/iPod'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'iPad',\n        identity: 'iPad'\n      },\n      {\n        string: navigator.userAgent,\n        subString: 'Android',\n        identity: 'Android'\n      },\n      {\n        string: navigator.platform,\n        subString: 'Linux',\n        identity: 'Linux'\n      }\n    ];\n  }\n};\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/src/config.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "modules/browser/src/search.js",
+    "content": "import Config from './config';\n\n// Find a match in the input to see if we have a known browser/platform\nconst filterConfig = (input) => {\n  const options = input.filter((browser) => {\n    if (browser.string && browser.string.indexOf(browser.subString) !== -1) {\n      return true;\n    } else if (browser.prop) {\n      return true;\n    }\n  });\n\n  if (!options.length) {\n    return { identity: 'unknown' };\n  }\n\n  return options.shift();\n};\n\n// To help determine the current platform/browser/version\nexport const Search = {\n  get platform() {\n    return filterConfig(Config.platform);\n  },\n\n  get browser() {\n    return filterConfig(Config.browser);\n  },\n\n  version(browser, string = false) {\n    if (string === false) {\n      return (\n        this.version(browser, navigator.userAgent) ||\n        this.version(browser, navigator.appVersion) ||\n        'unknown'\n      );\n    }\n\n    const search = browser.versionSearch || browser.identity;\n    const index = string.indexOf(search);\n\n    if (index === -1) {\n      return false;\n    }\n\n    const version = string.substring(index + search.length + 1).split(' ');\n    return version[0].split('.').map((num) => parseFloat(num));\n  }\n};\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/src/search.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "filterConfig",
+    "memberof": "modules/browser/src/search.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "modules/browser/src/search.js~filterConfig",
+    "access": "public",
+    "export": false,
+    "importPath": "@wetransfer/concorde/modules/browser/src/search.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "input",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "variable",
+    "name": "Search",
+    "memberof": "modules/browser/src/search.js",
+    "static": true,
+    "longname": "modules/browser/src/search.js~Search",
+    "access": "public",
+    "export": true,
+    "importPath": "@wetransfer/concorde/modules/browser/src/search.js",
+    "importStyle": "{Search}",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"platform\": function, \"browser\": function, \"version\": function}"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "file",
+    "name": "modules/browser/src/version.js",
+    "content": "/**\n * Compares to versions (array format) and determines the difference between them.\n *\n * @since 1.0.0\n * @owner Version\n * @param {Array} versionA One of the versions to compare.\n * @param {Array} versionB The other version to compare.\n * @returns {number} Returns the difference.\n * @example\n *\n * diffVersions([1, 0, 0], [1, 5, 0])\n * // => -5\n *\n * diffVersions([1, 0, 0], [1, 0, 0])\n * // => 0\n *\n * diffVersions([3, 5, 1], [1, 1, 0])\n * // => 2\n */\nexport function diffVersions(versionA, versionB) {\n  let result = -1;\n\n  const length = versionB.length;\n  for (let index = 0; index < length; index++) {\n    result = versionA[index] - versionB[index];\n    if (result !== 0) {\n      return result;\n    }\n  }\n\n  return result;\n};\n\n/**\n * Converts a string version into an array\n *\n * @since 1.0.0\n * @module Version\n * @param {String} version The version to convert, in semantic versioning format.\n * @returns {Array} Returns the version in array format.\n * @example\n *\n * versionToArray('1.0.1')\n * // => [1, 0, 1]\n *\n * versionToArray('1.0.1-alpha')\n * // => [1, 0, 1]\n *\n * versionToArray([3, 5, 1], [1, 1, 0])\n * // => 2\n */\nexport function versionToArray(version) {\n  if (typeof version === 'string') {\n    return version.split('.').map((num) => parseFloat(num));\n  }\n\n  return version;\n};\n\n/**\n * Compares to semantic versions, given an operator.\n *\n * @since 1.0.0\n * @module Version\n * @param {Array} versionA One of the versions to compare.\n * @param {String} operator Compare versions using this operator. We support `>`, `>=`, `<`, `<=`, `=` and `==`.\n * @param {Array} versionB The other version to compare.\n * @returns {boolean} True if condition can be satisfied, false otherwise.\n * @example\n *\n * compareVersion('1.0.1', '<', '5.1.0')\n * // => true\n *\n * compareVersion('4.4.1', '=', '0.1.0')\n * // => false\n *\n * compareVersion('4.4.1', '>=', '6.1.0')\n * // => false\n */\nexport function compareVersion(versionA, operator, versionB) {\n  // Match all version parts (major, minor, patch..)\n  const result = diffVersions(\n    versionToArray(versionA),\n    versionToArray(versionB)\n  );\n\n  // Compare the results\n  switch (operator) {\n    case '>=':\n      return result >= 0;\n\n    case '>':\n      return result > 0;\n\n    case '<':\n      return result < 0;\n\n    case '<=':\n      return result <= 0;\n\n    case '=':\n    case '==':\n      return result === 0;\n\n    default:\n      return false;\n  }\n};\n",
+    "static": true,
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/modules/browser/src/version.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "diffVersions",
+    "memberof": "modules/browser/src/version.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "modules/browser/src/version.js~diffVersions",
+    "access": "public",
+    "export": true,
+    "importPath": "@wetransfer/concorde/modules/browser/src/version.js",
+    "importStyle": "{diffVersions}",
+    "description": "Compares to versions (array format) and determines the difference between them.",
+    "examples": [
+      "\ndiffVersions([1, 0, 0], [1, 5, 0])\n// => -5\n\ndiffVersions([1, 0, 0], [1, 0, 0])\n// => 0\n\ndiffVersions([3, 5, 1], [1, 1, 0])\n// => 2"
+    ],
+    "lineNumber": 20,
+    "since": "1.0.0",
+    "unknown": [
+      {
+        "tagName": "@owner",
+        "tagValue": "Version"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} Returns the difference."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "versionA",
+        "description": "One of the versions to compare."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "versionB",
+        "description": "The other version to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "Returns the difference."
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "versionToArray",
+    "memberof": "modules/browser/src/version.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "modules/browser/src/version.js~versionToArray",
+    "access": "public",
+    "export": true,
+    "importPath": "@wetransfer/concorde/modules/browser/src/version.js",
+    "importStyle": "{versionToArray}",
+    "description": "Converts a string version into an array",
+    "examples": [
+      "\nversionToArray('1.0.1')\n// => [1, 0, 1]\n\nversionToArray('1.0.1-alpha')\n// => [1, 0, 1]\n\nversionToArray([3, 5, 1], [1, 1, 0])\n// => 2"
+    ],
+    "lineNumber": 52,
+    "since": "1.0.0",
+    "unknown": [
+      {
+        "tagName": "@module",
+        "tagValue": "Version"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array} Returns the version in array format."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "version",
+        "description": "The version to convert, in semantic versioning format."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "Returns the version in array format."
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "compareVersion",
+    "memberof": "modules/browser/src/version.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "modules/browser/src/version.js~compareVersion",
+    "access": "public",
+    "export": true,
+    "importPath": "@wetransfer/concorde/modules/browser/src/version.js",
+    "importStyle": "{compareVersion}",
+    "description": "Compares to semantic versions, given an operator.",
+    "examples": [
+      "\ncompareVersion('1.0.1', '<', '5.1.0')\n// => true\n\ncompareVersion('4.4.1', '=', '0.1.0')\n// => false\n\ncompareVersion('4.4.1', '>=', '6.1.0')\n// => false"
+    ],
+    "lineNumber": 80,
+    "since": "1.0.0",
+    "unknown": [
+      {
+        "tagName": "@module",
+        "tagValue": "Version"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} True if condition can be satisfied, false otherwise."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "versionA",
+        "description": "One of the versions to compare."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "operator",
+        "description": "Compare versions using this operator. We support `>`, `>=`, `<`, `<=`, `=` and `==`."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "versionB",
+        "description": "The other version to compare."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "True if condition can be satisfied, false otherwise."
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# concorde.js\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/371cbb95f8404206928c96769a7e5de1)](https://www.codacy.com/app/WeTransfer/concorde.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeTransfer/concorde.js&amp;utm_campaign=Badge_Grade)\n[![Build Status](https://travis-ci.org/WeTransfer/concorde.js.svg?branch=master)](https://travis-ci.org/WeTransfer/concorde.js)\n\nA sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use. It also provides some tools to deal with the browser.\n\n## Installation\n\nIn a browser (to be decided):\n```html\n<script src=\"cdn.wetransfer.com/js/concorde.min.js\"></script>\n```\n\nUsing npm:\n```shell\n$ npm i --save @wetransfer/concorde\n```\n\n## Usage\n\nWith ES6 modules:\n```js\n// Load the full build.\nimport concorde from '@wetransfer/concorde';\n\n// Load the http build.\nimport http from '@wetransfer/concorde-http';\n\n// Cherry-pick methods for smaller browserify/rollup/webpack bundles.\nimport { get } from '@wetransfer/concorde-http';\n```\n\n\nIn Node.js:\n```js\n// Load the full build.\nconst concorde = require('@wetransfer/concorde');\n\n// Load the http build.\nconst http = require('@wetransfer/concorde-http');\n\n// Cherry-pick methods for smaller browserify/rollup/webpack bundles.\nconst { get } = require('@wetransfer/concorde-http');\n```\n",
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"@wetransfer/concorde\",\n  \"version\": \"0.0.1\",\n  \"description\": \"A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use\",\n  \"main\": \"index.js\",\n  \"sideEffects\": false,\n  \"scripts\": {\n    \"bootstrap\": \"lerna bootstrap\",\n    \"build\": \"lerna run build\",\n    \"docs\": \"esdoc\",\n    \"lint\": \"lerna run lint\",\n    \"precommit\": \"sh scripts/git/pre_commit_hooks\",\n    \"prepush\": \"sh scripts/git/pre_push_hooks\",\n    \"test\": \"lerna run test\",\n    \"test:ci\": \"npm run test:coverage -- --bail --runInBand --verbose=false && npm run test:codacy\",\n    \"test:codacy\": \"cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage\",\n    \"test:coverage\": \"jest --coverage\",\n    \"test:watch\": \"jest --watch\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/WeTransfer/concorde.js.git\"\n  },\n  \"keywords\": [\n    \"wetransfer\"\n  ],\n  \"author\": \"WeTransfer folks\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/WeTransfer/concorde.js/issues\"\n  },\n  \"homepage\": \"https://github.com/WeTransfer/concorde.js#readme\",\n  \"devDependencies\": {\n    \"@wetransfer/eslint-config-wetransfer\": \"1.2.1\",\n    \"babel-preset-env\": \"1.6.1\",\n    \"codacy-coverage\": \"2.0.3\",\n    \"esdoc\": \"1.0.4\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"eslint\": \"4.13.1\",\n    \"husky\": \"0.14.3\",\n    \"jest\": \"21.2.1\",\n    \"lerna\": \"2.5.1\",\n    \"prettier\": \"1.9.2\",\n    \"rollup\": \"0.52.1\",\n    \"rollup-plugin-babel\": \"3.0.2\",\n    \"rollup-plugin-uglify\": \"2.0.1\"\n  },\n  \"jest\": {\n    \"setupFiles\": [\n      \"./scripts/jest/setup-environment.js\"\n    ]\n  },\n  \"lint-staged\": {\n    \"*.{js,json,md}\": [\n      \"prettier --write\",\n      \"git add\"\n    ]\n  }\n}\n",
+    "longname": "/Users/arkaitz/workspace/wetransfer/concorde.js/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

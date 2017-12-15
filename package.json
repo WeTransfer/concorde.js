@@ -3,8 +3,19 @@
   "version": "0.0.1",
   "description": "A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "docs": "jsdoc -c jsdoc.json modules/browser/src/version.js README.md",
+    "lint": "lerna run lint",
+    "precommit": "sh scripts/git/pre_commit_hooks",
+    "prepush": "sh scripts/git/pre_push_hooks",
+    "test": "lerna run test",
+    "test:ci": "npm run test:coverage -- --bail --runInBand --verbose=false && npm run test:codacy",
+    "test:codacy": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -13,13 +24,36 @@
   "keywords": [
     "wetransfer"
   ],
-  "author": "WeTransfer",
+  "author": "WeTransfer folks",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/WeTransfer/concorde.js/issues"
   },
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "devDependencies": {
-    "lerna": "2.5.1"
+    "@wetransfer/eslint-config-wetransfer": "1.2.1",
+    "babel-preset-env": "1.6.1",
+    "codacy-coverage": "2.0.3",
+    "docdash": "0.4.0",
+    "eslint": "4.13.1",
+    "husky": "0.14.3",
+    "jest": "21.2.1",
+    "jsdoc": "3.5.5",
+    "lerna": "2.5.1",
+    "prettier": "1.9.2",
+    "rollup": "0.52.1",
+    "rollup-plugin-babel": "3.0.2",
+    "rollup-plugin-uglify": "2.0.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./scripts/jest/setup-environment.js"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

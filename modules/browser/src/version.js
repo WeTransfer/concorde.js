@@ -61,6 +61,27 @@ export function versionToArray(version) {
   return version;
 }
 
+const operations = {
+  ['>='](result) {
+    return result >= 0;
+  },
+  ['>'](result) {
+    return result > 0;
+  },
+  ['<'](result) {
+    return result < 0;
+  },
+  ['<='](result) {
+    return result <= 0;
+  },
+  ['='](result) {
+    return result === 0;
+  },
+  ['=='](result) {
+    return result === 0;
+  }
+};
+
 /**
  * Compares to semantic versions, given an operator.
  *
@@ -81,31 +102,17 @@ export function versionToArray(version) {
  * // => false
  */
 export function compareVersion(versionA, operator, versionB) {
+  const operation = operations[operator];
+
+  if (!operation) {
+    return false;
+  }
+
   // Match all version parts (major, minor, patch..)
   const result = diffVersions(
     versionToArray(versionA),
     versionToArray(versionB)
   );
 
-  // Compare the results
-  switch (operator) {
-    case '>=':
-      return result >= 0;
-
-    case '>':
-      return result > 0;
-
-    case '<':
-      return result < 0;
-
-    case '<=':
-      return result <= 0;
-
-    case '=':
-    case '==':
-      return result === 0;
-
-    default:
-      return false;
-  }
+  return operation(result);
 }

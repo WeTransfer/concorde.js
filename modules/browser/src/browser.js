@@ -68,7 +68,9 @@ export default {
 
   // Test if this is the platform you would expect
   platform(query = null) {
-    return new RegExp(`${query}`, 'i').test(this.currentPlatform.identity);
+    return this.currentPlatform.identity
+      .toLowerCase()
+      .includes(`${query}`.toLowerCase());
   },
 
   isOutdated(supportedBrowsers) {
@@ -82,7 +84,11 @@ export default {
     const browser = result[0];
 
     // does it match the browser?
-    if (!new RegExp(`${browser}`, 'i').test(this.currentBrowser.identity)) {
+    if (
+      !this.currentBrowser.identity
+        .toLowerCase()
+        .includes(`${browser}`.toLowerCase())
+    ) {
       return false;
     }
 

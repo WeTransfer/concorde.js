@@ -17,6 +17,18 @@ const filterConfig = (input) => {
   return options.shift();
 };
 
+const versionFromString = (browser, string) => {
+  const search = browser.versionSearch || browser.identity;
+  const index = string.indexOf(search);
+
+  if (index === -1) {
+    return false;
+  }
+
+  const version = string.substring(index + search.length + 1).split(' ');
+  return version[0].split('.').map((num) => parseFloat(num));
+};
+
 // To help determine the current platform/browser/version
 export const Search = {
   get platform() {
@@ -27,23 +39,11 @@ export const Search = {
     return filterConfig(Config.browser);
   },
 
-  version(browser, string = false) {
-    if (string === false) {
-      return (
-        this.version(browser, navigator.userAgent) ||
-        this.version(browser, navigator.appVersion) ||
-        'unknown'
-      );
-    }
-
-    const search = browser.versionSearch || browser.identity;
-    const index = string.indexOf(search);
-
-    if (index === -1) {
-      return false;
-    }
-
-    const version = string.substring(index + search.length + 1).split(' ');
-    return version[0].split('.').map((num) => parseFloat(num));
+  version(browser) {
+    return (
+      versionFromString(browser, navigator.userAgent) ||
+      versionFromString(browser, navigator.appVersion) ||
+      'unknown'
+    );
   }
 };

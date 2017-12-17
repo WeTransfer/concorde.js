@@ -4,6 +4,7 @@ npm-debug.log
 
 # NPM
 node_modules
+package-lock.json
 
 # Code coverage
 coverage

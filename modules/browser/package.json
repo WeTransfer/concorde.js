@@ -27,9 +27,6 @@
     "url": "https://github.com/WeTransfer/concorde.js/issues"
   },
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
-  "devDependencies": {
-    "lerna": "2.5.1"
-  },
   "jest": {
     "setupFiles": [
       "../../scripts/jest/setup-environment.js"

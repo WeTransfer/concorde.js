@@ -2,7 +2,7 @@
 import { Search } from './search';
 import { compareVersion } from './version';
 
-export const Browser = {
+export default {
   // A method to match the current browser to a list of options.
   get currentBrowser() {
     return Search.browser;
@@ -68,7 +68,9 @@ export const Browser = {
 
   // Test if this is the platform you would expect
   platform(query = null) {
-    return new RegExp(`${query}`, 'i').test(this.currentPlatform.identity);
+    return this.currentPlatform.identity
+      .toLowerCase()
+      .includes(`${query}`.toLowerCase());
   },
 
   isOutdated(supportedBrowsers) {
@@ -82,7 +84,11 @@ export const Browser = {
     const browser = result[0];
 
     // does it match the browser?
-    if (!new RegExp(`${browser}`, 'i').test(this.currentBrowser.identity)) {
+    if (
+      !this.currentBrowser.identity
+        .toLowerCase()
+        .includes(`${browser}`.toLowerCase())
+    ) {
       return false;
     }
 

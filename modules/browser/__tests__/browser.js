@@ -1,4 +1,4 @@
-import { Browser } from '../index';
+import Browser from '../index';
 
 describe('Browser module', () => {
   const setNavigator = (userAgent) => {

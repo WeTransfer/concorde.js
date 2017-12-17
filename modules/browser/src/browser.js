@@ -2,7 +2,7 @@
 import { Search } from './search';
 import { compareVersion } from './version';
 
-export const Browser = {
+export default {
   // A method to match the current browser to a list of options.
   get currentBrowser() {
     return Search.browser;

@@ -1,22 +1,23 @@
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 
+const input = 'index.js';
+const outputConfig = (env) => {
+  return {
+    file: `dist/concorde-browser.${env}.js`,
+    format: 'cjs'
+  };
+};
+
 export default [
   {
-    input: 'index.js',
-    output: {
-      file: 'dist/index.js',
-      format: 'es'
-    },
+    input,
+    output: outputConfig('development'),
     plugins: [babel()]
   },
   {
-    input: 'index.js',
-    output: {
-      file: 'dist/concorde-browser.min.js',
-      format: 'umd',
-      name: 'concordeBrowser'
-    },
+    input,
+    output: outputConfig('production'),
     plugins: [babel(), uglify()]
   }
 ];

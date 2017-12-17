@@ -4,6 +4,10 @@
   "description": "A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use",
   "main": "index.js",
   "sideEffects": false,
+  "private": true,
+  "workspaces": [
+    "modules/*"
+  ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
@@ -32,6 +36,7 @@
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "devDependencies": {
     "@wetransfer/eslint-config-wetransfer": "1.2.1",
+    "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "codacy-coverage": "2.0.3",
     "docdash": "0.4.0",

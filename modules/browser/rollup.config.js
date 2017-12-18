@@ -17,7 +17,7 @@ export default [
   },
   {
     input,
-    output: outputConfig('production'),
+    output: outputConfig('production.min'),
     plugins: [babel(), uglify()]
   }
 ];

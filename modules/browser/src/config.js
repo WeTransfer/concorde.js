@@ -15,6 +15,11 @@ export default {
       },
       {
         string: navigator.userAgent,
+        subString: 'CriOS',
+        identity: 'CriOS'
+      },
+      {
+        string: navigator.userAgent,
         subString: 'OmniWeb',
         versionSearch: 'OmniWeb/',
         identity: 'OmniWeb'

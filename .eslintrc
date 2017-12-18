@@ -13,6 +13,7 @@
   },
   "globals": {
     "global": true,
+    "module": true,
     "process": true
   }
 }

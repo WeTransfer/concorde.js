@@ -111,7 +111,7 @@ export default {
    * // => true
    */
   get isMobile() {
-    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    return !!/Android|CriOS|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     );
   },

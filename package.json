@@ -15,7 +15,7 @@
     "lint": "lerna run lint",
     "precommit": "sh scripts/git/pre_commit_hooks",
     "prepush": "sh scripts/git/pre_push_hooks",
-    "semantic-release": "lerna publish --conventional-commits --skip-git --yes",
+    "semantic-release": "lerna publish --conventional-commits --yes",
     "test": "lerna run test",
     "test:ci": "npm run test:coverage -- --bail --runInBand --verbose=false && npm run test:codacy",
     "test:codacy": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
@@ -61,5 +61,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

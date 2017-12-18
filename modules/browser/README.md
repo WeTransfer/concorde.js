@@ -1,4 +1,5 @@
-# `concorde-browser`
+# concorde-browser
+[![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser)
 
 Browser module. Handy functions to retrieve information and capabilities from the browser.
 

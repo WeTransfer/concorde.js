@@ -10,4 +10,4 @@ package-lock.json
 coverage
 
 # Distribution Code
-**/dist
+**/dist/concorde-*

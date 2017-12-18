@@ -29,7 +29,7 @@ let deps;
 if (Browser.platform('windows')) {
   deps = require('windows/deps');
 } else {
-  deps = require('unix/deps);
+  deps = require('unix/deps');
 }
 ```
 

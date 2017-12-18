@@ -1,17 +1,18 @@
 /**
  * Version module. Handy functions operate with semver version numbers.
- *
  * @module Version
+ * @since 1.0.0
  */
 
 /**
  * Compares to versions (array format) and determines the difference between them.
- *
  * @since 1.0.0
  * @param {Array} versionA One of the versions to compare.
  * @param {Array} versionB The other version to compare.
  * @returns {number} Returns the difference.
  * @example
+ *
+ * import { diffVersions } from '@wetransfer/concorde-browser';
  *
  * diffVersions([1, 0, 0], [1, 5, 0])
  * // => -5
@@ -38,11 +39,12 @@ export function diffVersions(versionA, versionB) {
 
 /**
  * Converts a string version into an array
- *
  * @since 1.0.0
  * @param {String} version The version to convert, in semantic versioning format.
  * @returns {Array} Returns the version in array format.
  * @example
+ *
+ * import { versionToArray } from '@wetransfer/concorde-browser';
  *
  * versionToArray('1.0.1')
  * // => [1, 0, 1]
@@ -84,13 +86,14 @@ const operations = {
 
 /**
  * Compares to semantic versions, given an operator.
- *
  * @since 1.0.0
  * @param {Array} versionA One of the versions to compare.
  * @param {String} operator Compare versions using this operator. We support `>`, `>=`, `<`, `<=`, `=` and `==`.
  * @param {Array} versionB The other version to compare.
  * @returns {boolean} True if condition can be satisfied, false otherwise.
  * @example
+ *
+ * import { compareVersion } from '@wetransfer/concorde-browser';
  *
  * compareVersion('1.0.1', '<', '5.1.0')
  * // => true

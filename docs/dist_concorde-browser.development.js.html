@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>dist/concorde-browser.development.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Search.html">Search</a></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li><li data-type='method'><a href="module-Version.html#~compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#~diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#~versionToArray">versionToArray</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">dist/concorde-browser.development.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// List of browsers and operating systems / matching patterns
+var Config = {
+  get browser() {
+    return [{
+      string: navigator.userAgent,
+      subString: 'Edge/',
+      identity: 'Edge',
+      versionSearch: 'Edge'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Chrome',
+      identity: 'Chrome'
+    }, {
+      string: navigator.userAgent,
+      subString: 'OmniWeb',
+      versionSearch: 'OmniWeb/',
+      identity: 'OmniWeb'
+    }, {
+      string: navigator.vendor,
+      subString: 'Apple',
+      identity: 'Safari',
+      versionSearch: 'Version'
+    }, {
+      prop: window.opera,
+      identity: 'Opera'
+    }, {
+      string: navigator.vendor,
+      subString: 'iCab',
+      identity: 'iCab'
+    }, {
+      string: navigator.vendor,
+      subString: 'KDE',
+      identity: 'Konqueror'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Firefox',
+      identity: 'Firefox'
+    }, {
+      string: navigator.vendor,
+      subString: 'Camino',
+      identity: 'Camino'
+    }, {
+      // for newer Netscapes (6+)
+      string: navigator.userAgent,
+      subString: 'Netscape',
+      identity: 'Netscape'
+    }, {
+      string: navigator.userAgent,
+      subString: 'MSIE',
+      identity: 'Explorer',
+      versionSearch: 'MSIE'
+    }, {
+      // for IE11
+      string: navigator.userAgent,
+      subString: 'Trident/7.',
+      identity: 'Explorer',
+      versionSearch: 'rv'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Gecko',
+      identity: 'Mozilla',
+      versionSearch: 'rv'
+    }, {
+      // for older Netscapes (4-)
+      string: navigator.userAgent,
+      subString: 'Mozilla',
+      identity: 'Netscape',
+      versionSearch: 'Mozilla'
+    }];
+  },
+
+  get platform() {
+    return [{
+      string: navigator.platform,
+      subString: 'Win',
+      identity: 'Windows'
+    }, {
+      string: navigator.platform,
+      subString: 'Mac',
+      identity: 'Mac'
+    }, {
+      string: navigator.userAgent,
+      subString: 'iPhone',
+      identity: 'iPhone/iPod'
+    }, {
+      string: navigator.userAgent,
+      subString: 'iPad',
+      identity: 'iPad'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Android',
+      identity: 'Android'
+    }, {
+      string: navigator.platform,
+      subString: 'Linux',
+      identity: 'Linux'
+    }];
+  }
+};
+
+// Find a match in the input to see if we have a known browser/platform
+var filterConfig = function filterConfig(input) {
+  var options = input.filter(function (browser) {
+    if (browser.string &amp;&amp; browser.string.indexOf(browser.subString) !== -1) {
+      return true;
+    } else if (browser.prop) {
+      return true;
+    }
+  });
+
+  if (!options.length) {
+    return { identity: 'unknown' };
+  }
+
+  return options.shift();
+};
+
+var versionFromString = function versionFromString(browser, string) {
+  var search = browser.versionSearch || browser.identity;
+  var index = string.indexOf(search);
+
+  if (index === -1) {
+    return false;
+  }
+
+  var version = string.substring(index + search.length + 1).split(' ');
+  return version[0].split('.').map(function (num) {
+    return parseFloat(num);
+  });
+};
+
+// To help determine the current platform/browser/version
+var Search = {
+  get platform() {
+    return filterConfig(Config.platform);
+  },
+
+  get browser() {
+    return filterConfig(Config.browser);
+  },
+
+  version: function version(browser) {
+    return versionFromString(browser, navigator.userAgent) || versionFromString(browser, navigator.appVersion) || 'unknown';
+  }
+};
+
+var _operations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/**
+ * Version module. Handy functions operate with semver version numbers.
+ *
+ * @module Version
+ */
+
+/**
+ * Compares to versions (array format) and determines the difference between them.
+ *
+ * @since 1.0.0
+ * @param {Array} versionA One of the versions to compare.
+ * @param {Array} versionB The other version to compare.
+ * @returns {number} Returns the difference.
+ * @example
+ *
+ * diffVersions([1, 0, 0], [1, 5, 0])
+ * // => -5
+ *
+ * diffVersions([1, 0, 0], [1, 0, 0])
+ * // => 0
+ *
+ * diffVersions([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+function diffVersions(versionA, versionB) {
+  var result = -1;
+
+  var length = versionB.length;
+  for (var index = 0; index &lt; length; index++) {
+    result = versionA[index] - versionB[index];
+    if (result !== 0) {
+      return result;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Converts a string version into an array
+ *
+ * @since 1.0.0
+ * @param {String} version The version to convert, in semantic versioning format.
+ * @returns {Array} Returns the version in array format.
+ * @example
+ *
+ * versionToArray('1.0.1')
+ * // => [1, 0, 1]
+ *
+ * versionToArray('1.0.1-alpha')
+ * // => [1, 0, 1]
+ *
+ * versionToArray([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+function versionToArray(version) {
+  if (typeof version === 'string') {
+    return version.split('.').map(function (num) {
+      return parseFloat(num);
+    });
+  }
+
+  return version;
+}
+
+var operations = (_operations = {}, _defineProperty(_operations, '>=', function _(result) {
+  return result >= 0;
+}), _defineProperty(_operations, '>', function _(result) {
+  return result > 0;
+}), _defineProperty(_operations, '&lt;', function _(result) {
+  return result &lt; 0;
+}), _defineProperty(_operations, '&lt;=', function _(result) {
+  return result &lt;= 0;
+}), _defineProperty(_operations, '=', function _(result) {
+  return result === 0;
+}), _defineProperty(_operations, '==', function _(result) {
+  return result === 0;
+}), _operations);
+
+/**
+ * Compares to semantic versions, given an operator.
+ *
+ * @since 1.0.0
+ * @param {Array} versionA One of the versions to compare.
+ * @param {String} operator Compare versions using this operator. We support `>`, `>=`, `&lt;`, `&lt;=`, `=` and `==`.
+ * @param {Array} versionB The other version to compare.
+ * @returns {boolean} True if condition can be satisfied, false otherwise.
+ * @example
+ *
+ * compareVersion('1.0.1', '&lt;', '5.1.0')
+ * // => true
+ *
+ * compareVersion('4.4.1', '=', '0.1.0')
+ * // => false
+ *
+ * compareVersion('4.4.1', '>=', '6.1.0')
+ * // => false
+ */
+function compareVersion(versionA, operator, versionB) {
+  var operation = operations[operator];
+
+  if (!operation) {
+    return false;
+  }
+
+  // Match all version parts (major, minor, patch..)
+  var result = diffVersions(versionToArray(versionA), versionToArray(versionB));
+
+  return operation(result);
+}
+
+// This is based on jquery.client (from old WT source)
+var browser = {
+  // A method to match the current browser to a list of options.
+  get currentBrowser() {
+    return Search.browser;
+  },
+
+  get currentPlatform() {
+    return Search.platform;
+  },
+
+  get currentVersion() {
+    return Search.version(this.currentBrowser);
+  },
+
+  // Return the current Browser identity (OS + Browser)
+  get identity() {
+    return {
+      platform: this.currentPlatform.identity,
+      browser: this.currentBrowser.identity,
+      version: this.currentVersion.join ? this.currentVersion.join('.') : this.currentVersion
+    };
+  },
+
+  // Test if this document supports touch, however... There is much
+  // discussion about detecting touch in Modernizr here:
+  // https://github.com/Modernizr/Modernizr/issues/548
+  // We will just sniff the popular stuff for now.
+  get supportsTouchEvents() {
+    return (this.isMobile || this.isTablet) &amp;&amp; ('ontouchstart' in window || window.DocumentTouch &amp;&amp; document instanceof window.DocumentTouch);
+  },
+
+  // This sounds pretty mobile..
+  get isMobile() {
+    return !!/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  },
+
+  /**
+   * Check whether the navigation platform is an iPhone
+   * @return {Boolean} Whether it is an iPhone
+   */
+  get isIphone() {
+    return (/iPhone/.test(navigator.platform)
+    );
+  },
+
+  get isTablet() {
+    return (/iPad/i.test(navigator.userAgent)
+    );
+  },
+
+  oneOf: function oneOf() {
+    var _this = this;
+
+    var lines = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : [];
+
+    if (typeof lines === 'string') {
+      lines = [lines];
+    }
+
+    return lines.filter(function (line) {
+      return _this.matches(line);
+    }).length > 0;
+  },
+
+
+  // Test if this is the platform you would expect
+  platform: function platform() {
+    var query = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : null;
+
+    return this.currentPlatform.identity.toLowerCase().includes(('' + query).toLowerCase());
+  },
+  isOutdated: function isOutdated(supportedBrowsers) {
+    return !this.oneOf(supportedBrowsers);
+  },
+
+
+  // See if our query matches our current browser (and version)
+  matches: function matches(query) {
+    var result = query.split(/\s+/);
+
+    var browser = result[0];
+
+    // does it match the browser?
+    if (!this.currentBrowser.identity.toLowerCase().includes(('' + browser).toLowerCase())) {
+      return false;
+    }
+
+    // No other params? Then it is finished and succesful
+    if (result.length &lt;= 1) {
+      return true;
+    }
+
+    // expand the query
+    var operator = result[1];
+    var version = result[2];
+
+    // Compare the versions
+    return compareVersion(this.currentVersion, operator, version);
+  }
+};
+
+exports['default'] = browser;
+exports.Search = Search;
+exports.diffVersions = diffVersions;
+exports.versionToArray = versionToArray;
+exports.compareVersion = compareVersion;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 18 2017 10:56:21 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

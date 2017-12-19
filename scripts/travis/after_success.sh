@@ -6,11 +6,6 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   exit 0
 fi
 
-if [[ $TRAVIS_BRANCH != 'master' ]]; then
-  echo "Builds from a branch are not released to NPM"
-  exit 0
-fi
-
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
-  npm run semantic-release
+  npm run semantic-release-dry-run
 fi

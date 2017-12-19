@@ -50,6 +50,11 @@ export default {
         identity: 'Firefox'
       },
       {
+        string: navigator.userAgent,
+        subString: 'FxiOS',
+        identity: 'FxiOS'
+      },
+      {
         string: navigator.vendor,
         subString: 'Camino',
         identity: 'Camino'

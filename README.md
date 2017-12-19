@@ -35,6 +35,31 @@ Browser.platform('windows');
 // => false
 ```
 
+## Release process
+
+First, make sure that you have an NPM account at https://www.npmjs.com/, and you are part of the WeTransfer developer's team. Use `npm login` to store the credentials on the client aka, your computer. Check that your authentication token for `registry.npmjs.org` is part of your `~/.npmrc` file.
+
+We use `lerna` to manage our monorepo, and publishing new versions of our modules is also part `lerna`'s responsability. Please run `npm run semantic-release` to publish a new version(s), it should do the following:
+
+* Checkout master, pull and rebase last changes
+* Create a new branch to release from
+* `lerna` will publish to NPM only the modules that changed since the last commit
+* Push the changes to GitHub (changelog and new package version)
+
+It's still your responsability as a developer to create the PR on GitHub and ask a maintainer to merge it.
+
+### What if something goes wrong?
+
+In the unlikely event of a broken release process or water landing, it is still possible to publish the modules manually to NPM. Please follow these steps:
+
+* Create a new branch: `git checkout -b release`
+* Change directory to the module you want to publish: `cd modules/foo`
+* Bump the version of the package. You must decide if it is mayor, minor or patch.
+* Update the CHANGELOG.md file.
+* Commit your changes: `git add package.json CHANGELOG.md && git commit -m "chore(release): npm publish 📦 [ci-skip]"`
+* Create a new tag with the new version: `git tag -a @wetransfer/concorde-module@version -m "@wetransfer/concorde-module@version"`
+* Repeat with the rest of the modules, if any.
+* Push your changes: `git push --no-verify --follow-tags --set-upstream origin feature`
 
 ## License
 

@@ -1,28 +1,23 @@
 # Contributing to concorde.js
 
-Please take a moment to review this document in order to make the contribution
-process easy and effective for everyone involved.
+As the creators, and maintainers of this project, we're glad to share our projects and invite contributors to help us stay up to date. Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
 
-Following these guidelines helps to communicate that you respect the time of
-the developers managing and developing this open source project. In return,
-they should reciprocate that respect in addressing your issue or assessing
-patches and features.
+Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue or assessing patches and features.
 
+In general, we expect you to follow our [Code of Conduct](https://github.com/WeTransfer/concorde.js/blob/master/.github/CODE_OF_CONDUCT.md).
 
-## Using the issue tracker
+## Using the issue tracker for bug reports, feature requests and discussions
 
-The issue tracker is the preferred channel for [bug reports](#bug-reports),
-[features requests](#feature-requests) and [submitting pull
-requests](#pull-requests), but please respect the following restrictions:
+### First time contributors
+We should encourage first time contributors. A good inspiration on this can be found [here](http://www.firsttimersonly.com/). As pointed out:
 
-* Please **do not** use the issue tracker for personal support requests (use
-  [Stack Overflow](http://stackoverflow.com)).
+> If you are an OSS project owner, then consider marking a few open issues with the label first-timers-only. The first-timers-only label explicitly announces:
 
-* Please **do not** derail or troll issues. Keep the discussion on topic and
-  respect the opinions of others.
+> "I'm willing to hold your hand so you can make your first PR. This issue is rather a bit easier than normal. And anyone who’s already contributed to open source isn’t allowed to touch this one!"
 
+By labeling issues with this `first-timers-only` label we help first time contributors step up their game and start contributing.
 
-## Bug reports
+### Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
 Good bug reports are extremely helpful - thank you!
@@ -35,14 +30,11 @@ Guidelines for bug reports:
 2. **Check if the issue has been fixed** &mdash; try to reproduce it using the
    latest `master` or development branch in the repository.
 
-3. **Isolate the problem** &mdash; create a [reduced test
-   case](http://css-tricks.com/reduced-test-cases/) and a live example.
+3. **Isolate the problem** &mdash; provide clear steps to reproduce.
 
 A good bug report shouldn't leave others needing to chase you up for more
 information. Please try to be as detailed as possible in your report. What is
-your environment? What steps will reproduce the issue? What browser(s) and OS
-experience the problem? What would you expect to be the outcome? All these
-details will help people to fix any potential bugs.
+your environment? What steps will reproduce the issue? What would you expect to be the outcome? All these details will help people to fix any potential bugs.
 
 Example:
 
@@ -62,8 +54,7 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-
-## Feature requests
+### Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
 fits with the scope and aims of the project. It's up to *you* to make a strong
@@ -71,7 +62,7 @@ case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
 
-## Pull requests
+### Pull requests
 
 Good pull requests - patches, improvements, new features - are a fantastic
 help. They should remain focused in scope and avoid containing unrelated
@@ -134,26 +125,52 @@ project:
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description.
 
-## Conventions of commit messages
+### Conventions of commit messages
 
 Adding features on repo
 
 ```bash
-git commit -m "feat: message about this feature"
+git commit -m "feat(module): message about this feature"
 ```
 
 Fixing features on repo
 
 ```bash
-git commit -m "fix: message about this update"
+git commit -m "fix(module): message about this update"
 ```
 
 Removing features on repo
 
 ```bash
-git commit -m "refactor: message about this" -m "BREAKING CHANGE: message about the breaking change"
+git commit -m "refactor(module): message about this" -m "BREAKING CHANGE: message about the breaking change"
 ```
 
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owner to
 license your work under the same license as that used by the project.
+
+### Discussions
+
+We aim to keep all project discussion inside GitHub issues. This is to make sure valuable discussion is accessible via search. If you have questions about how to use the library, or how the project is running - GitHub issues are the goto tool for this project.
+
+## Ownership
+
+If you get a merged Pull Request, regardless of content (typos, code, doc fixes), then you're eligible for push access to this repository. This is checked for on pull request merges and an invite to the repository is sent via GitHub.
+
+#### Why do we give out push access?
+
+It can be overwhelming to offered the chance to wipe the source code for a project. Don't worry, we don't let you push to master. All code is peer-reviewed, and we have the convention that someone other than the submitter should merge non-trivial pull requests.
+
+As a repository contributor, you can merge other people's pull requests, or other contributors can merge yours. You won't be assigned a pull request, but you're welcome to jump in and take a code review on topics that interest you.
+
+There is space for debate after review too. Offering everyone the chance to revert, or make an amending pull request. If it feels right, merge.
+
+#### Our expectations on you as a contributor
+
+We want contributors to provide ideas, keep the ship shipping and to take some of the load from others. It is non-obligatory; we’re here to get things done in an enjoyable way. 🎉
+
+The fact that you'll have push access will allow you to:
+
+- Avoid having to fork the project if you want to submit other pull requests as you'll be able to create branches directly on the project.
+- Help triage issues, merge pull requests.
+- Pick up the project if other maintainers move their focus elsewhere.

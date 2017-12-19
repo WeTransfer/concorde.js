@@ -130,19 +130,19 @@ project:
 Adding features on repo
 
 ```bash
-git commit -m "feat(module): message about this feature"
+git commit -m "feat: message about this feature"
 ```
 
 Fixing features on repo
 
 ```bash
-git commit -m "fix(module): message about this update"
+git commit -m "fix: message about this update"
 ```
 
 Removing features on repo
 
 ```bash
-git commit -m "refactor(module): message about this" -m "BREAKING CHANGE: message about the breaking change"
+git commit -m "refactor: message about this" -m "BREAKING CHANGE: message about the breaking change"
 ```
 
 

@@ -57,7 +57,7 @@ export function diffVersions(versionA, versionB) {
  */
 export function versionToArray(version) {
   if (typeof version === 'string') {
-    return version.split('.').map(num => parseFloat(num));
+    return version.split('.').map((num) => parseFloat(num));
   }
 
   return version;

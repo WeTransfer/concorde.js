@@ -1,6 +1,9 @@
 {
   "lerna": "2.5.1",
   "version": "independent",
+  "packages": [
+    "modules/*"
+  ],
   "command": {
     "publish": {
       "message": "chore(release): publish %s"

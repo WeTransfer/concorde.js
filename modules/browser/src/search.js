@@ -8,8 +8,8 @@ import Config from './config';
 import { versionToArray } from './version';
 
 // Find a match in the input to see if we have a known browser/platform
-const filterConfig = input => {
-  const options = input.filter(browser => {
+const filterConfig = (input) => {
+  const options = input.filter((browser) => {
     if (browser.string && browser.string.indexOf(browser.subString) !== -1) {
       return true;
     } else if (browser.prop) {

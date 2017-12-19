@@ -169,7 +169,7 @@ export default {
       lines = [lines];
     }
 
-    return lines.filter(line => this.matches(line)).length > 0;
+    return lines.filter((line) => this.matches(line)).length > 0;
   },
 
   /**

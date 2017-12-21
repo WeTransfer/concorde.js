@@ -34,6 +34,14 @@ if (Browser.platform('windows')) {
 }
 ```
 
+## Development
+
+In case you want to develop/debug this module while integrating with other project, please follow these steps:
+
+* Run `npm link` to create a global symlink to that module
+* Run `npm run build:watch` to listen to changes and rebuild the module
+* Link to this module from your project with `npm link @wetransfer/concorde-browser`
+
 ## API
 
 Check the available documentation on [wetransfer.github.io](https://wetransfer.github.io/concorde.js/module-Browser.html).

@@ -1,23 +1,3 @@
-import babel from 'rollup-plugin-babel';
-import uglify from 'rollup-plugin-uglify';
+import rollupConfig from '../../scripts/build/rollup.config';
 
-const input = 'index.js';
-const outputConfig = (env) => {
-  return {
-    file: `dist/concorde-browser.${env}.js`,
-    format: 'cjs'
-  };
-};
-
-export default [
-  {
-    input,
-    output: outputConfig('development'),
-    plugins: [babel()]
-  },
-  {
-    input,
-    output: outputConfig('production.min'),
-    plugins: [babel(), uglify()]
-  }
-];
+export default rollupConfig('browser');

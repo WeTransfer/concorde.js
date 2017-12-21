@@ -1,31 +1,29 @@
-import Merge from 'deepmerge';
-
-let defaultOptions = {};
-
 // Slightly based on jQuery.cookie
-export default class Cookie {
-  static configure(options) {
-    defaultOptions = Merge(defaultOptions, options);
-  }
+export default {
+  options: {},
 
-  static set(key, value, options = {}) {
-    options = Merge(defaultOptions, options);
+  configure(options) {
+    this.options = Object.assign({}, options);
+  },
+
+  set(key, value, options = {}) {
+    const opts = Object.assign({}, this.options, options);
 
     // Are we unsetting this cookie?
     if (value === null || value === undefined) {
-      options.days = -1;
+      opts.days = -1;
     }
 
     // Do we have an expiry in days?
-    if (Number.isInteger(options.days)) {
-      options.expires = new Date();
-      options.expires.setDate(options.expires.getDate() + options.days);
+    if (Number.isInteger(opts.days)) {
+      opts.expires = new Date();
+      opts.expires.setDate(opts.expires.getDate() + opts.days);
     }
 
     // Make sure value is a string
     key = encodeURIComponent(key);
     value = String(value);
-    value = options.raw ? value : encodeURIComponent(value);
+    value = opts.raw ? value : encodeURIComponent(value);
 
     // Build our cookie string
     const cookieBuilder = [
@@ -33,36 +31,36 @@ export default class Cookie {
     ];
 
     // Does the cookie have expiry settings?
-    if (options.expires) {
-      cookieBuilder.push('expires=' + options.expires.toUTCString());
+    if (opts.expires) {
+      cookieBuilder.push('expires=' + opts.expires.toUTCString());
     }
 
     // Does the cookie need a path?
-    if (options.path) {
-      cookieBuilder.push('path=' + options.path);
+    if (opts.path) {
+      cookieBuilder.push('path=' + opts.path);
     }
 
     // Does the cookie need a domain?
-    if (options.domain) {
-      cookieBuilder.push('domain=' + options.domain);
+    if (opts.domain) {
+      cookieBuilder.push('domain=' + opts.domain);
     }
 
     // Does the cookie need to be secure?
-    if (options.secure) {
+    if (opts.secure) {
       cookieBuilder.push('secure');
     }
 
     // Set the cookie, yay
     document.cookie = cookieBuilder.join('; ');
-  }
+  },
 
   // Unsetting is setting with null value.
-  static unset(key, options = {}) {
-    Cookie.set(key, null, options);
-  }
+  unset(key, options = {}) {
+    this.set(key, null, options);
+  },
 
   // Get cookie value.
-  static get(key, {defaultValue = null, raw = false} = {}) {
+  get(key, {defaultValue = null, raw = false} = {}) {
     if (!document.cookie) {
       return defaultValue;
     }
@@ -73,4 +71,4 @@ export default class Cookie {
     }
     return raw ? result[1] : decodeURIComponent(result[1]);
   }
-}
+};

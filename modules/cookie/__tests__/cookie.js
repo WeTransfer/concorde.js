@@ -1,12 +1,14 @@
 import Cookie from '../index';
 
 describe('Cookie module', () => {
+  // https://github.com/facebook/jest/issues/890
+  Object.defineProperty(global.document, 'cookie', {
+    writable: true,
+    value: ''
+  });
+
   beforeEach(() => {
-    // https://github.com/facebook/jest/issues/890
-    Object.defineProperty(global.document, 'cookie', {
-      writable: true,
-      value: ''
-    });
+    global.document.cookie = '';
   });
 
   it('should be able to read cookies', () => {
@@ -93,6 +95,5 @@ describe('Cookie module', () => {
     Cookie.configure({path: '/cat'});
     Cookie.set('foo', 'bar');
     expect(document.cookie).toEqual('foo=bar; path=/cat');
-    Cookie.configure({});
   });
 });

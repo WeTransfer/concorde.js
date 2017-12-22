@@ -1,39 +1,32 @@
-export default function debounce(func, wait = 0, {
-  leading = false,
-  cancelObj = 'canceled'
-} = {}) {
+export function debounceAsync(
+  func,
+  wait = 0,
+  { cancelObj = { name: 'debounceAsync', message: 'cancelled debounce' } } = {}
+) {
   let timer, latestResolve, shouldCancel;
 
-  async function exec(args, resolve, reject) {
-    if (shouldCancel && resolve !== latestResolve) {
-      reject(cancelObj);
-    } else {
-      func.apply(this, args).then(resolve).catch(reject);
-      if (resolve === latestResolve) {
-        shouldCancel = false;
-        clearTimeout(timer);
-        timer = latestResolve = null;
-      }
-    }
-  }
-
-  return function (...args) {
-    if (!latestResolve) {
-      if (leading) {
-        return func.apply(this, args);
-      }
-
-      return new Promise((resolve, reject) => {
-        latestResolve = resolve;
-        timer = setTimeout(exec.bind(this, args, resolve, reject), wait);
-      });
+  return (...args) => {
+    if (latestResolve) {
+      shouldCancel = true;
     }
 
-    shouldCancel = true;
     return new Promise((resolve, reject) => {
       latestResolve = resolve;
-      timer = setTimeout(exec.bind(this, args, resolve, reject), wait);
+      timer = setTimeout(() => exec(resolve, reject, ...args), wait);
     });
   };
-}
 
+  function exec(resolve, reject, ...args) {
+    if (shouldCancel && resolve !== latestResolve) {
+      return reject(cancelObj);
+    }
+
+    shouldCancel = false;
+    clearTimeout(timer);
+    timer = latestResolve = null;
+
+    func(...args)
+      .then(resolve)
+      .catch(reject);
+  }
+}

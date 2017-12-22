@@ -4,9 +4,9 @@
  * @since 1.0.0
  */
 
-export default {
-  options: {},
+let defaultOptions = {};
 
+export default {
   /**
    * Configure default options used when settings values for cookies.
    * If all your cookies must present the same property, like secure,
@@ -26,8 +26,8 @@ export default {
    * Cookie.set('foo', 'bar');
    * // => foo=bar; secure'
    */
-  configure(options) {
-    this.options = Object.assign({}, options);
+  configure(options = {}) {
+    defaultOptions = Object.assign({}, options);
   },
 
   /**
@@ -35,9 +35,9 @@ export default {
    * @since 1.0.0
    * @function get
    * @param {String} key Cookie key name.
-   * @param {Object} options
-   * @param {Any} options.defaultValue Default value in case cookies are not available or the value has not been set previously.
-   * @param {boolean} options.raw If true, the value of the cookie is not decoded.
+   * @param {Object} [options]
+   * @param {Any} [options.defaultValue=null] Default value in case cookies are not available or the value has not been set previously.
+   * @param {boolean} [options.raw=false] If true, the value of the cookie is not decoded.
    * @example
    *
    * import Cookie from '@wetransfer/concorde-cookie';
@@ -56,7 +56,9 @@ export default {
       return defaultValue;
     }
 
-    const regexp = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)');
+    const regexp = new RegExp(
+      '(?:^|; )' + encodeURIComponent(key) + '=([^;]*)'
+    );
     const result = document.cookie.match(regexp);
     if (!result) {
       return defaultValue;
@@ -71,12 +73,12 @@ export default {
    * @since 1.0.0
    * @function set
    * @param {String} key Cookie key name.
-   * @param {String} value Cookie value.
-   * @param {Object} options
-   * @param {Date} options.expires Cookie expiration date
-   * @param {String} options.path Sets the URI to which the Cookie applies. Must be an absolute path.
-   * @param {String} options.domain Sets the domain to which the Cookie applies. If a domain is specified, subdomains are always included.
-   * @param {boolean} options.secure Cookie to only be transmitted over secure protocol as https.
+   * @param {String} [value=null] Cookie value.
+   * @param {Object} [options={}]
+   * @param {Date} [options.expires] Cookie expiration date
+   * @param {String} [options.path] Sets the URI to which the Cookie applies. Must be an absolute path.
+   * @param {String} [options.domain] Sets the domain to which the Cookie applies. If a domain is specified, subdomains are always included.
+   * @param {boolean} [options.secure] Cookie to only be transmitted over secure protocol as https.
    * @example
    *
    * import Cookie from '@wetransfer/concorde-cookie';
@@ -85,7 +87,7 @@ export default {
    * // => 'foo=bar'
    */
   set(key, value = null, options = {}) {
-    const opts = Object.assign({}, this.options, options);
+    const opts = Object.assign({}, defaultOptions, options);
 
     // Are we unsetting this cookie?
     if (value === null) {
@@ -104,9 +106,7 @@ export default {
     safeValue = opts.raw ? safeValue : encodeURIComponent(safeValue);
 
     // Build our cookie string
-    const cookieBuilder = [
-      `${safeKey}=${safeValue}`
-    ];
+    const cookieBuilder = [`${safeKey}=${safeValue}`];
 
     // Does the cookie have expiry settings?
     if (opts.expires) {
@@ -137,11 +137,11 @@ export default {
    * @since 1.0.0
    * @function unset
    * @param {String} key Cookie key name.
-   * @param {Object} options
-   * @param {Date} options.expires Cookie expiration date
-   * @param {String} options.path Sets the URI to which the Cookie applies. Must be an absolute path.
-   * @param {String} options.domain Sets the domain to which the Cookie applies. If a domain is specified, subdomains are always included.
-   * @param {boolean} options.secure Cookie to only be transmitted over secure protocol as https.
+   * @param {Object} [options={}]
+   * @param {Date} [options.expires] Cookie expiration date
+   * @param {String} [options.path] Sets the URI to which the Cookie applies. Must be an absolute path.
+   * @param {String} [options.domain] Sets the domain to which the Cookie applies. If a domain is specified, subdomains are always included.
+   * @param {boolean} [options.secure] Cookie to only be transmitted over secure protocol as https.
    * @example
    *
    * import Cookie from '@wetransfer/concorde-cookie';

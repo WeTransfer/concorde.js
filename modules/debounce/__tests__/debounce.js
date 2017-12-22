@@ -1,33 +1,38 @@
-import Debounce from '../index';
+import { debounce } from '../index';
 
-describe('Debounce module', () => {
+describe('debounce function', () => {
   jest.useFakeTimers();
 
-  it('should return function', () => {
-    expect(typeof Debounce(jest.fn(), 100)).toEqual('function');
+  let counter;
+  beforeEach(() => {
+    counter = 0;
   });
 
   it('should debounce function if called multiple times', () => {
-    let counter = 0;
-    const test = Debounce(() => counter++, 50);
+    const test = debounce((increment = 1) => {
+      counter += increment;
+      return counter;
+    }, 50);
 
-    test();
-    test();
+    test(1);
+    test(2);
+    test(3);
+    test(4);
+
+    expect(counter).toEqual(0);
+    jest.runAllTimers();
+    expect(counter).toEqual(4);
+
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 50);
+  });
+
+  it('should default the debounce to 0ms if no interval is given', () => {
+    const test = debounce(() => counter++);
+
     test();
     test();
 
     expect(counter).toEqual(0);
-    jest.runAllTimers();
-    expect(counter).toEqual(1);
-  });
-
-  it('should default the debounce to 1ms if no interval is given', () => {
-    let counter = 0;
-    const test = Debounce(() => counter++);
-
-    test();
-    test();
-
     jest.runAllTimers();
     expect(counter).toEqual(1);
 
@@ -36,5 +41,7 @@ describe('Debounce module', () => {
 
     jest.runAllTimers();
     expect(counter).toEqual(2);
+
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 0);
   });
 });

@@ -7,7 +7,7 @@ describe('Cookie module', () => {
   });
 
   beforeEach(() => {
-    global.document.cookie = undefined;
+    global.document.cookie = '';
     Cookie.configure({});
   });
 

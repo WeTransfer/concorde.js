@@ -84,11 +84,11 @@ export default {
    * Cookie.set('foo', 'bar');
    * // => 'foo=bar'
    */
-  set(key, value, options = {}) {
+  set(key, value = null, options = {}) {
     const opts = Object.assign({}, this.options, options);
 
     // Are we unsetting this cookie?
-    if (value === null || value === undefined) {
+    if (value === null) {
       opts.days = -1;
     }
 

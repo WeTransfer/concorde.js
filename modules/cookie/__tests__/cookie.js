@@ -104,7 +104,6 @@ describe('Cookie module', () => {
     it('should remove a value and extra options', () => {
       Cookie.set('foo', 'bar', { secure: true });
       Cookie.unset('foo');
-      console.log(document.cookie);
       expect(/foo=null; expires=(.+)/.test(document.cookie)).toBe(true);
 
       const date = document.cookie.match(/foo=null; expires=(.+)/);

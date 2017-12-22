@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Browser.html">Browser</a><ul class='methods'><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li></ul></li><li><a href="module-Search.html">Search</a><ul class='methods'><li data-type='method'><a href="module-Search.html#~version">version</a></li></ul></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Browser.html">Browser</a><ul class='methods'><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li></ul></li><li><a href="module-Cookie.html">Cookie</a><ul class='methods'><li data-type='method'><a href="module-Cookie.html#~configure">configure</a></li><li data-type='method'><a href="module-Cookie.html#~get">get</a></li><li data-type='method'><a href="module-Cookie.html#~set">set</a></li><li data-type='method'><a href="module-Cookie.html#~unset">unset</a></li></ul></li><li><a href="module-Search.html">Search</a><ul class='methods'><li data-type='method'><a href="module-Search.html#~version">version</a></li></ul></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -50,25 +50,60 @@
 <a href="https://www.codacy.com/app/WeTransfer/concorde.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeTransfer/concorde.js&amp;utm_campaign=Badge_Coverage"><img src="https://api.codacy.com/project/badge/Coverage/371cbb95f8404206928c96769a7e5de1" alt="Codacy Badge"></a>
 <a href="https://travis-ci.org/WeTransfer/concorde.js"><img src="https://travis-ci.org/WeTransfer/concorde.js.svg?branch=master" alt="Build Status"></a></p>
 <p>A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use. It also provides some tools to deal with the browser.</p>
-<h2>Installation</h2><p>In a browser (to be decided):</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;cdn.wetransfer.com/js/concorde.min.js&quot;>&lt;/script></code></pre><p>Using npm:</p>
-<pre class="prettyprint source lang-shell"><code>$ npm i --save @wetransfer/concorde</code></pre><h2>Usage</h2><p>With ES6 modules:</p>
+<h2>Packages</h2><p>This repository contains a collection of modules used internally by WeTransfer to build our website. You can use them all together or individually, based on your needs.</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/WeTransfer/concorde.js/tree/master/modules/browser">concorde-browser</a></td>
+<td><a href="https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser"><img src="https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser.svg" alt="npm version"></a></td>
+<td>Browser capabilities detection</td>
+</tr>
+<tr>
+<td><a href="https://github.com/WeTransfer/concorde.js/tree/master/modules/cookie">concorde-cookie</a></td>
+<td><a href="https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie"><img src="https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie.svg" alt="npm version"></a></td>
+<td>Read, write and clean cookies</td>
+</tr>
+</tbody>
+</table>
+<h2>Usage</h2><p>Please check individual packages documentation for concrete usage and installation. In a nutshell, it works like that:</p>
+<p>With ES6 modules:</p>
 <pre class="prettyprint source lang-js"><code>// Load the full build.
-import concorde from '@wetransfer/concorde';
+import Browser from '@wetransfer/concorde-browser';
 
-// Load the http build.
-import http from '@wetransfer/concorde-http';
-
-// Cherry-pick methods for smaller browserify/rollup/webpack bundles.
-import { get } from '@wetransfer/concorde-http';</code></pre><p>In Node.js:</p>
+Browser.isMobile
+// => true</code></pre><p>In Node.js:</p>
 <pre class="prettyprint source lang-js"><code>// Load the full build.
-const concorde = require('@wetransfer/concorde');
+const browser = require('@wetransfer/concorde-browser');
 
-// Load the http build.
-const http = require('@wetransfer/concorde-http');
-
-// Cherry-pick methods for smaller browserify/rollup/webpack bundles.
-const { get } = require('@wetransfer/concorde-http');</code></pre></article>
+Browser.platform('windows');
+// => false</code></pre><h2>Release process</h2><p>First, make sure that you have an NPM account at https://www.npmjs.com/, and you are part of the WeTransfer developer's team. Use <code>npm login</code> to store the credentials on the client aka, your computer. Check that your authentication token for <code>registry.npmjs.org</code> is part of your <code>~/.npmrc</code> file.</p>
+<p>We use <code>lerna</code> to manage our monorepo, and publishing new versions of our modules is also part <code>lerna</code>'s responsability. Please run <code>npm run semantic-release</code> to publish a new version(s), it should do the following:</p>
+<ul>
+<li>Checkout master, pull and rebase last changes</li>
+<li>Create a new branch to release from</li>
+<li><code>lerna</code> will publish to NPM only the modules that changed since the last commit</li>
+<li>Push the changes to GitHub (changelog and new package version)</li>
+</ul>
+<p>It's still your responsability as a developer to create the PR on GitHub and ask a maintainer to merge it.</p>
+<h3>What if something goes wrong?</h3><p>In the unlikely event of a broken release process or water landing, it is still possible to publish the modules manually to NPM. Please follow these steps:</p>
+<ul>
+<li>Create a new branch: <code>git checkout -b release</code></li>
+<li>Change directory to the module you want to publish: <code>cd modules/foo</code></li>
+<li>Bump the version of the package. You must decide if it is mayor, minor or patch.</li>
+<li>Update the CHANGELOG.md file.</li>
+<li>Commit your changes: <code>git add package.json CHANGELOG.md &amp;&amp; git commit -m &quot;chore(release): npm publish 📦 [ci-skip]&quot;</code></li>
+<li>Create a new tag with the new version: <code>git tag -a @wetransfer/concorde-module@version -m &quot;@wetransfer/concorde-module@version&quot;</code></li>
+<li>Repeat with the rest of the modules, if any.</li>
+<li>Push your changes: <code>git push --no-verify --follow-tags --set-upstream origin feature</code></li>
+</ul>
+<h2>License</h2><p><code>concorde.js</code> is available under the MIT license. See the <a href="https://github.com/WeTransfer/concorde.js/blob/master/LICENSE">LICENSE</a> file for more info.</p></article>
     </section>
 
 
@@ -81,7 +116,7 @@ const { get } = require('@wetransfer/concorde-http');</code></pre></article>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Dec 19 2017 14:20:12 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 22 2017 12:10:33 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

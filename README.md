@@ -12,6 +12,7 @@ This repository contains a collection of modules used internally by WeTransfer t
 | Package | Version | Description |
 |---------|---------|-------------|
 | [concorde-browser](https://github.com/WeTransfer/concorde.js/tree/master/modules/browser) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-browser) | Browser capabilities detection |
+| [concorde-cookie](https://github.com/WeTransfer/concorde.js/tree/master/modules/cookie) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie) | Read, write and clean cookies |
 
 ## Usage
 

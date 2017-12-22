@@ -1,3 +1,3 @@
 import rollupConfig from '../../scripts/build/rollup.config';
 
-export default rollupConfig('browser');
+export default rollupConfig('cookie');

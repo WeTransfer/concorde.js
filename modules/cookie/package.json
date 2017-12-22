@@ -1,7 +1,7 @@
 {
-  "name": "@wetransfer/concorde-browser",
-  "version": "1.1.0",
-  "description": "A set of tools to get some information from the browser.",
+  "name": "@wetransfer/concorde-cookie",
+  "version": "0.0.1",
+  "description": "A set of tools to deal with cookies on the browser.",
   "main": "dist/index.js",
   "files": [
     "dist/*"
@@ -19,8 +19,7 @@
     "url": "git+https://github.com/WeTransfer/concorde.js.git"
   },
   "keywords": [
-    "browser",
-    "version",
+    "cookie",
     "wetransfer"
   ],
   "author": "WeTransfer folks",

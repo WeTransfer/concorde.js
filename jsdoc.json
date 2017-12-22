@@ -2,7 +2,7 @@
   "plugins": [],
   "source": {
     "includePattern": "modules/.+\\.js$",
-    "excludePattern": "__tests__"
+    "excludePattern": "(__tests__|dist)"
   },
   "tags": {
     "allowUnknownTags": false,
@@ -11,8 +11,8 @@
     ]
   },
   "opts": {
-    "template": "node_modules/docdash", // same as -t templates/default
-    "encoding": "utf8", // same as -e utf8
+    "template": "node_modules/docdash",
+    "encoding": "utf8",
     "destination": "./docs/",
     "recurse": true
   }

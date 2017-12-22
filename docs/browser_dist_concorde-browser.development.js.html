@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>browser/dist/concorde-browser.development.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Browser.html">Browser</a><ul class='methods'><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li></ul></li><li><a href="module-Cookie.html">Cookie</a><ul class='methods'><li data-type='method'><a href="module-Cookie.html#~configure">configure</a></li></ul></li><li><a href="module-Search.html">Search</a><ul class='methods'><li data-type='method'><a href="module-Search.html#~version">version</a></li><li data-type='method'><a href="module-Search.html#~version">version</a></li></ul></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li><li data-type='method'><a href="module-Version.html#~compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#~diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#~versionToArray">versionToArray</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">browser/dist/concorde-browser.development.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// List of browsers and operating systems / matching patterns
+var Config = {
+  get browser() {
+    return [{
+      string: navigator.userAgent,
+      subString: 'Edge/',
+      identity: 'Edge',
+      versionSearch: 'Edge'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Chrome',
+      identity: 'Chrome'
+    }, {
+      string: navigator.userAgent,
+      subString: 'CriOS',
+      identity: 'CriOS'
+    }, {
+      string: navigator.userAgent,
+      subString: 'OmniWeb',
+      versionSearch: 'OmniWeb/',
+      identity: 'OmniWeb'
+    }, {
+      string: navigator.vendor,
+      subString: 'Apple',
+      identity: 'Safari',
+      versionSearch: 'Version'
+    }, {
+      prop: window.opera,
+      identity: 'Opera'
+    }, {
+      string: navigator.vendor,
+      subString: 'iCab',
+      identity: 'iCab'
+    }, {
+      string: navigator.vendor,
+      subString: 'KDE',
+      identity: 'Konqueror'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Firefox',
+      identity: 'Firefox'
+    }, {
+      string: navigator.userAgent,
+      subString: 'FxiOS',
+      identity: 'FxiOS'
+    }, {
+      string: navigator.vendor,
+      subString: 'Camino',
+      identity: 'Camino'
+    }, {
+      // for newer Netscapes (6+)
+      string: navigator.userAgent,
+      subString: 'Netscape',
+      identity: 'Netscape'
+    }, {
+      string: navigator.userAgent,
+      subString: 'MSIE',
+      identity: 'Explorer',
+      versionSearch: 'MSIE'
+    }, {
+      // for IE11
+      string: navigator.userAgent,
+      subString: 'Trident/7.',
+      identity: 'Explorer',
+      versionSearch: 'rv'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Gecko',
+      identity: 'Mozilla',
+      versionSearch: 'rv'
+    }, {
+      // for older Netscapes (4-)
+      string: navigator.userAgent,
+      subString: 'Mozilla',
+      identity: 'Netscape',
+      versionSearch: 'Mozilla'
+    }];
+  },
+
+  get platform() {
+    return [{
+      string: navigator.platform,
+      subString: 'Win',
+      identity: 'Windows'
+    }, {
+      string: navigator.platform,
+      subString: 'Mac',
+      identity: 'Mac'
+    }, {
+      string: navigator.userAgent,
+      subString: 'iPhone',
+      identity: 'iPhone/iPod'
+    }, {
+      string: navigator.userAgent,
+      subString: 'iPad',
+      identity: 'iPad'
+    }, {
+      string: navigator.userAgent,
+      subString: 'Android',
+      identity: 'Android'
+    }, {
+      string: navigator.platform,
+      subString: 'Linux',
+      identity: 'Linux'
+    }];
+  }
+};
+
+var _operations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/**
+ * Version module. Handy functions operate with semver version numbers.
+ * @module Version
+ * @since 1.0.0
+ */
+
+/**
+ * Compares to versions (array format) and determines the difference between them.
+ * @since 1.0.0
+ * @param {Array} versionA One of the versions to compare.
+ * @param {Array} versionB The other version to compare.
+ * @returns {number} Returns the difference.
+ * @example
+ *
+ * import { diffVersions } from '@wetransfer/concorde-browser';
+ *
+ * diffVersions([1, 0, 0], [1, 5, 0])
+ * // => -5
+ *
+ * diffVersions([1, 0, 0], [1, 0, 0])
+ * // => 0
+ *
+ * diffVersions([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+function diffVersions(versionA, versionB) {
+  var result = -1;
+
+  var length = versionB.length;
+  for (var index = 0; index &lt; length; index++) {
+    result = versionA[index] - versionB[index];
+    if (result !== 0) {
+      return result;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Converts a string version into an array
+ * @since 1.0.0
+ * @param {String} version The version to convert, in semantic versioning format.
+ * @returns {Array} Returns the version in array format.
+ * @example
+ *
+ * import { versionToArray } from '@wetransfer/concorde-browser';
+ *
+ * versionToArray('1.0.1')
+ * // => [1, 0, 1]
+ *
+ * versionToArray('1.0.1-alpha')
+ * // => [1, 0, 1]
+ *
+ * versionToArray([3, 5, 1], [1, 1, 0])
+ * // => 2
+ */
+function versionToArray(version) {
+  if (typeof version === 'string') {
+    return version.split('.').map(function (num) {
+      return parseFloat(num);
+    });
+  }
+
+  return version;
+}
+
+var operations = (_operations = {}, _defineProperty(_operations, '>=', function _(result) {
+  return result >= 0;
+}), _defineProperty(_operations, '>', function _(result) {
+  return result > 0;
+}), _defineProperty(_operations, '&lt;', function _(result) {
+  return result &lt; 0;
+}), _defineProperty(_operations, '&lt;=', function _(result) {
+  return result &lt;= 0;
+}), _defineProperty(_operations, '=', function _(result) {
+  return result === 0;
+}), _defineProperty(_operations, '==', function _(result) {
+  return result === 0;
+}), _operations);
+
+/**
+ * Compares to semantic versions, given an operator.
+ * @since 1.0.0
+ * @param {Array} versionA One of the versions to compare.
+ * @param {String} operator Compare versions using this operator. We support `>`, `>=`, `&lt;`, `&lt;=`, `=` and `==`.
+ * @param {Array} versionB The other version to compare.
+ * @returns {boolean} True if condition can be satisfied, false otherwise.
+ * @example
+ *
+ * import { compareVersion } from '@wetransfer/concorde-browser';
+ *
+ * compareVersion('1.0.1', '&lt;', '5.1.0')
+ * // => true
+ *
+ * compareVersion('4.4.1', '=', '0.1.0')
+ * // => false
+ *
+ * compareVersion('4.4.1', '>=', '6.1.0')
+ * // => false
+ */
+function compareVersion(versionA, operator, versionB) {
+  var operation = operations[operator];
+
+  if (!operation) {
+    return false;
+  }
+
+  // Match all version parts (major, minor, patch..)
+  var result = diffVersions(versionToArray(versionA), versionToArray(versionB));
+
+  return operation(result);
+}
+
+/**
+ * Search module. Retrieves some basic information from the browser, like the version and such.
+ * @module Search
+ * @since 1.0.0
+ */
+
+// Find a match in the input to see if we have a known browser/platform
+var filterConfig = function filterConfig(input) {
+  var options = input.filter(function (browser) {
+    if (browser.string &amp;&amp; browser.string.indexOf(browser.subString) !== -1) {
+      return true;
+    } else if (browser.prop) {
+      return true;
+    }
+  });
+
+  if (!options.length) {
+    return { identity: 'unknown' };
+  }
+
+  return options.shift();
+};
+
+// Converts browser version into an arrar
+var versionFromString = function versionFromString(browser, string) {
+  var search = browser.versionSearch || browser.identity;
+  var index = string.indexOf(search);
+
+  if (index === -1) {
+    return false;
+  }
+
+  var version = string.substring(index + search.length + 1).split(' ');
+  return versionToArray(version[0]);
+};
+
+var Search = {
+  /**
+   * The object containing platorm information.
+   * @since 1.0.0
+   * @member {Object} platform The object containing platform information.
+   * @example
+   *
+   * import { Search } from '@wetransfer/concorde-browser';
+   *
+   * Search.platform
+   * // => { string: 'MacIntel', subString: 'Mac', identity: 'Mac' }
+   */
+  get platform() {
+    return filterConfig(Config.platform);
+  },
+
+  /**
+   * The object containing current browser information.
+   * @since 1.0.0
+   * @member {Object} browser The object containing browser information.
+   * @example
+   *
+   * import { Search } from '@wetransfer/concorde-browser';
+   *
+   * Search.browser
+   * // => {
+   * //   string: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+   * //   subString: 'Chrome',
+   * //   identity: 'Chrome'
+   * //}
+   */
+  get browser() {
+    return filterConfig(Config.browser);
+  },
+
+  /**
+   * Determines the version of a browser based on its userAgent string
+   * @since 1.0.0
+   * @function version
+   * @param   {Object} browser An object containing browser information.
+   * @param   {String} browser.userAgent Browser userAgent string.
+   * @param   {String} browser.identity Browser identity string.
+   * @param   {String} browser.version Browser version string.
+   * @returns {Array|String} An array containing the browser version or 'unknown' string
+   * @example
+   * import { Search } from '@wetransfer/concorde-browser';
+   *
+   * const browser = {
+   *   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+   *   identity: 'Chrome',
+   *   version: '3289'
+   * };
+   * Search.version(browser);
+   * // => [62, 0, 3202, 94]
+   */
+  version: function version(browser) {
+    return versionFromString(browser, navigator.userAgent) || versionFromString(browser, navigator.appVersion) || 'unknown';
+  }
+};
+
+/**
+ * Browser module. Handy functions to retrieve information and capabilities from the browser.
+ * @module Browser
+ * @since 1.0.0
+ */
+
+var browser = {
+  /**
+   * The object containing current browser information
+   * @since 1.0.0
+   * @member {Object} currentBrowser The object containing browser information.
+   * @example
+   *
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.currentBrowser
+   * // => {
+   * //   string: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+   * //   subString: 'Chrome',
+   * //   identity: 'Chrome'
+   * //}
+   */
+  get currentBrowser() {
+    return Search.browser;
+  },
+
+  /**
+   * The object containing current platform information
+   * @since 1.0.0
+   * @member {Object} currentPlatform The object containing platform information.
+   * @example
+   *
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.currentPlatform
+   * // => { string: 'MacIntel', subString: 'Mac', identity: 'Mac' }
+   */
+  get currentPlatform() {
+    return Search.platform;
+  },
+
+  /**
+   * Determines the version of the current browser based on its userAgent string
+   * @since 1.0.0
+   * @member {Object} currentVersion The object containing platform information.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.currentVersion
+   * // => [62, 0, 3202, 94]
+   */
+  get currentVersion() {
+    return Search.version(this.currentBrowser);
+  },
+
+  /**
+   * Determines the current browser identity (OS + Browser)
+   * @since 1.0.0
+   * @member {Object} identity The object containing OS + Browser information.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.identity
+   * // => {
+   * //   platform: 'Mac',
+   * //   browser: 'Chrome',
+   * //   version: '62.0.3202.94'
+   * // }
+   */
+  get identity() {
+    return {
+      platform: this.currentPlatform.identity,
+      browser: this.currentBrowser.identity,
+      version: this.currentVersion.join ? this.currentVersion.join('.') : this.currentVersion
+    };
+  },
+
+  /**
+   * Test if this document supports touch, however... There is much
+   * discussion about detecting touch on Modernizr.
+   * @see {@link https://github.com/Modernizr/Modernizr/issues/548|Modernizr}
+   * @since 1.0.0
+   * @member {boolean} supportsTouchEvents True if browser supports touch events. False otherwise.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.supportsTouchEvents
+   * // => true
+   */
+  get supportsTouchEvents() {
+    return (this.isMobile || this.isTablet) &amp;&amp; ('ontouchstart' in window || window.DocumentTouch &amp;&amp; document instanceof window.DocumentTouch);
+  },
+
+  /**
+   * Test if this device is mobile, based on its userAgent string.
+   * @since 1.0.0
+   * @member {boolean} isMobile True if browser is mobile. False otherwise.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.isMobile
+   * // => true
+   */
+  get isMobile() {
+    return !!/Android|CriOS|FxiOS|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  },
+
+  /**
+   * Test if this device is an iPhone, based on its userAgent string.
+   * @since 1.0.0
+   * @member {boolean} isIphone True if browser is an iPhone. False otherwise.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.isIphone
+   * // => true
+   */
+  get isIphone() {
+    return (/iPhone/.test(navigator.platform)
+    );
+  },
+
+  /**
+   * Test if this device is an iPad, based on its userAgent string.
+   * @since 1.0.0
+   * @member {boolean} isTablet True if browser is an iPad. False otherwise.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.isTablet
+   * // => true
+   */
+  get isTablet() {
+    return (/iPad/i.test(navigator.userAgent)
+    );
+  },
+
+  /**
+   * Determines if the provided browser(s) matches the actual browser.
+   * @since 1.0.0
+   * @function oneOf
+   * @param {Array|String} browsers A browser or list of browsers, with version check condition.
+   * @returns {boolean} True if the actual browser matches some of the browser on the list.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.oneOf([
+   *   'explorer >= 9.0',
+   *   'chrome >= 43',
+   *   'firefox >= 42',
+   *   'safari >= 5'
+   * ]);
+   * // => true
+   *
+   * Browser.oneOf('explorer &lt; 6');
+   * // => false
+   */
+  oneOf: function oneOf() {
+    var _this = this;
+
+    var lines = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : [];
+
+    if (typeof lines === 'string') {
+      lines = [lines];
+    }
+
+    return lines.filter(function (line) {
+      return _this.matches(line);
+    }).length > 0;
+  },
+
+
+  /**
+   * Determines if the provided platform matches the actual platform.
+   * @since 1.0.0
+   * @function platform
+   * @param {String} query Platform identifier.
+   * @returns {boolean} True if the actual platform matches the provided identifier.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.plaform('mac');
+   * // => true
+   *
+   * Browser.plaform('windows');
+   * // => false
+   */
+  platform: function platform() {
+    var query = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : null;
+
+    return this.currentPlatform.identity.toLowerCase().includes(('' + query).toLowerCase());
+  },
+
+
+  /**
+   * Determines if the actual browser is not part of the provided browser or list of browsers.
+   * @since 1.0.0
+   * @function isOutdated
+   * @param {Array|String} supportedBrowsers A browser or list of supported browsers, with version check condition.
+   * @returns {boolean} True if the actual browser does not match some of the browser on the list.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.isOutdated([
+   *   'explorer >= 9.0',
+   *   'chrome >= 43',
+   *   'firefox >= 42',
+   *   'safari >= 5'
+   * ]);
+   * // => false
+   *
+   * Browser.isOutdated('explorer &lt; 6');
+   * // => true
+   */
+  isOutdated: function isOutdated(supportedBrowsers) {
+    return !this.oneOf(supportedBrowsers);
+  },
+
+
+  /**
+   * Determines if the actual browser matches the provided browser and version.
+   * @since 1.0.0
+   * @function matches
+   * @param {String} query A browser identifier, with version check condition.
+   * @returns {boolean} True if the actual browser does match the provided query.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.matches('chrome >= 43');
+   * // => true
+   *
+   * Browser.matches('explorer &lt; 6');
+   * // => false
+   */
+  matches: function matches(query) {
+    var result = query.split(/\s+/);
+
+    var browser = result[0];
+
+    // does it match the browser?
+    if (!this.currentBrowser.identity.toLowerCase().includes(('' + browser).toLowerCase())) {
+      return false;
+    }
+
+    // No other params? Then it is finished and succesful
+    if (result.length &lt;= 1) {
+      return true;
+    }
+
+    // expand the query
+    var operator = result[1];
+    var version = result[2];
+
+    // Compare the versions
+    return compareVersion(this.currentVersion, operator, version);
+  }
+};
+
+exports['default'] = browser;
+exports.Search = Search;
+exports.diffVersions = diffVersions;
+exports.versionToArray = versionToArray;
+exports.compareVersion = compareVersion;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 22 2017 11:04:59 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

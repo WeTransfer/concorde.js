@@ -8,6 +8,7 @@ describe('Cookie module', () => {
 
   beforeEach(() => {
     global.document.cookie = undefined;
+    Cookie.configure({});
   });
 
   describe('get() method', () => {
@@ -63,8 +64,8 @@ describe('Cookie module', () => {
     });
 
     it('should be able to set simple cookie with expires', () => {
-      const expire = new Date('Fri, 01 Jan 2016 09:05:12 GMT');
-      Cookie.set('foo', 'bar', { expires: expire });
+      const expires = new Date('Fri, 01 Jan 2016 09:05:12 GMT');
+      Cookie.set('foo', 'bar', { expires });
       expect(document.cookie).toEqual('foo=bar; expires=Fri, 01 Jan 2016 09:05:12 GMT');
     });
 
@@ -81,12 +82,29 @@ describe('Cookie module', () => {
       now.setDate(now.getDate() + 32);
       expect(document.cookie).toEqual('foo=bar; expires=' + now.toUTCString());
     });
+
+    it('should override default options', () => {
+      Cookie.configure({ secure: true });
+      Cookie.set('secure', 'false', { secure: false });
+      expect(document.cookie).toEqual('secure=false');
+    });
   });
 
   describe('unset() method', () => {
     it('should remove a value', () => {
       Cookie.set('foo', 'bar');
       Cookie.unset('foo');
+      expect(/foo=null; expires=(.+)/.test(document.cookie)).toBe(true);
+
+      const date = document.cookie.match(/foo=null; expires=(.+)/);
+      const expire = new Date(date[1]);
+      expect(expire < Date.now()).toBe(true);
+    });
+
+    it('should remove a value and extra options', () => {
+      Cookie.set('foo', 'bar', { secure: true });
+      Cookie.unset('foo');
+      console.log(document.cookie);
       expect(/foo=null; expires=(.+)/.test(document.cookie)).toBe(true);
 
       const date = document.cookie.match(/foo=null; expires=(.+)/);

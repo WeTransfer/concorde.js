@@ -40,7 +40,7 @@
     "babel-preset-env": "1.6.1",
     "codacy-coverage": "2.0.3",
     "docdash": "0.4.0",
-    "eslint": "4.13.1",
+    "eslint": "4.14.0",
     "husky": "0.14.3",
     "jest": "22.0.4",
     "jsdoc": "3.5.5",

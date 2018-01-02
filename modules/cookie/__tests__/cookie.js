@@ -29,7 +29,9 @@ describe('Cookie module', () => {
     });
 
     it('should return defaultValue if document.cookie is undefined', () => {
-      expect(Cookie.get('test', { defaultValue: 'defaultFoo' })).toEqual('defaultFoo');
+      expect(Cookie.get('test', { defaultValue: 'defaultFoo' })).toEqual(
+        'defaultFoo'
+      );
     });
 
     it('should return null if cookie does not exist and default value is not provided', () => {
@@ -66,7 +68,9 @@ describe('Cookie module', () => {
     it('should be able to set simple cookie with expires', () => {
       const expires = new Date('Fri, 01 Jan 2016 09:05:12 GMT');
       Cookie.set('foo', 'bar', { expires });
-      expect(document.cookie).toEqual('foo=bar; expires=Fri, 01 Jan 2016 09:05:12 GMT');
+      expect(document.cookie).toEqual(
+        'foo=bar; expires=Fri, 01 Jan 2016 09:05:12 GMT'
+      );
     });
 
     it('should be able to set simple cookie with expire in days', () => {

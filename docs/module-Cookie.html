@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Browser.html">Browser</a><ul class='methods'><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li></ul></li><li><a href="module-Cookie.html">Cookie</a><ul class='methods'><li data-type='method'><a href="module-Cookie.html#~configure">configure</a></li><li data-type='method'><a href="module-Cookie.html#~get">get</a></li><li data-type='method'><a href="module-Cookie.html#~set">set</a></li><li data-type='method'><a href="module-Cookie.html#~unset">unset</a></li></ul></li><li><a href="module-Search.html">Search</a><ul class='methods'><li data-type='method'><a href="module-Search.html#~version">version</a></li></ul></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Browser.html">Browser</a><ul class='methods'><li data-type='method'><a href="module-Browser.html#~isOutdated">isOutdated</a></li><li data-type='method'><a href="module-Browser.html#~matches">matches</a></li><li data-type='method'><a href="module-Browser.html#~oneOf">oneOf</a></li><li data-type='method'><a href="module-Browser.html#~platform">platform</a></li></ul></li><li><a href="module-Cookie.html">Cookie</a><ul class='methods'><li data-type='method'><a href="module-Cookie.html#~configure">configure</a></li><li data-type='method'><a href="module-Cookie.html#~get">get</a></li><li data-type='method'><a href="module-Cookie.html#~set">set</a></li><li data-type='method'><a href="module-Cookie.html#~unset">unset</a></li></ul></li><li><a href="module-Debounce.html">Debounce</a><ul class='methods'><li data-type='method'><a href="module-Debounce.html#~debounce">debounce</a></li></ul></li><li><a href="module-Search.html">Search</a><ul class='methods'><li data-type='method'><a href="module-Search.html#~version">version</a></li></ul></li><li><a href="module-Version.html">Version</a><ul class='methods'><li data-type='method'><a href="module-Version.html#.compareVersion">compareVersion</a></li><li data-type='method'><a href="module-Version.html#.diffVersions">diffVersions</a></li><li data-type='method'><a href="module-Version.html#.versionToArray">versionToArray</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -418,7 +418,7 @@ Cookie.set('foo', 'bar');
 
     
 
-    <h4 class="name" id="~get"><span class="type-signature">(inner) </span>get<span class="signature">(key, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~get"><span class="type-signature">(inner) </span>get<span class="signature">(key, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -513,6 +513,8 @@ Cookie.get('yolo', { raw: true });
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -538,6 +540,14 @@ Cookie.get('yolo', { raw: true });
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -561,6 +571,16 @@ Cookie.get('yolo', { raw: true });
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -578,7 +598,11 @@ Cookie.get('yolo', { raw: true });
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -603,7 +627,23 @@ Cookie.get('yolo', { raw: true });
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>null</code>
+                
+                </td>
             
 
             <td class="description last">Default value in case cookies are not available or the value has not been set previously.</td>
@@ -626,7 +666,23 @@ Cookie.get('yolo', { raw: true });
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
             
 
             <td class="description last">If true, the value of the cookie is not decoded.</td>
@@ -663,7 +719,7 @@ Cookie.get('yolo', { raw: true });
 
     
 
-    <h4 class="name" id="~set"><span class="type-signature">(inner) </span>set<span class="signature">(key, value, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~set"><span class="type-signature">(inner) </span>set<span class="signature">(key, value<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -675,7 +731,7 @@ Cookie.get('yolo', { raw: true });
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cookie_src_cookie.js.html">cookie/src/cookie.js</a>, <a href="cookie_src_cookie.js.html#line68">line 68</a>
+        <a href="cookie_src_cookie.js.html">cookie/src/cookie.js</a>, <a href="cookie_src_cookie.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -753,7 +809,11 @@ Cookie.set('foo', 'bar');
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -778,7 +838,19 @@ Cookie.set('foo', 'bar');
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">Cookie key name.</td>
@@ -801,7 +873,23 @@ Cookie.set('foo', 'bar');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>null</code>
+                
+                </td>
             
 
             <td class="description last">Cookie value.</td>
@@ -824,7 +912,23 @@ Cookie.set('foo', 'bar');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
             
 
             <td class="description last">
@@ -840,6 +944,8 @@ Cookie.set('foo', 'bar');
 
         <th>Type</th>
 
+        
+        <th>Attributes</th>
         
 
         
@@ -866,6 +972,16 @@ Cookie.set('foo', 'bar');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -888,6 +1004,16 @@ Cookie.set('foo', 'bar');
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -912,6 +1038,16 @@ Cookie.set('foo', 'bar');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -934,6 +1070,16 @@ Cookie.set('foo', 'bar');
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -972,7 +1118,7 @@ Cookie.set('foo', 'bar');
 
     
 
-    <h4 class="name" id="~unset"><span class="type-signature">(inner) </span>unset<span class="signature">(key, options)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~unset"><span class="type-signature">(inner) </span>unset<span class="signature">(key, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1061,7 +1207,11 @@ Cookie.unset('foo');
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1086,7 +1236,19 @@ Cookie.unset('foo');
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">Cookie key name.</td>
@@ -1109,7 +1271,23 @@ Cookie.unset('foo');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
             
 
             <td class="description last">
@@ -1125,6 +1303,8 @@ Cookie.unset('foo');
 
         <th>Type</th>
 
+        
+        <th>Attributes</th>
         
 
         
@@ -1151,6 +1331,16 @@ Cookie.unset('foo');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -1173,6 +1363,16 @@ Cookie.unset('foo');
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -1197,6 +1397,16 @@ Cookie.unset('foo');
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -1219,6 +1429,16 @@ Cookie.unset('foo');
             
             </td>
 
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -1270,7 +1490,7 @@ Cookie.unset('foo');
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 22 2017 12:10:33 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 02 2018 15:37:33 GMT+0100 (CET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

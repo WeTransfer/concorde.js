@@ -11,7 +11,7 @@ npm install @wetransfer/concorde-cookie --save
 
 ## Usage
 
-### In the cookie
+### In the browser
 
 ```js
 import Cookie from '@wetransfer/concorde-cookie';

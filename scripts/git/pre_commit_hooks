@@ -8,7 +8,7 @@ jsfiles=$(git diff --cached --name-only --diff-filter=ACM "*.js" | tr '\n' ' ')
 echo "============ Running pre-commit hook because of JS changes ============"
 
 # Prettify all staged .js files
-echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
+echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write --arrow-parens=always
 
 # Fix all staged .js files lint errors
 echo "$jsfiles" | xargs ./node_modules/.bin/eslint --fix

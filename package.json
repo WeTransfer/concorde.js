@@ -37,7 +37,7 @@
   "devDependencies": {
     "@wetransfer/eslint-config-wetransfer": "1.2.1",
     "babel-core": "6.26.0",
-    "babel-eslint": "8.0.3",
+    "babel-eslint": "8.1.2",
     "babel-preset-env": "1.6.1",
     "codacy-coverage": "2.0.3",
     "docdash": "0.4.0",

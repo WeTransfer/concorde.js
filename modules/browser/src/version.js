@@ -9,7 +9,7 @@
  * @since 1.0.0
  * @param {Array} versionA One of the versions to compare.
  * @param {Array} versionB The other version to compare.
- * @returns {number} Returns the difference.
+ * @returns {number} Returns the difference or 0 if it cannot make a comparison.
  * @example
  *
  * import { diffVersions } from '@wetransfer/concorde-browser';
@@ -24,9 +24,14 @@
  * // => 2
  */
 export function diffVersions(versionA, versionB) {
+  if (versionA.some(isNaN) || versionB.some(isNaN)) {
+    return 0;
+  }
+
   let result = -1;
 
   const length = versionB.length;
+
   for (let index = 0; index < length; index++) {
     result = versionA[index] - versionB[index];
     if (result !== 0) {

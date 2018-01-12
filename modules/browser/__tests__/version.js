@@ -13,6 +13,10 @@ describe('Browser version module', () => {
     it('should return 1 if first version is greater than second version', () => {
       expect(diffVersions([3, 5, 1], [1, 1, 0])).toBe(2);
     });
+
+    it('should return 0 if it cannot make a comparison', () => {
+      expect(diffVersions(['NaN'], ['Foo'])).toBe(0);
+    });
   });
 
   describe('versionToArray() method', () => {

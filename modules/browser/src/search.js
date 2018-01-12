@@ -88,7 +88,7 @@ function filterConfig(input) {
   return options.shift();
 }
 
-// Converts browser version into an arrar
+// Converts browser version into an array
 function versionFromString(browser, string) {
   const search = browser.versionSearch || browser.identity;
   const index = string.indexOf(search);

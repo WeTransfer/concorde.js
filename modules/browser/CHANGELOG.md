@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.1.0...@wetransfer/concorde-browser@1.3.0) (2018-01-12)
+
+
+### Bug Fixes
+
+* add support for Firefox on iOS ([#17](https://github.com/WeTransfer/concorde.js/issues/17)) ([8bf7f4c](https://github.com/WeTransfer/concorde.js/commit/8bf7f4c))
+* **browser:** Return 0 if versions cannot be compared ([#39](https://github.com/WeTransfer/concorde.js/issues/39)) ([338840f](https://github.com/WeTransfer/concorde.js/commit/338840f))
+
+
+### Features
+
+* implement cookie module ([#22](https://github.com/WeTransfer/concorde.js/issues/22)) ([af645e2](https://github.com/WeTransfer/concorde.js/commit/af645e2))
+* implement debounce module ([#26](https://github.com/WeTransfer/concorde.js/issues/26)) ([31c7d99](https://github.com/WeTransfer/concorde.js/commit/31c7d99))
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.1.0...@wetransfer/concorde-browser@1.2.0) (2018-01-02)
 

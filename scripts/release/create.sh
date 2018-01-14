@@ -15,6 +15,7 @@ echo "[GIT] Creating a new branch..."
 date=`date +r%Y-%m-%d-%s`
 git checkout -b release/$date
 
-node_modules/.bin/lerna publish --conventional-commits --yes
+node_modules/.bin/lerna bootstrap
+node_modules/.bin/lerna publish --conventional-commits
 
 git push --no-verify --follow-tags --set-upstream origin release/$date

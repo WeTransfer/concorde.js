@@ -1,6 +1,6 @@
 {
   "name": "@wetransfer/concorde-debounce",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Debounce functions for regular and async functions.",
   "main": "dist/index.js",
   "files": [

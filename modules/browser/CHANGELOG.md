@@ -10,15 +10,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * add support for Firefox on iOS ([#17](https://github.com/WeTransfer/concorde.js/issues/17)) ([8bf7f4c](https://github.com/WeTransfer/concorde.js/commit/8bf7f4c))
-* **browser:** Return 0 if versions cannot be compared ([#39](https://github.com/WeTransfer/concorde.js/issues/39)) ([338840f](https://github.com/WeTransfer/concorde.js/commit/338840f))
-
-
-### Features
-
-* implement cookie module ([#22](https://github.com/WeTransfer/concorde.js/issues/22)) ([af645e2](https://github.com/WeTransfer/concorde.js/commit/af645e2))
-* implement debounce module ([#26](https://github.com/WeTransfer/concorde.js/issues/26)) ([31c7d99](https://github.com/WeTransfer/concorde.js/commit/31c7d99))
-
-
+* return 0 if versions cannot be compared ([#39](https://github.com/WeTransfer/concorde.js/issues/39)) ([338840f](https://github.com/WeTransfer/concorde.js/commit/338840f))
 
 
 <a name="1.2.0"></a>

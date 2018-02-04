@@ -23,23 +23,23 @@
  * diffVersions([3, 5, 1], [1, 1, 0])
  * // => 2
  */
-export function diffVersions(versionA, versionB) {
+export function diffVersions (versionA, versionB) {
   if (versionA.some(isNaN) || versionB.some(isNaN)) {
-    return 0;
+    return 0
   }
 
-  let result = -1;
+  let result = -1
 
-  const length = versionB.length;
+  const length = versionB.length
 
   for (let index = 0; index < length; index++) {
-    result = versionA[index] - versionB[index];
+    result = versionA[index] - versionB[index]
     if (result !== 0) {
-      return result;
+      return result
     }
   }
 
-  return result;
+  return result
 }
 
 /**
@@ -60,34 +60,34 @@ export function diffVersions(versionA, versionB) {
  * versionToArray([3, 5, 1], [1, 1, 0])
  * // => 2
  */
-export function versionToArray(version) {
+export function versionToArray (version) {
   if (typeof version === 'string') {
-    return version.split('.').map((num) => parseFloat(num));
+    return version.split('.').map((num) => parseFloat(num))
   }
 
-  return version;
+  return version
 }
 
 const operations = {
-  ['>='](result) {
-    return result >= 0;
+  '>=' (result) {
+    return result >= 0
   },
-  ['>'](result) {
-    return result > 0;
+  '>' (result) {
+    return result > 0
   },
-  ['<'](result) {
-    return result < 0;
+  '<' (result) {
+    return result < 0
   },
-  ['<='](result) {
-    return result <= 0;
+  '<=' (result) {
+    return result <= 0
   },
-  ['='](result) {
-    return result === 0;
+  '=' (result) {
+    return result === 0
   },
-  ['=='](result) {
-    return result === 0;
+  '==' (result) {
+    return result === 0
   }
-};
+}
 
 /**
  * Compares to semantic versions, given an operator.
@@ -109,18 +109,18 @@ const operations = {
  * compareVersion('4.4.1', '>=', '6.1.0')
  * // => false
  */
-export function compareVersion(versionA, operator, versionB) {
-  const operation = operations[operator];
+export function compareVersion (versionA, operator, versionB) {
+  const operation = operations[operator]
 
   if (!operation) {
-    return false;
+    return false
   }
 
   // Match all version parts (major, minor, patch..)
   const result = diffVersions(
     versionToArray(versionA),
     versionToArray(versionB)
-  );
+  )
 
-  return operation(result);
+  return operation(result)
 }

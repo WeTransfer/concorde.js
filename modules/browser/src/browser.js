@@ -4,8 +4,8 @@
  * @since 1.0.0
  */
 
-import { Search } from './search';
-import { compareVersion } from './version';
+import { Search } from './search'
+import { compareVersion } from './version'
 
 export default {
   /**
@@ -23,8 +23,8 @@ export default {
    * //   identity: 'Chrome'
    * //}
    */
-  get currentBrowser() {
-    return Search.browser;
+  get currentBrowser () {
+    return Search.browser
   },
 
   /**
@@ -38,8 +38,8 @@ export default {
    * Browser.currentPlatform
    * // => { string: 'MacIntel', subString: 'Mac', identity: 'Mac' }
    */
-  get currentPlatform() {
-    return Search.platform;
+  get currentPlatform () {
+    return Search.platform
   },
 
   /**
@@ -52,8 +52,8 @@ export default {
    * Browser.currentVersion
    * // => [62, 0, 3202, 94]
    */
-  get currentVersion() {
-    return Search.version(this.currentBrowser);
+  get currentVersion () {
+    return Search.version(this.currentBrowser)
   },
 
   /**
@@ -70,14 +70,14 @@ export default {
    * //   version: '62.0.3202.94'
    * // }
    */
-  get identity() {
+  get identity () {
     return {
       platform: this.currentPlatform.identity,
       browser: this.currentBrowser.identity,
       version: this.currentVersion.join
         ? this.currentVersion.join('.')
         : this.currentVersion
-    };
+    }
   },
 
   /**
@@ -92,12 +92,12 @@ export default {
    * Browser.supportsTouchEvents
    * // => true
    */
-  get supportsTouchEvents() {
+  get supportsTouchEvents () {
     return (
       (this.isMobile || this.isTablet) &&
       ('ontouchstart' in window ||
         (window.DocumentTouch && document instanceof window.DocumentTouch))
-    );
+    )
   },
 
   /**
@@ -110,10 +110,10 @@ export default {
    * Browser.isMobile
    * // => true
    */
-  get isMobile() {
+  get isMobile () {
     return !!/Android|CriOS|FxiOS|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
-    );
+    )
   },
 
   /**
@@ -126,8 +126,8 @@ export default {
    * Browser.isIphone
    * // => true
    */
-  get isIphone() {
-    return /iPhone/.test(navigator.platform);
+  get isIphone () {
+    return /iPhone/.test(navigator.platform)
   },
 
   /**
@@ -140,8 +140,8 @@ export default {
    * Browser.isTablet
    * // => true
    */
-  get isTablet() {
-    return /iPad/i.test(navigator.userAgent);
+  get isTablet () {
+    return /iPad/i.test(navigator.userAgent)
   },
 
   /**
@@ -164,12 +164,12 @@ export default {
    * Browser.oneOf('explorer < 6');
    * // => false
    */
-  oneOf(lines = []) {
+  oneOf (lines = []) {
     if (typeof lines === 'string') {
-      lines = [lines];
+      lines = [lines]
     }
 
-    return lines.filter((line) => this.matches(line)).length > 0;
+    return lines.filter((line) => this.matches(line)).length > 0
   },
 
   /**
@@ -187,10 +187,10 @@ export default {
    * Browser.plaform('windows');
    * // => false
    */
-  platform(query = null) {
+  platform (query = null) {
     return this.currentPlatform.identity
       .toLowerCase()
-      .includes(`${query}`.toLowerCase());
+      .includes(`${query}`.toLowerCase())
   },
 
   /**
@@ -213,8 +213,8 @@ export default {
    * Browser.isOutdated('explorer < 6');
    * // => true
    */
-  isOutdated(supportedBrowsers) {
-    return !this.oneOf(supportedBrowsers);
+  isOutdated (supportedBrowsers) {
+    return !this.oneOf(supportedBrowsers)
   },
 
   /**
@@ -232,10 +232,10 @@ export default {
    * Browser.matches('explorer < 6');
    * // => false
    */
-  matches(query) {
-    const result = query.split(/\s+/);
+  matches (query) {
+    const result = query.split(/\s+/)
 
-    const browser = result[0];
+    const browser = result[0]
 
     // does it match the browser?
     if (
@@ -243,19 +243,19 @@ export default {
         .toLowerCase()
         .includes(`${browser}`.toLowerCase())
     ) {
-      return false;
+      return false
     }
 
     // No other params? Then it is finished and succesful
     if (result.length <= 1) {
-      return true;
+      return true
     }
 
     // expand the query
-    const operator = result[1];
-    const version = result[2];
+    const operator = result[1]
+    const version = result[2]
 
     // Compare the versions
-    return compareVersion(this.currentVersion, operator, version);
+    return compareVersion(this.currentVersion, operator, version)
   }
-};
+}

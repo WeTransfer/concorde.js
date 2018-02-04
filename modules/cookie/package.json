@@ -9,7 +9,9 @@
   "scripts": {
     "build": "NODE_ENV=production ../../node_modules/.bin/rollup -c",
     "build:watch": "../../node_modules/.bin/watch 'npm run build' src",
-    "lint": "../../node_modules/.bin/eslint --color index.js src __tests__",
+    "format": "../../node_modules/.bin/prettier-standard '(__test__|src)/**/*.js'",
+    "lint": "../../node_modules/.bin/standard",
+    "lint:fix": "../../node_modules/.bin/standard --fix",
     "prepublish": "npm run build",
     "test": "../../node_modules/.bin/jest",
     "test:watch": "../../node_modules/.bin/jest --watch"
@@ -34,6 +36,19 @@
   "jest": {
     "setupFiles": [
       "../../scripts/jest/setup-environment.js"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "**/dist/"
+    ],
+    "globals": [
+      "afterEach",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it",
+      "jest"
     ]
   }
 }

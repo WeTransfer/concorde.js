@@ -4,7 +4,7 @@
  * @since 1.0.0
  */
 
-let defaultOptions = {};
+let defaultOptions = {}
 
 export default {
   /**
@@ -26,8 +26,8 @@ export default {
    * Cookie.set('foo', 'bar');
    * // => foo=bar; secure'
    */
-  configure(options = {}) {
-    defaultOptions = Object.assign({}, options);
+  configure (options = {}) {
+    defaultOptions = Object.assign({}, options)
   },
 
   /**
@@ -51,20 +51,18 @@ export default {
    * Cookie.get('yolo', { raw: true });
    * // => 'bar%20yolo'
    */
-  get(key, { defaultValue = null, raw = false } = {}) {
+  get (key, { defaultValue = null, raw = false } = {}) {
     if (!document.cookie) {
-      return defaultValue;
+      return defaultValue
     }
 
-    const regexp = new RegExp(
-      '(?:^|; )' + encodeURIComponent(key) + '=([^;]*)'
-    );
-    const result = document.cookie.match(regexp);
+    const regexp = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)')
+    const result = document.cookie.match(regexp)
     if (!result) {
-      return defaultValue;
+      return defaultValue
     }
 
-    return raw ? result[1] : decodeURIComponent(result[1]);
+    return raw ? result[1] : decodeURIComponent(result[1])
   },
 
   /**
@@ -86,50 +84,50 @@ export default {
    * Cookie.set('foo', 'bar');
    * // => 'foo=bar'
    */
-  set(key, value = null, options = {}) {
-    const opts = Object.assign({}, defaultOptions, options);
+  set (key, value = null, options = {}) {
+    const opts = Object.assign({}, defaultOptions, options)
 
     // Are we unsetting this cookie?
     if (value === null) {
-      opts.days = -1;
+      opts.days = -1
     }
 
     // Do we have an expiry in days?
     if (Number.isInteger(opts.days)) {
-      opts.expires = new Date();
-      opts.expires.setDate(opts.expires.getDate() + opts.days);
+      opts.expires = new Date()
+      opts.expires.setDate(opts.expires.getDate() + opts.days)
     }
 
     // Make sure value is a string
-    const safeKey = encodeURIComponent(key);
-    let safeValue = String(value);
-    safeValue = opts.raw ? safeValue : encodeURIComponent(safeValue);
+    const safeKey = encodeURIComponent(key)
+    let safeValue = String(value)
+    safeValue = opts.raw ? safeValue : encodeURIComponent(safeValue)
 
     // Build our cookie string
-    const cookieBuilder = [`${safeKey}=${safeValue}`];
+    const cookieBuilder = [`${safeKey}=${safeValue}`]
 
     // Does the cookie have expiry settings?
     if (opts.expires) {
-      cookieBuilder.push(`expires=${opts.expires.toUTCString()}`);
+      cookieBuilder.push(`expires=${opts.expires.toUTCString()}`)
     }
 
     // Does the cookie need a path?
     if (opts.path) {
-      cookieBuilder.push(`path=${opts.path}`);
+      cookieBuilder.push(`path=${opts.path}`)
     }
 
     // Does the cookie need a domain?
     if (opts.domain) {
-      cookieBuilder.push(`domain=${opts.domain}`);
+      cookieBuilder.push(`domain=${opts.domain}`)
     }
 
     // Does the cookie need to be secure?
     if (opts.secure) {
-      cookieBuilder.push('secure');
+      cookieBuilder.push('secure')
     }
 
     // Set the cookie, yay
-    document.cookie = cookieBuilder.join('; ');
+    document.cookie = cookieBuilder.join('; ')
   },
 
   /**
@@ -149,7 +147,7 @@ export default {
    * Cookie.unset('foo');
    * // => 'foo=null; expires=Thu, 21 Dec 2017 10:57:39 GMT'
    */
-  unset(key, options = {}) {
-    this.set(key, null, options);
+  unset (key, options = {}) {
+    this.set(key, null, options)
   }
-};
+}

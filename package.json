@@ -9,7 +9,9 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "docs": "jsdoc -c jsdoc.json modules README.md",
+    "format": "prettier-standard 'modules/**/src/**/*.js'",
     "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "precommit": "sh scripts/git/pre_commit_hooks",
     "prepush": "sh scripts/git/pre_push_hooks",
     "semantic-release": "sh scripts/release/create.sh",
@@ -35,21 +37,20 @@
   },
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "devDependencies": {
-    "@wetransfer/eslint-config-wetransfer": "1.2.1",
     "babel-core": "6.26.0",
-    "babel-eslint": "8.2.1",
     "babel-preset-env": "1.6.1",
     "codacy-coverage": "2.0.3",
     "docdash": "0.4.0",
-    "eslint": "4.16.0",
     "husky": "0.14.3",
     "jest": "22.1.4",
     "jsdoc": "3.5.5",
     "lerna": "2.8.0",
     "prettier": "1.10.2",
+    "prettier-standard": "8.0.0",
     "rollup": "0.55.1",
     "rollup-plugin-babel": "3.0.3",
     "rollup-plugin-uglify": "3.0.0",
+    "standard": "10.0.3",
     "watch": "1.0.2"
   },
   "jest": {
@@ -59,11 +60,21 @@
   },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write",
+      "prettier-standard",
       "git add"
     ]
   },
   "publishConfig": {
     "access": "public"
+  },
+  "standard": {
+    "globals": [
+      "afterEach",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it",
+      "jest"
+    ]
   }
 }

@@ -1,6 +1,6 @@
 // List of browsers and operating systems / matching patterns
 export default {
-  get browser() {
+  get browser () {
     return [
       {
         string: navigator.userAgent,
@@ -91,10 +91,10 @@ export default {
         identity: 'Netscape',
         versionSearch: 'Mozilla'
       }
-    ];
+    ]
   },
 
-  get platform() {
+  get platform () {
     return [
       {
         string: navigator.platform,
@@ -126,6 +126,6 @@ export default {
         subString: 'Linux',
         identity: 'Linux'
       }
-    ];
+    ]
   }
-};
+}

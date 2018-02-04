@@ -1,1 +1,1 @@
-export { default } from './src/cookie';
+export { default } from './src/cookie'

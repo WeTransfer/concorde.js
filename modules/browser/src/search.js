@@ -4,8 +4,8 @@
  * @since 1.0.0
  */
 
-import Config from './config';
-import { versionToArray } from './version';
+import Config from './config'
+import { versionToArray } from './version'
 
 export const Search = {
   /**
@@ -19,8 +19,8 @@ export const Search = {
    * Search.platform
    * // => { string: 'MacIntel', subString: 'Mac', identity: 'Mac' }
    */
-  get platform() {
-    return filterConfig(Config.platform);
+  get platform () {
+    return filterConfig(Config.platform)
   },
 
   /**
@@ -38,8 +38,8 @@ export const Search = {
    * //   identity: 'Chrome'
    * //}
    */
-  get browser() {
-    return filterConfig(Config.browser);
+  get browser () {
+    return filterConfig(Config.browser)
   },
 
   /**
@@ -62,41 +62,41 @@ export const Search = {
    * Search.version(browser);
    * // => [62, 0, 3202, 94]
    */
-  version(browser) {
+  version (browser) {
     return (
       versionFromString(browser, navigator.userAgent) ||
       versionFromString(browser, navigator.appVersion) ||
       'unknown'
-    );
+    )
   }
-};
+}
 
 // Find a match in the input to see if we have a known browser/platform
-function filterConfig(input) {
+function filterConfig (input) {
   const options = input.filter((browser) => {
     if (browser.string && browser.string.indexOf(browser.subString) !== -1) {
-      return true;
+      return true
     } else if (browser.prop) {
-      return true;
+      return true
     }
-  });
+  })
 
   if (!options.length) {
-    return { identity: 'unknown' };
+    return { identity: 'unknown' }
   }
 
-  return options.shift();
+  return options.shift()
 }
 
 // Converts browser version into an array
-function versionFromString(browser, string) {
-  const search = browser.versionSearch || browser.identity;
-  const index = string.indexOf(search);
+function versionFromString (browser, string) {
+  const search = browser.versionSearch || browser.identity
+  const index = string.indexOf(search)
 
   if (index === -1) {
-    return false;
+    return false
   }
 
-  const version = string.substring(index + search.length + 1).split(' ');
-  return versionToArray(version[0]);
+  const version = string.substring(index + search.length + 1).split(' ')
+  return versionToArray(version[0])
 }

@@ -1,15 +1,15 @@
-import babel from 'rollup-plugin-babel';
-import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel'
+import uglify from 'rollup-plugin-uglify'
 
-const input = 'index.js';
+const input = 'index.js'
 const outputConfig = (moduleName, env) => {
   return {
     file: `dist/concorde-${moduleName}.${env}.js`,
     format: 'cjs'
-  };
-};
+  }
+}
 
-export default (moduleName) => ([
+export default (moduleName) => [
   {
     input,
     output: outputConfig(moduleName, 'development'),
@@ -20,4 +20,4 @@ export default (moduleName) => ([
     output: outputConfig(moduleName, 'production.min'),
     plugins: [babel(), uglify()]
   }
-]);
+]

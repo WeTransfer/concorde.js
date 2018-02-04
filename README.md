@@ -2,6 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/371cbb95f8404206928c96769a7e5de1)](https://www.codacy.com/app/WeTransfer/concorde.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeTransfer/concorde.js&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/371cbb95f8404206928c96769a7e5de1)](https://www.codacy.com/app/WeTransfer/concorde.js?utm_source=github.com&utm_medium=referral&utm_content=WeTransfer/concorde.js&utm_campaign=Badge_Coverage)
 [![Build Status](https://travis-ci.org/WeTransfer/concorde.js.svg?branch=master)](https://travis-ci.org/WeTransfer/concorde.js)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A sexy pinnacle of engineering that’s nonetheless incredibly inefficient and expensive and goes out of business because it can’t find enough use. It also provides some tools to deal with the browser.
 

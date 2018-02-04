@@ -25,10 +25,10 @@
  * console.log(counter);
  * // => 1
  */
-export function debounce(fn, wait = 0) {
-  let timeout;
+export function debounce (fn, wait = 0) {
+  let timeout
   return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), wait);
-  };
+    clearTimeout(timeout)
+    timeout = setTimeout(() => fn(...args), wait)
+  }
 }

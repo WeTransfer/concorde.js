@@ -11,7 +11,7 @@ echo "============ Running pre-commit hook because of JS changes ============"
 echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write --arrow-parens=always
 
 # Fix all staged .js files lint errors
-echo "$jsfiles" | xargs ./node_modules/.bin/eslint --fix
+echo "$jsfiles" | xargs ./node_modules/.bin/standard --fix
 
 # Add back the modified/prettified files to staging
 echo "$jsfiles" | xargs git add

@@ -1,3 +1,3 @@
-import rollupConfig from '../../scripts/build/rollup.config';
+import rollupConfig from '../../scripts/build/rollup.config'
 
-export default rollupConfig('debounce');
+export default rollupConfig('debounce')

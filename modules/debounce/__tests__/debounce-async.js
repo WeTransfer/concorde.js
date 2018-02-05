@@ -31,7 +31,7 @@ describe('debounce async function', () => {
     let counter = 0;
     const debounced = debounceAsync(async (increment = 1) => {
       counter += increment;
-      return await Promise.resolve(counter);
+      return Promise.resolve(counter);
     });
 
     debounced(1).catch(() => {

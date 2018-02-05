@@ -1,5 +1,5 @@
 /**
- * Debounce module. Handy functions to debounce synchronous and asynchronous functions.
+ * Debounce function lets you debounce synchronous function executions.
  * @module Debounce
  * @since 1.0.0
  */

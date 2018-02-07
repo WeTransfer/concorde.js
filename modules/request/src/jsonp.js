@@ -1,4 +1,11 @@
-import jsonp from 'jsonp';
+import originalJsonp from 'jsonp';
+
+export function queryString(params = {}) {
+  return Object.keys(params).reduce((queryElements, key) => {
+    queryElements.push(key + '=' + encodeURIComponent(params[key]));
+    return queryElements;
+  }, []).join('&');
+}
 
 /**
  * url (String) url to fetch
@@ -8,9 +15,9 @@ import jsonp from 'jsonp';
     prefix (String) prefix for the global callback functions that handle jsonp responses (defaults to __jp)
     name (String) name of the global callback functions that handle jsonp responses (defaults to prefix + incremented counter)
  */
-export default function(url, options) {
+export function jsonp(url, options) {
   return new Promise((resolve, reject) => {
-    jsonp(url, options, (error, data) => {
+    originalJsonp(url, options, (error, data) => {
       if (error) {
         reject(error);
       }

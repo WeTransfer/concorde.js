@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Browser specs</title>
+  <script src="../../../scripts/server/require.js"></script>
+</head>
+<body>
+  <h1>Browser specs</h1>
+  <div id="results">
+    <p><strong>Browser:</strong> <span id="browser"></span></p>
+    <p><strong>Is Chrome?:</strong> <span id="is_chrome"></span></p>
+  </div>
+  <script>
+    R((require) => {
+      const browser = require('../dist/concorde-browser.production.min').default;
+      document.getElementById('browser').innerHTML = browser.currentBrowser.string;
+      document.getElementById('is_chrome').innerHTML = browser.oneOf([
+        'chrome >= 43'
+      ]);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cookie bundle should render browser info 1`] = `
+"
+    <p><strong>Default value:</strong> <span id=\\"default_value\\">default</span></p>
+    <p><strong>Set/Get value:</strong> <span id=\\"set_get_value\\">foo</span></p>
+    <p><strong>Unset value:</strong> <span id=\\"unset_value\\"></span></p>
+  "
+`;

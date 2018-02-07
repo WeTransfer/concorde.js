@@ -39,7 +39,7 @@ Browser.platform('windows');
 
 ## Release process
 
-First, make sure that you have an NPM account at https://www.npmjs.com/, and you are part of the WeTransfer developer's team. Use `npm login` to store the credentials on the client aka, your computer. Check that your authentication token for `registry.npmjs.org` is part of your `~/.npmrc` file.
+First, make sure that you have an NPM account at [https://www.npmjs.com/](https://www.npmjs.com/), and you are part of the WeTransfer developer's team. Use `npm login` to store the credentials on the client aka, your computer. Check that your authentication token for `registry.npmjs.org` is part of your `~/.npmrc` file.
 
 We use `lerna` to manage our monorepo, and publishing new versions of our modules is also part `lerna`'s responsability. Please run `npm run semantic-release` to publish a new version(s), it should do the following:
 
@@ -63,6 +63,15 @@ In the unlikely event of a broken release process or water landing, it is still 
 * Release the module to NPM: `npm publish`
 * Repeat with the rest of the modules, if any.
 * Push your changes: `git push --no-verify --follow-tags --set-upstream origin feature`
+
+## Integrations tests
+
+We run some very basic integration tests to check if our final bundle works properly in a real browser:
+- Run `npm run server:dist` to start the node server.
+- Create a folder named `__e2e__` inside the module you want to test.
+- Create a file named `index.html`, which will import the final module and write some results on the page.
+- Write some specs in `index.spec.js` with [Jest](https://facebook.github.io/jest/) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
+- Run the tests with `npm run test:integration`
 
 ## License
 

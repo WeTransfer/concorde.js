@@ -67,7 +67,7 @@ In the unlikely event of a broken release process or water landing, it is still 
 ## Integrations tests
 
 We run some very basic integration tests to check if our final bundle works properly in a real browser:
-- Run `npm run server:dist` to start the node server.
+- Run `npm run serve:dist` to start the node server.
 - Create a folder named `__e2e__` inside the module you want to test.
 - Create a file named `index.html`, which will import the final module and write some results on the page.
 - Write some specs in `index.spec.js` with [Jest](https://facebook.github.io/jest/) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).

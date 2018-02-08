@@ -1,19 +1,12 @@
-const puppeteer = require('puppeteer');
-
 describe('Browser bundle', async () => {
-  let browser;
+  let page;
 
   beforeAll(async () => {
-    browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-  });
-
-  afterAll(() => {
-    browser.close();
+    page = await global.__BROWSER__.newPage();
+    await page.goto(`${global.__CONFIG__.baseUrl}/browser/__e2e__/index.html`);
   });
 
   it('should render browser info', async () => {
-    const page = await browser.newPage();
-    await page.goto('http://localhost:8080/modules/browser/__e2e__/index.html');
     await page.waitForSelector('#results');
 
     const platform = await page.$eval('#browser', (e) => e.innerHTML);

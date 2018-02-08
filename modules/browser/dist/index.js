@@ -1,7 +1,7 @@
 'use strict';
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./concorde-browser.production.min.js');
+if (process.env.NODE_ENV === 'development') {
+  module.exports = require('./concorde-browser.js');
 } else {
-  module.exports = require('./concorde-browser.development.js');
+  module.exports = require('./concorde-browser.min.js');
 }

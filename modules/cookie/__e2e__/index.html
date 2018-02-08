@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookie specs</title>
+  <script src="../../../scripts/server/require.js"></script>
+</head>
+<body>
+  <h1>Cookie specs</h1>
+  <div id="results">
+    <p><strong>Default value:</strong> <span id="default_value"></span></p>
+    <p><strong>Set/Get value:</strong> <span id="set_get_value"></span></p>
+    <p><strong>Unset value:</strong> <span id="unset_value"></span></p>
+  </div>
+  <script>
+    R((require) => {
+      const cookie = require('../dist/concorde-cookie.production.min');
+      document.getElementById('default_value').innerHTML = cookie.get('non_existant', { defaultValue: 'default' });
+      cookie.set('bar', 'foo');
+      document.getElementById('set_get_value').innerHTML = cookie.get('bar');
+      cookie.unset('bar');
+      document.getElementById('unset_value').innerHTML = cookie.get('bar');
+    });
+  </script>
+</body>
+</html>

@@ -31,10 +31,5 @@
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "jest": {
-    "setupFiles": [
-      "../../scripts/jest/setup-environment.js"
-    ]
   }
 }

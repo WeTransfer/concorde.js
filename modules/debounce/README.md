@@ -47,7 +47,7 @@ In case you want to develop/debug this module while integrating with other proje
 
 * Run `npm link` to create a global symlink to that module
 * Run `npm run build:watch` to listen to changes and rebuild the module
-* Link to this module from your project with `npm link @wetransfer/concorde-cookie`
+* Link to this module from your project with `npm link @wetransfer/concorde-debounce`
 
 ## API
 

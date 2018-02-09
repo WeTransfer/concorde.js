@@ -1,7 +1,7 @@
 'use strict';
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./concorde-debounce.production.min.js');
+if (process.env.NODE_ENV === 'development') {
+  module.exports = require('./concorde-debounce.js');
 } else {
-  module.exports = require('./concorde-debounce.development.js');
+  module.exports = require('./concorde-debounce.min.js');
 }

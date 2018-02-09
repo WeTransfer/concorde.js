@@ -1,7 +1,7 @@
 'use strict';
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./concorde-cookie.production.min.js');
+if (process.env.NODE_ENV === 'development') {
+  module.exports = require('./concorde-cookie.js');
 } else {
-  module.exports = require('./concorde-cookie.development.js');
+  module.exports = require('./concorde-cookie.min.js');
 }

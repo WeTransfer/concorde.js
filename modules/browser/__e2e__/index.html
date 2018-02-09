@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Browser specs</title>
-  <script src="../../../scripts/server/require.js"></script>
+  <script src="../dist/concorde-browser.min.js"></script>
 </head>
 <body>
   <h1>Browser specs</h1>
@@ -14,13 +14,11 @@
     <p><strong>Is Chrome?:</strong> <span id="is_chrome"></span></p>
   </div>
   <script>
-    R((require) => {
-      const browser = require('../dist/concorde-browser.production.min').default;
-      document.getElementById('browser').innerHTML = browser.currentBrowser.string;
-      document.getElementById('is_chrome').innerHTML = browser.oneOf([
-        'chrome >= 43'
-      ]);
-    });
+    const browser = wt_browser.default;
+    document.getElementById('browser').innerHTML = browser.currentBrowser.string;
+    document.getElementById('is_chrome').innerHTML = browser.oneOf([
+      'chrome >= 43'
+    ]);
   </script>
 </body>
 </html>

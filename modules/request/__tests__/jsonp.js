@@ -1,5 +1,3 @@
-// import moxios from 'moxios';
-
 import { queryString } from '../index';
 
 describe('Request module', () => {

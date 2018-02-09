@@ -7,11 +7,13 @@
     "dist/*"
   ],
   "scripts": {
-    "build": "NODE_ENV=production ../../node_modules/.bin/rollup -c",
-    "build:watch": "../../node_modules/.bin/watch 'npm run build' src",
+    "build": "../../node_modules/.bin/webpack --mode production",
+    "build:dev": "../../node_modules/.bin/webpack --mode development",
+    "build:watch": "npm run build:dev -- --watch",
     "lint": "../../node_modules/.bin/eslint --color index.js src __tests__",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm run build:dev",
     "test": "../../node_modules/.bin/jest",
+    "test:integration": "../../node_modules/.bin/jest --config jest-e2e.config.js",
     "test:watch": "../../node_modules/.bin/jest --watch"
   },
   "repository": {
@@ -43,7 +45,6 @@
     "jsonp": "0.2.1"
   },
   "devDependencies": {
-    "moxios": "0.4.0",
-    "rollup-plugin-commonjs": "8.3.0"
+    "moxios": "0.4.0"
   }
 }

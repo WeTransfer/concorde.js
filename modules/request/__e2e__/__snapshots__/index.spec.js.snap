@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request bundle should render an empty block, for now 1`] = `
+"
+  "
+`;

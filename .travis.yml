@@ -8,6 +8,7 @@ node_js:
 branches:
   only:
   - master
+  - feature/request
 env:
   global:
     # CODACY_PROJECT_TOKEN
@@ -16,7 +17,7 @@ jobs:
   include:
     # JS lint and unit tests
     - stage: Lint & unit tests
-      install: yarn
+      install: npm run bootstrap
       script:
         # Lint our code
         - npm run lint
@@ -24,7 +25,7 @@ jobs:
         - npm run test:ci
     # Integration tests
     - stage: Integration tests
-      install: yarn
+      install: npm run bootstrap
       before_script:
         # Build final bundles
         - npm run build

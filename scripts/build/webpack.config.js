@@ -11,6 +11,35 @@ module.exports = (moduleName) => ([
   {
     entry,
     output: outputConfig(moduleName, isDev),
+    module: {
+      rules: [
+        {
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              presets: [
+                [
+                  require.resolve('babel-preset-env'),
+                  {
+                    targets: {
+                      browsers: [
+                        'ie >= 9'
+                      ]
+                    },
+                    // Disable polyfill transforms
+                    useBuiltIns: false,
+                    // Do not transform modules to CJS
+                    modules: false
+                  }
+                ]
+              ]
+            }
+          }],
+          test: /\.(js)$/
+        }
+      ]
+    },
     stats: {
       all: false,
       assets: true,

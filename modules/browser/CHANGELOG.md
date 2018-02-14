@@ -3,8 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.5.2"></a>
+# [1.5.2](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.5.1...@wetransfer/concorde-browser@1.5.2) (2018-02-14)
+
+### Bug Fixes
+
+* transpile ie9 compatible code ([#67](https://github.com/WeTransfer/concorde.js/pull/67)) ([515e393](https://github.com/WeTransfer/concorde.js/commit/515e393))
+
 <a name="1.5.1"></a>
-# [1.5.1](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.0.0...@wetransfer/concorde-browser@1.5.1) (2018-02-14)
+# [1.5.1](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.5.0...@wetransfer/concorde-browser@1.5.1) (2018-02-14)
 
 ### Bug Fixes
 

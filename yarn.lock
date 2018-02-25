@@ -6670,9 +6670,9 @@ webpack-addons@^1.1.5:
   dependencies:
     jscodeshift "^0.4.0"
 
-webpack-cli@2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-2.0.8.tgz#c6220c1429d0901e1dba36f81f7e44c642d317d0"
+webpack-cli@2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-2.0.9.tgz#0310fa04f4cad69714560cc0e4da5c7682eb4d9b"
   dependencies:
     chalk "^2.0.1"
     codecov "^3.0.0"

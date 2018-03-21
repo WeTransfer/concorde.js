@@ -42,7 +42,7 @@
     "babel-eslint": "8.2.2",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.6.1",
-    "codacy-coverage": "2.1.0",
+    "codacy-coverage": "2.1.1",
     "docdash": "0.4.0",
     "eslint": "4.19.0",
     "husky": "0.14.3",

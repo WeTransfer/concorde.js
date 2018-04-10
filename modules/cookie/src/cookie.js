@@ -6,6 +6,37 @@
 
 let defaultOptions = {};
 
+// Build our cookie string
+function buildOptions(initialValue = [], opts = {}) {
+  // Do we have an expiry in days?
+  if (Number.isInteger(opts.days)) {
+    opts.expires = new Date();
+    opts.expires.setDate(opts.expires.getDate() + opts.days);
+  }
+
+  // Does the cookie have expiry settings?
+  if (opts.expires) {
+    initialValue.push(`expires=${opts.expires.toUTCString()}`);
+  }
+
+  // Does the cookie need a path?
+  if (opts.path) {
+    initialValue.push(`path=${opts.path}`);
+  }
+
+  // Does the cookie need a domain?
+  if (opts.domain) {
+    initialValue.push(`domain=${opts.domain}`);
+  }
+
+  // Does the cookie need to be secure?
+  if (opts.secure) {
+    initialValue.push('secure');
+  }
+
+  return initialValue.join('; ');
+}
+
 export default {
   /**
    * Configure default options used when settings values for cookies.
@@ -94,42 +125,13 @@ export default {
       opts.days = -1;
     }
 
-    // Do we have an expiry in days?
-    if (Number.isInteger(opts.days)) {
-      opts.expires = new Date();
-      opts.expires.setDate(opts.expires.getDate() + opts.days);
-    }
-
     // Make sure value is a string
     const safeKey = encodeURIComponent(key);
     let safeValue = String(value);
     safeValue = opts.raw ? safeValue : encodeURIComponent(safeValue);
 
-    // Build our cookie string
-    const cookieBuilder = [`${safeKey}=${safeValue}`];
-
-    // Does the cookie have expiry settings?
-    if (opts.expires) {
-      cookieBuilder.push(`expires=${opts.expires.toUTCString()}`);
-    }
-
-    // Does the cookie need a path?
-    if (opts.path) {
-      cookieBuilder.push(`path=${opts.path}`);
-    }
-
-    // Does the cookie need a domain?
-    if (opts.domain) {
-      cookieBuilder.push(`domain=${opts.domain}`);
-    }
-
-    // Does the cookie need to be secure?
-    if (opts.secure) {
-      cookieBuilder.push('secure');
-    }
-
-    // Set the cookie, yay
-    document.cookie = cookieBuilder.join('; ');
+    // Build and set the cookie, yay!
+    document.cookie = buildOptions([`${safeKey}=${safeValue}`], opts);
   },
 
   /**

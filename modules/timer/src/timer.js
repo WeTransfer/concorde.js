@@ -6,16 +6,16 @@
 
 export default class Timer {
   /**
-   * Store all the details of the timer and starts it.
+   * Store the properties of the timer and start it.
    * @constructor
    * @since 1.0.0
-   * @param {Integer} [delay=0] The time, in milliseconds, the Timer should wait before the specified function or code is executed. The actual delay may be longer than intended; JavaScript timing is notoriously bad.
+   * @param {Integer} [delay=0] The time, in milliseconds, the timer should wait before the specified function or code is executed. The actual delay may be longer than intended; JavaScript timing is notoriously bad.
    * @param {Function} callback A function to be executed after the timer expires.
    * @returns {Timer} The timer object
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const timedFunction = () => {
    *    console.log('ping!')
    * }
@@ -23,11 +23,11 @@ export default class Timer {
    * const stopwatch = new Timer(10000, timedFunction);
    * // => Timer {remaining: 10000, callback: ƒ, paused: false, delay: 10, time: 1523436642013}
    *
-   * (T+5 seconds)
+   * // (T+5 seconds)
    * stopwatch
-   *  // => Timer {remaining: 5000, callback: ƒ, paused: false, delay: 10, time: 1523436647000}
+   * // => Timer {remaining: 5000, callback: ƒ, paused: false, delay: 10, time: 1523436647000}
    *
-   * (T+10 seconds)
+   * // (T+10 seconds)
    * // 'ping!'
    */
   constructor(delay = 0, callback) {
@@ -52,20 +52,20 @@ export default class Timer {
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const timedFunction = () => {
    *    console.log('pong!');
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
    *
-   * (T+2 seconds)
+   * // (T+2 seconds)
    * stopwatch.pause(); (see Timer.pause)
    *
-   * (T+10 seconds)
+   * // (T+10 seconds)
    * stopwatch.start();
    *
-   * (T+18 seconds)
+   * // (T+18 seconds)
    * // 'pong!'
    */
   start() {
@@ -80,17 +80,17 @@ export default class Timer {
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const timedFunction = () => {
    *    console.log('pung!');
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
    *
-   * (T+2 seconds)
+   * // (T+2 seconds)
    * stopwatch.stop();
    *
-   * (void)
+   * // (void)
    */
   stop() {
     // That we can stop
@@ -104,20 +104,20 @@ export default class Timer {
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const timedFunction = () => {
    *    console.log('peng!');
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
    *
-   * (T+2 seconds)
+   * // (T+2 seconds)
    * stopwatch.pause();
    *
-   * (T+10 seconds)
+   * // (T+10 seconds)
    * stopwatch.resume(); (see Timer.resume)
    *
-   * (T+18 seconds)
+   * // (T+18 seconds)
    * // 'peng!'
    */
   pause() {
@@ -137,20 +137,20 @@ export default class Timer {
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const timedFunction = () => {
    *    console.log('pang!');
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
    *
-   * (T+2 seconds)
+   * // (T+2 seconds)
    * stopwatch.pause(); (see Timer.pause)
    *
-   * (T+10 seconds)
+   * // (T+10 seconds)
    * stopwatch.resume();
    *
-   * (T+18 seconds)
+   * // (T+18 seconds)
    * // 'pang!'
    */
   resume() {
@@ -161,16 +161,15 @@ export default class Timer {
   }
 
   /**
-   * Test if this device is mobile, based on its userAgent string.
    * @since 1.0.0
    * @member {Integer} remainingTime The time that is remaining for the current Timer.
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *
-   * (T)
+   * // (T)
    * const stopwatch = new Timer(10000, () => 'foo'));
    *
-   * (T+2 seconds)
+   * // (T+2 seconds)
    * stopwatch.remainingTime
    * // 8000
    */

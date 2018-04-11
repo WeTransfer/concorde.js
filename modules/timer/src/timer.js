@@ -3,7 +3,6 @@
  * @module Timer
  * @since 1.0.0
  */
-
 export default class Timer {
   /**
    * Store the properties of the timer and start it.

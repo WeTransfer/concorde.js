@@ -1,25 +1,20 @@
 import Timer from '../index';
 
 describe('Timer module', () => {
-  let realDate;
-  let mockDate;
+  const RealDate = Date;
 
-  beforeAll(() => {
-    // Mocking the Date: https://github.com/facebook/jest/issues/2234#issuecomment-324868057
-    realDate = Date;
-    mockDate = (date) => {
-      global.Date = class extends realDate {
-        constructor() {
-          super();
-          return new realDate(date);
-        }
-      };
+  function mockDate(isoDate) {
+    global.Date = class extends RealDate {
+      constructor() {
+        super();
+        return new RealDate(isoDate);
+      }
     };
-  });
+  }
 
   afterEach(() => {
     // Resetting the Date object
-    global.Date = realDate;
+    global.Date = RealDate;
   });
 
   describe('timer constructor', () => {

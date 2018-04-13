@@ -1,0 +1,36 @@
+{
+  "name": "@wetransfer/concorde-timer",
+  "version": "1.0.0",
+  "description": "Useful functions to deal with timing in javascript.",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "../../node_modules/.bin/webpack --mode production",
+    "build:dev": "../../node_modules/.bin/webpack --mode development",
+    "build:watch": "npm run build:dev -- --watch",
+    "lint": "../../node_modules/.bin/eslint --color index.js src __tests__",
+    "prepublish": "npm run build && npm run build:dev",
+    "test": "../../node_modules/.bin/jest",
+    "test:watch": "../../node_modules/.bin/jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeTransfer/concorde.js.git"
+  },
+  "keywords": [
+    "timer",
+    "timing",
+    "wetransfer"
+  ],
+  "author": "WeTransfer folks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WeTransfer/concorde.js/issues"
+  },
+  "homepage": "https://github.com/WeTransfer/concorde.js#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

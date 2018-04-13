@@ -1,7 +1,7 @@
 {
   "name": "@wetransfer/concorde-timer",
   "version": "1.0.0",
-  "description": "Useful functions to deal with timing in javascript.",
+  "description": "Useful functions to deal with timing in JavaScript.",
   "main": "dist/index.js",
   "files": [
     "dist/*"

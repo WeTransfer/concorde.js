@@ -19,7 +19,7 @@
     "test": "lerna run test",
     "test:ci": "npm run test:coverage -- --bail --runInBand --verbose=false",
     "test:code-climate": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --all",
     "test:integration": "lerna run test:integration",
     "test:watch": "jest --watch"
   },

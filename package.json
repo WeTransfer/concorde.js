@@ -38,8 +38,9 @@
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "devDependencies": {
     "@wetransfer/eslint-config-wetransfer": "2.0.1",
-    "babel-core": "6.26.0",
+    "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
+    "babel-jest": "23.0.0",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
     "docdash": "0.4.0",

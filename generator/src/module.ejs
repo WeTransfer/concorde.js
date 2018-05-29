@@ -1,0 +1,22 @@
+/**
+ * <%- module.exportName %> module. <%- module.description %>
+ * @module <%- module.exportName %>
+ * @since 1.0.0
+ */
+export default {
+  /**
+   * Bar always returns foo
+   * @since 1.0.0
+   * @function bar
+   * @param {Object} options Default options for future cookie values.
+   * @example
+   *
+   * import <%- module.exportName %> from '@wetransfer/concorde-<%- module.name %>';
+   *
+   * <%- module.exportName %>.bar({ yolo });
+   * // => foo
+   */
+  bar(options = {}) {
+    return 'foo';
+  }
+}

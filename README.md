@@ -74,6 +74,13 @@ We run some very basic integration tests to check if our final bundle works prop
 - Write some specs in `index.spec.js` with [Jest](https://facebook.github.io/jest/) and [Puppeteer](https://github.com/GoogleChrome/puppeteer).
 - Run the tests with `npm run test:integration`
 
+## Create a new module
+
+If you want to add a new module, we have created a scaffold to make the process easier:
+- Run `npm run module:create` to start the interactive generator.
+- Provide a module name and a description
+- Add your code!
+
 ## License
 
 `concorde.js` is available under the MIT license. See the [LICENSE](https://github.com/WeTransfer/concorde.js/blob/master/LICENSE) file for more info.

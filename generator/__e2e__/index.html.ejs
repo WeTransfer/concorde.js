@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cookie specs</title>
+  <script src="../dist/concorde-<%- module.name %>.min.js"></script>
+</head>
+<body>
+  <h1><%- module.exportName %> specs</h1>
+  <div id="results">
+    <p><strong>Foo value:</strong> <span id="foo_value"></span></p>
+  </div>
+  <script>
+    const <%- module.name %> = wt_<%- module.name %>.default;
+    document.getElementById('foo_value').innerHTML = <%- module.name %>.foo();
+  </script>
+</body>
+</html>

@@ -51,7 +51,7 @@
     "lerna": "2.11.0",
     "prettier": "1.13.2",
     "puppeteer": "1.4.0",
-    "webpack": "4.10.1",
+    "webpack": "4.10.2",
     "webpack-cli": "2.1.4"
   },
   "lint-staged": {

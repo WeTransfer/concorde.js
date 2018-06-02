@@ -52,7 +52,7 @@
     "prettier": "1.13.3",
     "puppeteer": "1.4.0",
     "webpack": "4.10.2",
-    "webpack-cli": "2.1.5"
+    "webpack-cli": "3.0.0"
   },
   "lint-staged": {
     "*.{js,json,md}": [

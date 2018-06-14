@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.1.0...@wetransfer/concorde-browser@1.6.0) (2018-06-14)
+
+
+### Features
+
+* add isAndroid getter ([#158](https://github.com/WeTransfer/concorde.js/issues/158)) ([1f3a917](https://github.com/WeTransfer/concorde.js/commit/1f3a917))
+
+
 <a name="1.5.4"></a>
 # [1.5.4](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-browser@1.5.0...@wetransfer/concorde-browser@1.5.4) (2018-02-14)
 

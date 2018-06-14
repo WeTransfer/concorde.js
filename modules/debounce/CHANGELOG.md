@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-06-14)
+
 <a name="1.3.2"></a>
 # [1.3.2](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-debounce@1.0.0...@wetransfer/concorde-debounce@1.3.2) (2018-02-14)
 

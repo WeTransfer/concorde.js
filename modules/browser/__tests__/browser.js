@@ -147,6 +147,28 @@ describe('Browser module', () => {
       });
     });
 
+    describe('isAndroid getter', () => {
+      describe('when navigator is Android', () => {
+        beforeEach(() => {
+          global.navigator.userAgent = 'Android';
+        });
+
+        it('should contain true', () => {
+          expect(Browser.isAndroid).toBe(true);
+        });
+      });
+
+      describe('navigator is NOT an Android', () => {
+        beforeEach(() => {
+          global.navigator.userAgent = 'Blackberry';
+        });
+
+        it('should return false', () => {
+          expect(Browser.isAndroid).toBe(false);
+        });
+      });
+    });
+
     describe('isTablet property', () => {
       describe('when navigator is iPad', () => {
         beforeEach(() => {

@@ -2,7 +2,7 @@
   "plugins": [],
   "source": {
     "includePattern": "modules/.+\\.js$",
-    "excludePattern": "(__tests__|dist)"
+    "excludePattern": "(__tests__|dist|node_modules)"
   },
   "tags": {
     "allowUnknownTags": false,

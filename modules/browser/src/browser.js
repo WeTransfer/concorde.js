@@ -131,6 +131,20 @@ export default {
   },
 
   /**
+   * Test if this device is an Android, based on its userAgent string.
+   * @since 1.6.0
+   * @member {boolean} isAndroid True if browser is an Android. False otherwise.
+   * @example
+   * import Browser from '@wetransfer/concorde-browser';
+   *
+   * Browser.isAndroid
+   * // => true
+   */
+  get isAndroid() {
+    return /Android/.test(navigator.userAgent);
+  },
+
+  /**
    * Test if this device is an iPad, based on its userAgent string.
    * @since 1.0.0
    * @member {boolean} isTablet True if browser is an iPad. False otherwise.

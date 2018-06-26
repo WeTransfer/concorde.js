@@ -44,7 +44,7 @@
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
     "docdash": "0.4.0",
-    "eslint": "5.0.0",
+    "eslint": "5.0.1",
     "husky": "0.14.3",
     "jest": "23.2.0",
     "jsdoc": "3.5.5",

@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.11
+      - image: circleci/node:8.11.3-browsers
     steps:
       - checkout
       # Download and cache dependencies
@@ -11,9 +11,9 @@ jobs:
           - npm-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - npm-dependencies-
-      - run:
-          name: Workaround for GoogleChrome/puppeteer#290
-          command: 'sh .circleci/setup_puppeteer.sh'
+      # - run:
+      #     name: Workaround for GoogleChrome/puppeteer#290
+      #     command: 'sh .circleci/setup_puppeteer.sh'
       - run:
           name: Install dependencies
           command: yarn install

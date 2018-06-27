@@ -51,9 +51,6 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-dependencies-{{ checksum "package.json" }}
-      # - run:
-      #     name: Workaround for GoogleChrome/puppeteer#290
-      #     command: "sh .circleci/setup_puppeteer.sh"
       - run:
           name: Integration tests
           command: |

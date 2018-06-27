@@ -34,7 +34,6 @@ jobs:
       - run:
           name: Setup Code Climate test-reporter
           command: |
-            export TZ=Europe/Amsterdam
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
             ./cc-test-reporter before-build
@@ -44,6 +43,7 @@ jobs:
       - run:
           name: Unit tests
           command: |
+            export TZ=Europe/Amsterdam
             npm run test:ci
             ./cc-test-reporter after-build --exit-code $? ./coverage/lcov.info
 

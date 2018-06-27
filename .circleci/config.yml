@@ -18,3 +18,56 @@ jobs:
           paths:
             - node_modules
           key: npm-dependencies-{{ checksum "package.json" }}
+
+  lint_and_unit_tests:
+    environment:
+      CC_TEST_REPORTER_ID: c7892a83184e24f1283acb42fbad83560ea94719318c3d94d38d92681f71261e
+    docker:
+      - image: circleci/node:8.11
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            export TZ=Europe/Amsterdam
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+      - run:
+          name: Lint code
+          command: npm run lint
+      - run:
+          name: Unit tests
+          command: |
+            npm run test:ci
+            ./cc-test-reporter after-build --exit-code $? ./coverage/lcov.info
+
+  integration_tests:
+    docker:
+      - image: circleci/node:8.11
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Integration tests
+          command: |
+            npm run build
+            npm run serve:dist &
+            npm run test:integration
+            # This one feels hacky, but does the job of killing the server
+            pkill node
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - lint_and_unit_tests:
+          requires:
+            - build
+      - integration_tests:
+          requires:
+            - build

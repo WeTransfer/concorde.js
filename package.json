@@ -41,7 +41,7 @@
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.5",
     "babel-jest": "23.2.0",
-    "babel-loader": "7.1.4",
+    "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
     "docdash": "0.4.0",
     "eslint": "5.0.1",

@@ -44,7 +44,7 @@ describe('Timer module', () => {
           delay: 100,
           callback: spy,
           paused: false,
-          time: 1451604225000
+          time: 1451604225000,
         });
       });
 

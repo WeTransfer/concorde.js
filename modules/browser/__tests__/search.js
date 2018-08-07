@@ -12,7 +12,7 @@ describe('Browser search module', () => {
       expect(Search.platform).toEqual({
         string: 'MacIntel',
         subString: 'Mac',
-        identity: 'Mac'
+        identity: 'Mac',
       });
     });
 
@@ -30,7 +30,7 @@ describe('Browser search module', () => {
         string:
           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
         subString: 'Chrome',
-        identity: 'Chrome'
+        identity: 'Chrome',
       });
     });
 
@@ -46,14 +46,14 @@ describe('Browser search module', () => {
       const browser = {
         userAgent: global.navigator.userAgent,
         identity: 'Chrome',
-        version: '3289'
+        version: '3289',
       };
       expect(Search.version(browser)).toEqual([62, 0, 3202, 94]);
     });
 
     it('should return unknown if no matches are found.', () => {
       const browser = {
-        userAgent: 'foo'
+        userAgent: 'foo',
       };
       expect(Search.version(browser)).toBe('unknown');
     });

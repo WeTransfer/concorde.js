@@ -86,7 +86,7 @@ const operations = {
   },
   ['=='](result) {
     return result === 0;
-  }
+  },
 };
 
 /**

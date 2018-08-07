@@ -3,7 +3,7 @@ import Cookie from '../index';
 describe('Cookie module', () => {
   // https://github.com/facebook/jest/issues/890
   Object.defineProperty(global.document, 'cookie', {
-    writable: true
+    writable: true,
   });
 
   beforeEach(() => {

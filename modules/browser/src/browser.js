@@ -76,7 +76,7 @@ export default {
       browser: this.currentBrowser.identity,
       version: this.currentVersion.join
         ? this.currentVersion.join('.')
-        : this.currentVersion
+        : this.currentVersion,
     };
   },
 
@@ -271,5 +271,5 @@ export default {
 
     // Compare the versions
     return compareVersion(this.currentVersion, operator, version);
-  }
+  },
 };

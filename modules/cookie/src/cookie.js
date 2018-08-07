@@ -153,5 +153,5 @@ export default {
    */
   unset(key, options = {}) {
     this.set(key, null, options);
-  }
+  },
 };

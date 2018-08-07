@@ -68,7 +68,7 @@ export const Search = {
       versionFromString(browser, navigator.appVersion) ||
       'unknown'
     );
-  }
+  },
 };
 
 // Find a match in the input to see if we have a known browser/platform

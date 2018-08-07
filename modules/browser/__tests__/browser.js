@@ -17,7 +17,7 @@ describe('Browser module', () => {
         identity: 'Chrome',
         subString: 'Chrome',
         string:
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
       });
     });
 
@@ -26,7 +26,7 @@ describe('Browser module', () => {
         expect(Browser.currentPlatform).toEqual({
           string: 'MacIntel',
           subString: 'Mac',
-          identity: 'Mac'
+          identity: 'Mac',
         });
       });
     });
@@ -46,7 +46,7 @@ describe('Browser module', () => {
             'explorer >= 9.0',
             'chrome >= 43',
             'firefox >= 42',
-            'safari >= 5'
+            'safari >= 5',
           ];
         });
 
@@ -75,7 +75,7 @@ describe('Browser module', () => {
         expect(Browser.identity).toEqual({
           platform: 'Mac',
           browser: 'Chrome',
-          version: '62.0.3202.94'
+          version: '62.0.3202.94',
         });
       });
 
@@ -86,7 +86,7 @@ describe('Browser module', () => {
         expect(Browser.identity).toEqual({
           platform: 'Mac',
           browser: 'Mozilla',
-          version: 'unknown'
+          version: 'unknown',
         });
       });
     });
@@ -232,7 +232,7 @@ describe('Browser module', () => {
             'Firefox >= 38',
             'Safari >= 6',
             'Explorer >= 11',
-            'Edge >= 12'
+            'Edge >= 12',
           ])
         ).toBe(true);
       });

@@ -10,6 +10,7 @@
     "build": "lerna run build",
     "docs": "jsdoc -c jsdoc.json modules README.md",
     "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "precommit": "sh scripts/git/pre_commit_hooks",
     "prepush": "sh scripts/git/pre_push_hooks",
     "semantic-release": "sh scripts/release/create.sh",

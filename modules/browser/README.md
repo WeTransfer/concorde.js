@@ -13,12 +13,24 @@ npm install @wetransfer/concorde-browser --save
 
 ### In the browser
 
+Import the package if your are using a package bundler like Webpack or Parcel:
+
 ```js
 import Browser from '@wetransfer/concorde-browser';
 
 if (Browser.supportsTouchEvents) {
   // Do some magic!
 }
+```
+
+Or load directly the final bundle on your browser, using a script tag. All concorde.js modules will be available in a global variable called `WT`:
+
+```html
+<!-- This will load the latest version of @wetransfer/concorde-browser module -->
+<script src="https://unpkg.com/@wetransfer/concorde-browser/dist/concorde-browser.min.js"></script>
+<script>
+  console.log(WT.browser.isMobile); // true/false
+</script>
 ```
 
 ### On the server

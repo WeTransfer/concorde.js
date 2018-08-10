@@ -13,12 +13,24 @@ npm install @wetransfer/concorde-cookie --save
 
 ### In the browser
 
+Import the package if your are using a package bundler like Webpack or Parcel:
+
 ```js
 import Cookie from '@wetransfer/concorde-cookie';
 
 if (Cookie.get('SSID')) {
   // Do some magic!
 }
+```
+
+Or load directly the final bundle on your browser, using a script tag. All concorde.js modules will be available in a global variable called `WT`:
+
+```html
+<!-- This will load the latest version of @wetransfer/concorde-cookie module -->
+<script src="https://unpkg.com/@wetransfer/concorde-cookie/dist/concorde-cookie.min.js"></script>
+<script>
+  WT.cookie.set('SSID', 'BBlPjuhTimjov9RCB', { secure: true });
+</script>
 ```
 
 ### On the server

@@ -13,6 +13,7 @@
     "lint": "../../node_modules/.bin/eslint --color index.js src __tests__",
     "prepublish": "npm run build && npm run build:dev",
     "test": "../../node_modules/.bin/jest",
+    "test:integration": "../../node_modules/.bin/jest --config jest-e2e.config.js",
     "test:watch": "../../node_modules/.bin/jest --watch"
   },
   "repository": {

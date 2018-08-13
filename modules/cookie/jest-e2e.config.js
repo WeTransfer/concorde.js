@@ -6,6 +6,6 @@ module.exports = config({
   testEnvironment: '../../scripts/jest/puppeteer-environment',
   setupFiles: [],
   testMatch: [
-    '**/__e2e__/*.js'
-  ]
+    '**/__e2e__/*.js',
+  ],
 });

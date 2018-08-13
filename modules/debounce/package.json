@@ -10,7 +10,8 @@
     "build": "../../node_modules/.bin/webpack --mode production",
     "build:dev": "../../node_modules/.bin/webpack --mode development",
     "build:watch": "npm run build:dev -- --watch",
-    "lint": "../../node_modules/.bin/eslint --color index.js src __tests__",
+    "lint": "../../node_modules/.bin/eslint --color *.js src __tests__",
+    "lint:fix": "npm run lint -- --fix",
     "prepublish": "npm run build && npm run build:dev",
     "test": "../../node_modules/.bin/jest",
     "test:watch": "../../node_modules/.bin/jest --watch"

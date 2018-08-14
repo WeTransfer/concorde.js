@@ -3,8 +3,8 @@ const entry = './index.js';
 const isDev = process.argv[3].toLowerCase() === 'development';
 const outputConfig = (moduleName, isDev) => ({
   filename: isDev ? `concorde-${moduleName}.js` : `concorde-${moduleName}.min.js`,
-  library: 'wt_' + moduleName,
-  libraryTarget: 'umd'
+  library: ['WT', moduleName],
+  libraryTarget: 'umd',
 });
 
 module.exports = (moduleName) => ([
@@ -24,27 +24,27 @@ module.exports = (moduleName) => ([
                   {
                     targets: {
                       browsers: [
-                        'ie >= 9'
-                      ]
+                        'ie >= 9',
+                      ],
                     },
                     // Disable polyfill transforms
                     useBuiltIns: false,
                     // Do not transform modules to CJS
-                    modules: false
-                  }
-                ]
-              ]
-            }
+                    modules: false,
+                  },
+                ],
+              ],
+            },
           }],
-          test: /\.(js)$/
-        }
-      ]
+          test: /\.(js)$/,
+        },
+      ],
     },
     stats: {
       all: false,
       assets: true,
       timings: true,
-      warnings: true
-    }
-  }
+      warnings: true,
+    },
+  },
 ]);

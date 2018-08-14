@@ -1,1 +1,1 @@
-export { default } from './src/timer';
+module.exports = require('./src/timer').default;

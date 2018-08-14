@@ -1,2 +1,2 @@
-export * from './src/debounce';
-export * from './src/debounce-async';
+module.exports.debounce = require('./src/debounce').debounce;
+module.exports.debounceAsync = require('./src/debounce-async').debounceAsync;

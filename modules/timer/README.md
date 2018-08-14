@@ -13,6 +13,8 @@ npm install @wetransfer/concorde-timer --save
 
 ### In the browser
 
+Import the package if your are using a package bundler like Webpack or Parcel:
+
 ```js
 import Timer from '@wetransfer/concorde-timer';
 
@@ -29,6 +31,28 @@ stopwatch
 
 // (T+10 seconds)
 // 'ping!'
+```
+
+Or load directly the final bundle on your browser, using a script tag. All concorde.js modules will be available in a global variable called `WT`:
+
+```html
+<!-- This will load the latest version of @wetransfer/concorde-timer module -->
+<script src="https://unpkg.com/@wetransfer/concorde-timer/dist/concorde-timer.min.js"></script>
+<script>
+  function timedFunction() {
+    console.log('ping!')
+  }
+
+  var stopwatch = new WT.timer(10000, timedFunction);
+  // => Timer {remaining: 10000, callback: ƒ, paused: false, delay: 10, time: 1523436642013}
+
+  // (T+5 seconds)
+  stopwatch
+  // => Timer {remaining: 5000, callback: ƒ, paused: false, delay: 10, time: 1523436647000}
+
+  // (T+10 seconds)
+  // 'ping!'
+</script>
 ```
 
 ### On the server

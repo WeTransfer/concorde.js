@@ -15,12 +15,11 @@
     <p><strong>Unset value:</strong> <span id="unset_value"></span></p>
   </div>
   <script>
-    const cookie = wt_cookie.default;
-    document.getElementById('default_value').innerHTML = cookie.get('non_existant', { defaultValue: 'default' });
-    cookie.set('bar', 'foo');
-    document.getElementById('set_get_value').innerHTML = cookie.get('bar');
-    cookie.unset('bar');
-    document.getElementById('unset_value').innerHTML = cookie.get('bar');
+    document.getElementById('default_value').innerHTML = WT.cookie.get('non_existant', { defaultValue: 'default' });
+    WT.cookie.set('bar', 'foo');
+    document.getElementById('set_get_value').innerHTML = WT.cookie.get('bar');
+    WT.cookie.unset('bar');
+    document.getElementById('unset_value').innerHTML = WT.cookie.get('bar');
   </script>
 </body>
 </html>

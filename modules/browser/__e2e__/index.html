@@ -14,9 +14,8 @@
     <p><strong>Is Chrome?:</strong> <span id="is_chrome"></span></p>
   </div>
   <script>
-    const browser = wt_browser.default;
-    document.getElementById('browser').innerHTML = browser.currentBrowser.string;
-    document.getElementById('is_chrome').innerHTML = browser.oneOf([
+    document.getElementById('browser').innerHTML = WT.browser.currentBrowser.string;
+    document.getElementById('is_chrome').innerHTML = WT.browser.oneOf([
       'chrome >= 43'
     ]);
   </script>

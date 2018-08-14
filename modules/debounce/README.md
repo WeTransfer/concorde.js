@@ -13,6 +13,8 @@ npm install @wetransfer/concorde-cookie --save
 
 ### In the browser
 
+Import the package if your are using a package bundler like Webpack or Parcel:
+
 ```js
 import { debounce } from '@wetransfer/concorde-debounce';
 
@@ -24,6 +26,27 @@ debounced();
 debounced();
 
 console.log(counter); // => 1
+```
+
+Or load directly the final bundle on your browser, using a script tag. All concorde.js modules will be available in a global variable called `WT`:
+
+```html
+<!-- This will load the latest version of @wetransfer/concorde-debounce module -->
+<script src="https://unpkg.com/@wetransfer/concorde-debounce/dist/concorde-debounce.min.js"></script>
+<script>
+  var counter = 0;
+  var debounced = WT.debounce.debounce(function() {
+    return counter++;
+  });
+
+  debounced();
+  debounced();
+  debounced();
+
+  setTimeout(function() {
+    console.log(counter); // => 1
+  });
+</script>
 ```
 
 ### On the server

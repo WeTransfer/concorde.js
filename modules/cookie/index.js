@@ -1,1 +1,1 @@
-export { default } from './src/cookie';
+module.exports = require('./src/cookie').default;

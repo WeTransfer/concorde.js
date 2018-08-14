@@ -6,7 +6,7 @@
   ],
   "command": {
     "publish": {
-      "message": "chore(release): npm publish 📦 [ci-skip]"
+      "message": "chore(release): npm publish 📦 [ci skip]"
     }
   }
 }

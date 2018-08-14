@@ -59,7 +59,7 @@ In the unlikely event of a broken release process or water landing, it is still 
 * Change directory to the module you want to publish: `cd modules/foo`
 * Bump the version of the package. You must decide if it is mayor, minor or patch.
 * Update the CHANGELOG.md file.
-* Commit your changes: `git add package.json CHANGELOG.md && git commit -m "chore(release): npm publish 📦 [ci-skip]"`
+* Commit your changes: `git add package.json CHANGELOG.md && git commit -m "chore(release): npm publish 📦 [ci skip]"`
 * Create a new tag with the new version: `git tag -a @wetransfer/concorde-module@version -m "@wetransfer/concorde-module@version"`
 * Release the module to NPM: `npm publish`
 * Repeat with the rest of the modules, if any.

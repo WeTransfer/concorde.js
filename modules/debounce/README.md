@@ -6,7 +6,7 @@ Debounce functions. Handy functions to debounce regular and async function execu
 ## Installation
 
 ```sh
-npm install @wetransfer/concorde-cookie --save
+npm install @wetransfer/concorde-debounce --save
 ```
 
 ## Usage

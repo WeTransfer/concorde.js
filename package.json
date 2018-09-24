@@ -53,7 +53,7 @@
     "prettier": "1.14.3",
     "puppeteer": "1.8.0",
     "webpack": "4.19.1",
-    "webpack-cli": "3.1.0"
+    "webpack-cli": "3.1.1"
   },
   "publishConfig": {
     "access": "public"

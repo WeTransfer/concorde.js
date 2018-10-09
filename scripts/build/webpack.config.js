@@ -18,22 +18,6 @@ module.exports = (moduleName) => ([
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
-              presets: [
-                [
-                  require.resolve('babel-preset-env'),
-                  {
-                    targets: {
-                      browsers: [
-                        'ie >= 9',
-                      ],
-                    },
-                    // Disable polyfill transforms
-                    useBuiltIns: false,
-                    // Do not transform modules to CJS
-                    modules: false,
-                  },
-                ],
-              ],
             },
           }],
           test: /\.(js)$/,

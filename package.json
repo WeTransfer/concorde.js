@@ -48,7 +48,7 @@
     "husky": "1.1.1",
     "jest": "23.6.0",
     "jsdoc": "3.5.5",
-    "lerna": "3.4.2",
+    "lerna": "3.4.3",
     "prettier": "1.14.3",
     "puppeteer": "1.9.0",
     "webpack": "4.20.2",

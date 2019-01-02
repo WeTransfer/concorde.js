@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.14.0
+      - image: circleci/node:8.15.0
     steps:
       - checkout
       # Download and cache dependencies
@@ -23,7 +23,7 @@ jobs:
     environment:
       CC_TEST_REPORTER_ID: c7892a83184e24f1283acb42fbad83560ea94719318c3d94d38d92681f71261e
     docker:
-      - image: circleci/node:8.14
+      - image: circleci/node:8.15
     steps:
       - checkout
       - restore_cache:
@@ -46,7 +46,7 @@ jobs:
 
   integration_tests:
     docker:
-      - image: circleci/node:8.14-browsers
+      - image: circleci/node:8.15-browsers
     steps:
       - checkout
       - restore_cache:

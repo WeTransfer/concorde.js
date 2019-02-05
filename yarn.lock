@@ -6144,9 +6144,9 @@ punycode@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
-puppeteer@1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.12.0.tgz#325b97f42aa6cd66ae4d3d27839278e1f0b8e0e5"
+puppeteer@1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.12.2.tgz#dbc36afc3ba2d7182b1a37523c0081a0e8507c9a"
   dependencies:
     debug "^4.1.0"
     extract-zip "^1.6.6"

@@ -6004,9 +6004,9 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
-prettier@1.16.3:
-  version "1.16.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.3.tgz#8c62168453badef702f34b45b6ee899574a6a65d"
+prettier@1.16.4:
+  version "1.16.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.4.tgz#73e37e73e018ad2db9c76742e2647e21790c9717"
 
 pretty-format@^24.0.0:
   version "24.0.0"
@@ -6133,9 +6133,9 @@ punycode@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
-puppeteer@1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.12.1.tgz#440241743f4c909015d0924bdb7f99f670d9c955"
+puppeteer@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-1.12.0.tgz#325b97f42aa6cd66ae4d3d27839278e1f0b8e0e5"
   dependencies:
     debug "^4.1.0"
     extract-zip "^1.6.6"

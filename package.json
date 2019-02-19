@@ -51,7 +51,7 @@
     "lerna": "3.10.8",
     "prettier": "1.16.4",
     "puppeteer": "1.12.2",
-    "webpack": "4.29.4",
+    "webpack": "4.29.5",
     "webpack-cli": "3.2.3"
   },
   "publishConfig": {

@@ -2750,9 +2750,9 @@ dir-glob@^2.0.0:
     arrify "^1.0.1"
     path-type "^3.0.0"
 
-docdash@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/docdash/-/docdash-1.0.2.tgz#0449a8f6bb247f563020b78a5485dea95ae2e094"
+docdash@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/docdash/-/docdash-1.0.3.tgz#1ca4d37940275f05f926c1326cde36d88b9f3fbc"
 
 doctrine@^3.0.0:
   version "3.0.0"

@@ -18,31 +18,37 @@ describe('Timer module', () => {
   });
 
   describe('timer constructor', () => {
-    let spy;
+    let callbackSpy;
     let timer;
+
     beforeEach(() => {
       mockDate('Friday, 1 January 2016 00:23:45');
     });
 
-    describe('no callback is given', () => {
+    describe('when no callback is given', () => {
       it('should throw an error if no callback is given', () => {
         expect(() => new Timer(100)).toThrow('ValidCallbackMissing');
       });
     });
 
-    describe('callback and delay are given', () => {
+    describe('when callback and delay are given', () => {
       let startSpy;
+
       beforeEach(() => {
-        spy = jest.fn();
+        callbackSpy = jest.fn();
         startSpy = jest.spyOn(Timer.prototype, 'start');
-        timer = new Timer(100, spy);
+        timer = new Timer(100, callbackSpy);
       });
 
-      it('should set the right properties and call start', () => {
+      afterEach(() => {
+        startSpy.mockRestore();
+      });
+
+      it('should initialise the instance', () => {
         expect(timer).toMatchObject({
           remaining: 100,
           delay: 100,
-          callback: spy,
+          callback: callbackSpy,
           paused: false,
           time: 1451604225000,
         });
@@ -53,9 +59,9 @@ describe('Timer module', () => {
       });
     });
 
-    describe('callback is given, delay not', () => {
+    describe('when callback is given, but delay is not', () => {
       it('should set the default delay (0)', () => {
-        timer = new Timer(undefined, spy);
+        timer = new Timer(undefined, callbackSpy);
         expect(timer.remaining).toBe(0);
       });
     });
@@ -63,61 +69,98 @@ describe('Timer module', () => {
 
   describe('start method', () => {
     it('should set the setTimeout method to the id property', () => {
-      jest.useFakeTimers();
-      const callbackSpy = jest.fn();
-      const startStub = jest.spyOn(Timer.prototype, 'start');
-      const timer = new Timer(10, callbackSpy);
-      startStub.mockReset();
-
+      const timer = new Timer(10, jest.fn());
       timer.start();
-      jest.runAllTimers();
-      expect(callbackSpy).toHaveBeenCalledTimes(1);
+      expect(timer.id).toEqual(expect.any(Number));
     });
   });
 
   describe('stop method', () => {
-    it('should call timer.stop with the id-property', () => {
-      const callbackSpy = jest.fn();
-      const startStub = jest.spyOn(Timer.prototype, 'start');
-      const timer = new Timer(10, callbackSpy);
-      startStub.mockReset();
+    let clearTimeoutSpy;
+    let stop;
+    let timer;
 
-      timer.id = 5;
-      const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+    beforeEach(() => {
+      clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+      stop = jest.spyOn(Timer.prototype, 'start');
+      timer = new Timer(100, jest.fn());
+    });
+
+    afterEach(() => {
+      stop.mockRestore();
+    });
+
+    it('should call timer.stop with the id-property', () => {
       timer.stop();
-      expect(clearTimeoutSpy).toBeCalledWith(5);
+      expect(clearTimeoutSpy).toBeCalledWith(expect.any(Number));
+    });
+  });
+
+  describe('reset method', () => {
+    let timer;
+    let callbackSpy;
+    let startSpy;
+    let stopSpy;
+
+    beforeEach(() => {
+      callbackSpy = jest.fn();
+      startSpy = jest.spyOn(Timer.prototype, 'start');
+      stopSpy = jest.spyOn(Timer.prototype, 'stop');
+      timer = new Timer(10, callbackSpy);
+    });
+
+    afterEach(() => {
+      startSpy.mockRestore();
+      stopSpy.mockRestore();
+    });
+
+    it('should stop the timer', () => {
+      timer.reset();
+      expect(stopSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should reset the remaining time', () => {
+      timer.reset();
+      expect(timer.remaining).toBe(10);
+    });
+
+    it('should start the timer again', () => {
+      timer.reset();
+      expect(startSpy).toHaveBeenCalledTimes(2);
     });
   });
 
   describe('pause method', () => {
     let timer;
-    let callbackSpy;
     let startSpy;
+    let stopSpy;
 
     beforeEach(() => {
-      callbackSpy = jest.fn();
       startSpy = jest.spyOn(Timer.prototype, 'start');
-      timer = new Timer(10, callbackSpy);
-      startSpy.mockReset();
+      stopSpy = jest.spyOn(Timer.prototype, 'stop');
+      timer = new Timer(10, jest.fn());
     });
 
-    describe('timer is paused', () => {
+    afterEach(() => {
+      startSpy.mockRestore();
+      stopSpy.mockRestore();
+    });
+
+    describe('when timer is paused', () => {
       beforeEach(() => {
         timer.paused = true;
       });
 
-      it('should return undefined', () => {
-        expect(timer.pause()).toBeUndefined();
+      it('should not stop the timer', () => {
+        expect(stopSpy).not.toHaveBeenCalled();
       });
     });
 
-    describe('timer is NOT paused', () => {
-      let stopSpy;
+    describe('when timer is NOT paused', () => {
       beforeEach(() => {
         timer.paused = false;
         timer.time = 1451701625105;
         mockDate('Friday, 2 January 2016 03:23:45');
-        stopSpy = jest.spyOn(timer, 'stop');
         timer.pause();
       });
 
@@ -136,20 +179,21 @@ describe('Timer module', () => {
   });
 
   describe('resume method', () => {
-    let timer;
-    let callbackSpy;
     let startSpy;
+    let timer;
 
     beforeEach(() => {
-      callbackSpy = jest.fn();
-      timer = new Timer(10, callbackSpy);
+      timer = new Timer(10, jest.fn());
       startSpy = jest.spyOn(timer, 'start');
-      startSpy.mockReset();
 
       mockDate('Friday, 2 January 2016 03:23:45');
       timer.paused = true;
       timer.time = 10;
       timer.resume();
+    });
+
+    afterEach(() => {
+      startSpy.mockRestore();
     });
 
     it('should set the paused property to false', () => {
@@ -167,6 +211,7 @@ describe('Timer module', () => {
 
   describe('remainingTime getter', () => {
     let timer;
+
     beforeEach(() => {
       timer = new Timer(10, () => 'foo');
     });

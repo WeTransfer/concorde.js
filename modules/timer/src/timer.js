@@ -130,6 +130,33 @@ export default class Timer {
   }
 
   /**
+   * Resets the current Timer
+   * @since 1.3.0
+   * @function reset
+   * @example
+   * import Timer from '@wetransfer/concorde-timer';
+   *
+   * // (T)
+   * const timedFunction = () => {
+   *    console.log('peng!');
+   * }
+   *
+   * const stopwatch = new Timer(10000, timedFunction);
+   *
+   * // (T+2 seconds)
+   * stopwatch.reset();
+   *
+   * // (T+12 seconds)
+   * // 'peng!'
+   */
+  reset() {
+    // Stop and keep track of the current time remaining
+    this.stop();
+    this.remaining = this.delay;
+    this.start();
+  }
+
+  /**
    * Resumes the current Timer
    * @since 1.0.0
    * @function resume

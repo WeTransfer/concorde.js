@@ -29,7 +29,7 @@ Or load directly the final bundle on your browser, using a script tag. All conco
 <!-- This will load the latest version of @wetransfer/concorde-browser module -->
 <script src="https://unpkg.com/@wetransfer/concorde-browser/dist/concorde-browser.min.js"></script>
 <script>
-  if (Browser.supportsTouchEvents) {
+  if (WT.browser.supportsTouchEvents) {
     // Do some magic!
   }
 </script>

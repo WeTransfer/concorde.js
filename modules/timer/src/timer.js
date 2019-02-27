@@ -16,7 +16,7 @@ export default class Timer {
    *
    * // (T)
    * const timedFunction = () => {
-   *    console.log('ping!')
+   *    console.log('peng!')
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
@@ -27,7 +27,7 @@ export default class Timer {
    * // => Timer {remaining: 5000, callback: ƒ, paused: false, delay: 10, time: 1523436647000}
    *
    * // (T+10 seconds)
-   * // 'ping!'
+   * // 'peng!'
    */
   constructor(delay = 0, callback) {
     // Callback MUST be a function

@@ -159,6 +159,25 @@ stopwatch.stop();
 // Don't expect anything to happen
 ```
 
+**timer.reset**
+
+Resets the current Timer, aka, stop, restore the remaining time and start again.
+
+```js
+// (T)
+function timedFunction() {
+  console.log('ping!');
+}
+
+const stopwatch = new Timer(10000, timedFunction);
+
+// (T+2 seconds)
+stopwatch.reset();
+
+// (T+12 seconds)
+// 'peng!'
+```
+
 ## Development
 
 In case you want to develop/debug this module while integrating with other project, please follow these steps:

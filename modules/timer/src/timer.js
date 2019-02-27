@@ -16,7 +16,7 @@ export default class Timer {
    *
    * // (T)
    * const timedFunction = () => {
-   *    console.log('ping!')
+   *    console.log('peng!')
    * }
    *
    * const stopwatch = new Timer(10000, timedFunction);
@@ -27,7 +27,7 @@ export default class Timer {
    * // => Timer {remaining: 5000, callback: ƒ, paused: false, delay: 10, time: 1523436647000}
    *
    * // (T+10 seconds)
-   * // 'ping!'
+   * // 'peng!'
    */
   constructor(delay = 0, callback) {
     // Callback MUST be a function
@@ -127,6 +127,33 @@ export default class Timer {
     this.paused = true;
     this.stop();
     this.remaining -= +new Date() - this.time;
+  }
+
+  /**
+   * Resets the current Timer
+   * @since 1.3.0
+   * @function reset
+   * @example
+   * import Timer from '@wetransfer/concorde-timer';
+   *
+   * // (T)
+   * const timedFunction = () => {
+   *    console.log('peng!');
+   * }
+   *
+   * const stopwatch = new Timer(10000, timedFunction);
+   *
+   * // (T+2 seconds)
+   * stopwatch.reset();
+   *
+   * // (T+12 seconds)
+   * // 'peng!'
+   */
+  reset() {
+    // Stop and keep track of the current time remaining
+    this.stop();
+    this.remaining = this.delay;
+    this.start();
   }
 
   /**

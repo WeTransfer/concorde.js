@@ -29,7 +29,9 @@ Or load directly the final bundle on your browser, using a script tag. All conco
 <!-- This will load the latest version of @wetransfer/concorde-browser module -->
 <script src="https://unpkg.com/@wetransfer/concorde-browser/dist/concorde-browser.min.js"></script>
 <script>
-  console.log(WT.browser.isMobile); // true/false
+  if (WT.browser.supportsTouchEvents) {
+    // Do some magic!
+  }
 </script>
 ```
 
@@ -46,6 +48,161 @@ if (Browser.platform('windows')) {
 }
 ```
 
+## Methods
+
+**Browser.matches**
+
+Given a browser and version requirement, determines if the actual environment meets the given criteria, in terms of browser name and version.
+
+```js
+// If the actual browser is Chrome 69
+
+// The result of this call will be true
+Browser.matches('chrome >= 43');
+
+// The result of this call will be false
+Browser.matches('explorer < 6');
+```
+
+**Browser.oneOf**
+
+Given a list of browsers and version requirements, determines if the actual environment meets the criteria.
+
+```js
+// If the actual browser is Chrome 69
+
+// The result of this call will be true
+Browser.oneOf([
+  'explorer >= 9.0',
+  'chrome >= 43',
+  'firefox >= 42',
+  'safari >= 5'
+]);
+```
+
+**Browser.isOutdated**
+
+Given a list of browsers and version requirements, determines if the actual environment does not meet the criteria, aka, it's outdated. Think in that method as the opposite of `Browser.oneOf`.
+
+```js
+// If the actual browser is Chrome 69
+
+// The result of this call will be false
+Browser.isOutdated([
+  'explorer >= 9.0',
+  'chrome >= 43',
+  'firefox >= 42',
+  'safari >= 5'
+]);
+```
+
+**Browser.platform**
+
+Determines if the provided platform matches the actual platform. 
+
+```js
+Browser.plaform('mac');
+// => true
+
+Browser.plaform('windows');
+// => false
+```
+
+## Properties
+
+**Browser.currentBrowser**
+
+Returns an object containing information about the user agent.
+
+```js
+Browser.currentBrowser
+// => {
+//   string: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+//   subString: 'Chrome',
+//   identity: 'Chrome'
+//}
+```
+
+**Browser.currentPlatform**
+
+Returns an object containing information about the current platform.
+
+```js
+Browser.currentPlatform
+// => { string: 'MacIntel', subString: 'Mac', identity: 'Mac' }
+```
+
+**Browser.currentVersion**
+
+Returns the version of the current browser based on its userAgent string, in array format.
+
+```js
+// Given a user agent like 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+
+Browser.currentVersion
+// => [62, 0, 3202, 94]
+```
+
+**Browser.identity**
+
+Returns the current platform and browser identity (OS + Browser).
+
+```js
+// Given a user agent like 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+
+Browser.identity
+// => {
+//   platform: 'Mac',
+//   browser: 'Chrome',
+//   version: '62.0.3202.94'
+// }
+```
+
+**Browser.supportsTouchEvents**
+
+Test if this document supports touch, however... There is much discussion about detecting touch on [Modernizr](https://github.com/Modernizr/Modernizr/issues/548). 
+
+```js
+Browser.supportsTouchEvents
+// => true or false 🤷‍♂️
+```
+
+**Browser.isMobile**
+
+Test if this device is mobile, based on its userAgent string.
+
+```js
+Browser.isMobile
+// => true or false
+```
+
+**Browser.isIphone**
+
+Test if this device is an iPhone, based on its userAgent string.
+
+```js
+Browser.isIphone
+// => true or false
+```
+
+**Browser.isAndroid**
+
+Test if this device is an Android, based on its userAgent string.
+
+```js
+Browser.isAndroid
+// => true or false
+```
+
+**Browser.isTablet**
+
+Test if this device is an iPad, based on its userAgent string. The name of the method is quite unfortunate...
+
+```js
+Browser.isTablet
+// => true or false
+```
+
 ## Development
 
 In case you want to develop/debug this module while integrating with other project, please follow these steps:
@@ -54,6 +211,3 @@ In case you want to develop/debug this module while integrating with other proje
 * Run `npm run build:watch` to listen to changes and rebuild the module
 * Link to this module from your project with `npm link @wetransfer/concorde-browser`
 
-## API
-
-Check the available documentation on [wetransfer.github.io](https://wetransfer.github.io/concorde.js/module-Browser.html).

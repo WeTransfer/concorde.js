@@ -132,7 +132,7 @@ export default class Timer {
   /**
    * Resumes the current Timer
    * @since 1.0.0
-   * @function pause
+   * @function resume
    * @example
    * import Timer from '@wetransfer/concorde-timer';
    *

@@ -149,6 +149,7 @@ describe('Timer module', () => {
     describe('when timer is paused', () => {
       beforeEach(() => {
         timer.paused = true;
+        timer.pause();
       });
 
       it('should not stop the timer', () => {

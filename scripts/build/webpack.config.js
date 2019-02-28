@@ -18,6 +18,18 @@ module.exports = (moduleName) => ([
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      browsers: ['ie >= 9'],
+                    },
+                    useBuiltIns: false,
+                    modules: false,
+                  },
+                ],
+              ],
             },
           }],
           test: /\.(js)$/,

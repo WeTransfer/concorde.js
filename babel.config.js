@@ -9,18 +9,6 @@ const presets = {
       },
     ],
   ],
-  production: [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          'ie': '9',
-        },
-        useBuiltIns: false,
-        modules: false,
-      },
-    ],
-  ],
 };
 
 module.exports = {

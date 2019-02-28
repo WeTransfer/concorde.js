@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-cookie@1.6.0...@wetransfer/concorde-cookie@1.6.1) (2019-02-28)
+
+**Note:** Version bump only for package @wetransfer/concorde-cookie
+
+
+
+
+
 # [1.6.0](https://github.com/WeTransfer/concorde.js/compare/@wetransfer/concorde-cookie@1.0.0...@wetransfer/concorde-cookie@1.6.0) (2019-02-28)
 
 

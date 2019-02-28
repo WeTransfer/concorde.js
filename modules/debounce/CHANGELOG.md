@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2019-02-28)
+
+
+### Bug Fixes
+
+* build packages before publishing ([#45](https://github.com/WeTransfer/concorde.js/issues/45)) ([b6154cb](https://github.com/WeTransfer/concorde.js/commit/b6154cb))
+* **docs:** add docs for debounceAsync function ([#58](https://github.com/WeTransfer/concorde.js/issues/58)) ([04b9889](https://github.com/WeTransfer/concorde.js/commit/04b9889))
+* npm install command for debounce module ([#212](https://github.com/WeTransfer/concorde.js/issues/212)) ([be66556](https://github.com/WeTransfer/concorde.js/commit/be66556))
+
+
+### Features
+
+* expose modules under WT global namespace ([#203](https://github.com/WeTransfer/concorde.js/issues/203)) ([6433238](https://github.com/WeTransfer/concorde.js/commit/6433238))
+* implement debounce module ([#26](https://github.com/WeTransfer/concorde.js/issues/26)) ([31c7d99](https://github.com/WeTransfer/concorde.js/commit/31c7d99))
+
+
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-08-14)
 

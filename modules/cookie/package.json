@@ -1,6 +1,6 @@
 {
   "name": "@wetransfer/concorde-cookie",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A set of tools to deal with cookies on the browser.",
   "main": "dist/index.js",
   "files": [

@@ -1,6 +1,6 @@
 {
   "name": "@wetransfer/concorde-browser",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "A set of tools to get some information from the browser.",
   "main": "dist/index.js",
   "files": [

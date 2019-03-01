@@ -2,20 +2,19 @@
 
 set -e
 
+if [[ -z "${GH_TOKEN}" ]]; then
+  echo "Error: A GH_TOKEN environment variable is required."
+  exit 1
+fi
+
+if [[ -z "${NPM_TOKEN}" ]]; then
+  echo "Error: A NPM_TOKEN environment variable is required."
+  exit 1
+fi
+
 # Checkout master branch
-echo "[GIT] Checking out master...."
-# git checkout master
-
-# Pull the latest code from origin
-echo "[GIT] Pulling latest changes..."
-# git pull --rebase origin master
-
-# Create a new branch to release from
-echo "[GIT] Creating a new branch..."
-date=`date +r%Y-%m-%d-%s`
-git checkout -b release/$date
+echo "[GIT] Checking out master..."
+git checkout master
 
 node_modules/.bin/lerna bootstrap
-node_modules/.bin/lerna publish --conventional-commits
-
-git push --no-verify --follow-tags --set-upstream origin release/$date
+node_modules/.bin/lerna publish --conventional-commits --github-release

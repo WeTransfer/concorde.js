@@ -39,17 +39,17 @@
     "@babel/preset-env": "7.4.5",
     "@wetransfer/eslint-config-wetransfer": "3.1.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "10.0.2",
     "babel-jest": "24.8.0",
     "babel-loader": "8.0.6",
     "eslint": "5.16.0",
-    "husky": "2.4.0",
+    "husky": "2.4.1",
     "jest": "24.8.0",
     "lerna": "3.15.0",
     "prettier": "1.18.2",
-    "puppeteer": "1.17.0",
-    "webpack": "4.33.0",
-    "webpack-cli": "3.3.3"
+    "puppeteer": "1.18.0",
+    "webpack": "4.35.0",
+    "webpack-cli": "3.3.4"
   },
   "resolutions": {
     "cryptiles": "4.1.2",

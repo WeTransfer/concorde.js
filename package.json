@@ -48,7 +48,7 @@
     "lerna": "3.15.0",
     "prettier": "1.18.0",
     "puppeteer": "1.18.0",
-    "webpack": "4.34.0",
+    "webpack": "4.35.0",
     "webpack-cli": "3.3.4"
   },
   "resolutions": {

@@ -47,7 +47,7 @@
     "jest": "24.8.0",
     "lerna": "3.16.4",
     "prettier": "1.18.2",
-    "puppeteer": "1.18.1",
+    "puppeteer": "1.19.0",
     "webpack": "4.38.0",
     "webpack-cli": "3.3.6"
   },

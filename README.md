@@ -15,6 +15,7 @@ This repository contains a collection of modules used internally by WeTransfer t
 | [concorde-cookie](https://github.com/WeTransfer/concorde.js/tree/master/modules/cookie) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-cookie) | Read, write and clean cookies |
 | [concorde-debounce](https://github.com/WeTransfer/concorde.js/tree/master/modules/debounce) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-debounce.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-debounce) | Debounce functions for regular and async functions |
 | [concorde-timer](https://github.com/WeTransfer/concorde.js/tree/master/modules/timer) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-timer.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-timer) | Useful functions to deal with timing in JavaScript |
+| [concorde-clipboard](https://github.com/WeTransfer/concorde.js/tree/master/modules/clipboard) | [![npm version](https://badge.fury.io/js/%40wetransfer%2Fconcorde-clipboard.svg)](https://badge.fury.io/js/%40wetransfer%2Fconcorde-clipboard) | Universal copy to clipboard function for the browser |
 
 ## Usage
 

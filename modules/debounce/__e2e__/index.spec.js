@@ -1,4 +1,4 @@
-describe('Debounce bundle', async () => {
+describe('Debounce bundle', () => {
   let page;
 
   beforeAll(async () => {

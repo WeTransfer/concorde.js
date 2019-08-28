@@ -1,4 +1,4 @@
-describe('Browser bundle', async () => {
+describe('Browser bundle', () => {
   let page;
 
   beforeAll(async () => {

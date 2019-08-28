@@ -1,4 +1,4 @@
-describe('Cookie bundle', async () => {
+describe('Cookie bundle', () => {
   let page;
 
   beforeAll(async () => {

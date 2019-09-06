@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/WeTransfer/concorde.js#readme",
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/preset-env": "7.5.5",
+    "@babel/core": "7.6.0",
+    "@babel/preset-env": "7.6.0",
     "@wetransfer/eslint-config-wetransfer": "3.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.3",

@@ -54,7 +54,7 @@
   "resolutions": {
     "cryptiles": "4.1.2",
     "handlebars": "4.1.2",
-    "js-yaml": "3.13.1",
+    "js-yaml": "3.14.0",
     "lodash": "4.17.15",
     "sshpk": "1.13.2",
     "merge": "1.2.1"
